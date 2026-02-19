@@ -1,0 +1,290 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  button,
+  input,
+  select,
+  textarea {
+    @apply appearance-none bg-transparent border-0 outline-none;
+  }
+}
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+/* ========================================
+   GoBill Design System — Figma Tokens
+   ======================================== */
+
+:root {
+  /* Primary Palette */
+  --primary: #665ffd;
+  --primary-alt: #635efa;
+  --primary-dark: #10217d;
+  --navy: #0a0655;
+  --navy-deep: #0b0552;
+
+  /* Service Circle Colors */
+  --svc-medical-billing: #9b62ff;
+  --svc-rcm: #2c60ff;
+  --svc-ar: #0191d3;
+  --svc-denial: #233b82;
+  --svc-credentialing: #1b2c5f;
+  --svc-preauth: #6e45ff;
+  --svc-virtual: #36c2c8;
+  --svc-scheduling: #4f5aff;
+
+  /* Text */
+  --text-dark: #080808;
+  --text-body: #272727;
+  --text-muted: #343434;
+  --text-black: rgba(2, 6, 13, 1);
+  --m3-text-black: rgba(5, 8, 20, 1);
+
+  /* Backgrounds */
+  --bg-hero: #efeffe80;
+  --bg-trust: #635efa;
+  --bg-why-feature: #10217d;
+  --bg-assessment: #635efa;
+  --bg-subtle: #635efa1a;
+
+  /* Footer Gradient */
+  --footer-gradient: linear-gradient(
+    3deg,
+    rgba(92, 33, 101, 1) 0%,
+    rgba(133, 14, 177, 1) 51%,
+    rgba(169, 101, 176, 1) 92%
+  );
+
+  /* Shadows */
+  --shadow-card: 0px 4px 12px rgba(16, 33, 125, 0.25);
+  --shadow-testimonial: 0px 17px 24.8px rgba(16, 33, 125, 0.25);
+  --shadow-hero-card: 0px 3px 7.8px rgba(2, 132, 199, 0.25);
+
+  /* Border Radius */
+  --radius-btn: 30px;
+  --radius-card: 20px;
+  --radius-circle: 150px;
+
+  /* Typography */
+  --font-family: 'Poppins', Helvetica, Arial, sans-serif;
+
+  /* Spacing */
+  --section-pad-y: 80px;
+  --section-pad-x: 80px;
+  --container-max: 1280px;
+}
+
+/* ========================================
+   Global Styles
+   ======================================== */
+
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-family);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.section-pad {
+  padding: var(--section-pad-y) 0;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  border: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.06px;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: #5750e6;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 95, 253, 0.35);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  background: #fff;
+  color: var(--text-dark);
+  border-radius: var(--radius-btn);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  border: 1px solid var(--primary);
+  transition: all 0.3s ease;
+  letter-spacing: 0.06px;
+  cursor: pointer;
+}
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 95, 253, 0.35);
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease forwards;
+}
+
+.animate-fade-in-delayed {
+  opacity: 0;
+  animation: fade-in 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s ease forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(102, 95, 253, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(102, 95, 253, 0.35);
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+/* ========================================
+   Responsive Breakpoints Helpers
+   ======================================== */
+
+@media (max-width: 1024px) {
+  :root {
+    --section-pad-y: 60px;
+    --section-pad-x: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-pad-y: 48px;
+    --section-pad-x: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-pad-y: 36px;
+    --section-pad-x: 16px;
+  }
+}
