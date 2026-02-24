@@ -26,7 +26,7 @@ export const MainContentSection = (): JSX.Element => {
     },
     {
       icon: "https://c.animaapp.com/WhTQfAgd/img/group-163177@2x.png",
-      title: "HIPAA-Compliant Operations",
+      title: "Full-Service RCM",
     },
   ];
 
@@ -101,24 +101,24 @@ export const MainContentSection = (): JSX.Element => {
   const testimonials = [
     {
       avatar: "https://c.animaapp.com/WhTQfAgd/img/ellipse-39-2@2x.png",
-      name: "Dr. Michael R.",
-      clinic: "Orthopedic Clinic",
+      name: "Dr. Emily R.",
+      clinic: "Orthopedic Surgeon",
       quote:
-        "GoBill has transformed the way we handle our claims—faster approvals and fewer headaches.",
+        "GoBill completely turned around our revenue cycle. Our denial rate dropped by 25% in the first three months, and their team is always one step ahead.",
     },
     {
       avatar: "https://c.animaapp.com/WhTQfAgd/img/ellipse-39-2@2x.png",
-      name: "Dr. Sarah L.",
-      clinic: "Family Medicine",
+      name: "Mark S.",
+      clinic: "Practice Manager",
       quote:
-        "Since switching to GoBill, our denial rate dropped by 40% and collections improved significantly.",
+        "Outsourcing to GoBill was the best financial decision we’ve made. The transparency and reporting give us peace of mind, knowing every dollar is accounted for.",
     },
     {
       avatar: "https://c.animaapp.com/WhTQfAgd/img/ellipse-39-2@2x.png",
-      name: "Dr. James K.",
-      clinic: "Cardiology Practice",
+      name: "Sarah J.",
+      clinic: "Clinic Administrator",
       quote:
-        "The team at GoBill truly understands healthcare billing. Their expertise is unmatched in the industry.",
+        "Their Provider Credentialing team is top-notch. What used to take us months was handled swiftly and efficiently.",
     },
   ];
 

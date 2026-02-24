@@ -1,12 +1,19 @@
 import { Routes, Route } from "react-router-dom";
-import { HomePage } from "./screens/HomePage";
 import { SolutionPage } from "./screens/SolutionPage/SolutionPage";
 import { AboutPage } from "./screens/AboutPage/AboutPage";
 import { WhyGoBillPage } from "./screens/WhyGoBillPage/WhyGoBillPage";
 import { BlogsPage } from "./screens/BlogsPage/BlogsPage";
+import { DataReportingAnalyticsPage } from "./screens/DataReportingAnalyticsPage/DataReportingAnalyticsPage";
+import { AIPoweredOptimizationPage } from "./screens/AIPoweredOptimizationPage/AIPoweredOptimizationPage";
 import { ContactPage } from "./screens/ContactPage/ContactPage";
+import { FaqsPage } from "./screens/FaqsPage/FaqsPage";
+import { PrivacyPolicyPage } from "./screens/PrivacyPolicyPage/PrivacyPolicyPage";
+import { TermsConditionsPage } from "./screens/TermsConditionsPage/TermsConditionsPage";
+import { AssessmentPage } from "./screens/AssessmentPage/AssessmentPage";
 import { HeroSection } from "./screens/HomePage/sections/HeroSection";
 import { FooterSection } from "./screens/HomePage/sections/FooterSection";
+
+import { ChatbotWidget } from "./components/ChatbotWidget";
 
 /* ──────────────────────────────────
    Layout wrapper — shared header + footer
@@ -18,11 +25,13 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
             overflowX: "hidden",
             width: "100%",
             minHeight: "100vh",
+            position: "relative",
         }}
     >
         <HeroSection />
         {children}
         <FooterSection />
+        <ChatbotWidget />
     </div>
 );
 
@@ -38,10 +47,16 @@ export const App = (): JSX.Element => {
                 <Route path="/about-us" element={<AboutPage />} />
                 <Route path="/why-gobill" element={<WhyGoBillPage />} />
                 <Route path="/blogs" element={<BlogsPage />} />
+                <Route path="/data-reporting-analytics" element={<DataReportingAnalyticsPage />} />
+                <Route path="/ai-optimization" element={<AIPoweredOptimizationPage />} />
                 <Route path="/contact-us" element={<ContactPage />} />
-                {/* Placeholder routes for CTAs */}
-                <Route path="/assessment" element={<ContactPage />} />
-                <Route path="/book-a-meeting" element={<ContactPage />} />
+
+                {/* Cloned Pages */}
+                <Route path="/faqs" element={<FaqsPage />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                <Route path="/terms-and-conditions" element={<TermsConditionsPage />} />
+                <Route path="/assessment" element={<AssessmentPage />} />
+                <Route path="/book-a-meeting" element={<AssessmentPage />} />
             </Routes>
         </Layout>
     );

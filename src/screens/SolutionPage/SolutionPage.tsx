@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { solutionPages } from "../../data/solutionData";
+import { BillingHealthQuiz } from "./BillingHealthQuiz";
 
 export const SolutionPage = (): JSX.Element => {
     const { slug } = useParams<{ slug: string }>();
@@ -211,95 +212,99 @@ export const SolutionPage = (): JSX.Element => {
                 </div>
             </section>
 
-            {/* CTA */}
-            <section
-                style={{
-                    padding: "72px 0",
-                    background: "linear-gradient(135deg, #665FFD 0%, #10217D 100%)",
-                    textAlign: "center",
-                }}
-            >
-                <div className="container">
-                    <h2
-                        style={{
-                            fontFamily: "var(--font-family)",
-                            fontWeight: 600,
-                            fontSize: "clamp(24px, 3vw, 40px)",
-                            color: "#fff",
-                            marginBottom: 16,
-                        }}
-                    >
-                        {data.ctaTitle}
-                    </h2>
-                    <p
-                        style={{
-                            fontFamily: "var(--font-family)",
-                            fontWeight: 400,
-                            fontSize: 18,
-                            color: "rgba(255,255,255,0.85)",
-                            lineHeight: 1.6,
-                            marginBottom: 36,
-                            maxWidth: 600,
-                            margin: "0 auto 36px",
-                        }}
-                    >
-                        {data.ctaText}
-                    </p>
-                    <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-                        <Link
-                            to="/assessment"
+            {/* CTA or Quiz */}
+            {data.slug === "medical-billing-and-coding" ? (
+                <BillingHealthQuiz />
+            ) : (
+                <section
+                    style={{
+                        padding: "72px 0",
+                        background: "linear-gradient(135deg, #665FFD 0%, #10217D 100%)",
+                        textAlign: "center",
+                    }}
+                >
+                    <div className="container">
+                        <h2
                             style={{
-                                display: "inline-block",
-                                background: "#fff",
-                                color: "var(--primary)",
-                                padding: "16px 36px",
-                                borderRadius: 30,
-                                fontSize: 17,
+                                fontFamily: "var(--font-family)",
                                 fontWeight: 600,
-                                fontFamily: "var(--font-family)",
-                                textDecoration: "none",
-                                transition: "all 0.3s",
-                            }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.transform = "translateY(-2px)";
-                                e.currentTarget.style.boxShadow = "0 8px 32px rgba(255,255,255,0.3)";
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.transform = "translateY(0)";
-                                e.currentTarget.style.boxShadow = "none";
-                            }}
-                        >
-                            Start Free Assessment
-                        </Link>
-                        <Link
-                            to="/contact-us"
-                            style={{
-                                display: "inline-block",
-                                background: "transparent",
+                                fontSize: "clamp(24px, 3vw, 40px)",
                                 color: "#fff",
-                                padding: "16px 36px",
-                                borderRadius: 30,
-                                fontSize: 17,
-                                fontWeight: 500,
-                                fontFamily: "var(--font-family)",
-                                textDecoration: "none",
-                                border: "2px solid rgba(255,255,255,0.4)",
-                                transition: "all 0.3s",
-                            }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.borderColor = "#fff";
-                                e.currentTarget.style.background = "rgba(255,255,255,0.1)";
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.borderColor = "rgba(255,255,255,0.4)";
-                                e.currentTarget.style.background = "transparent";
+                                marginBottom: 16,
                             }}
                         >
-                            Contact Us
-                        </Link>
+                            {data.ctaTitle}
+                        </h2>
+                        <p
+                            style={{
+                                fontFamily: "var(--font-family)",
+                                fontWeight: 400,
+                                fontSize: 18,
+                                color: "rgba(255,255,255,0.85)",
+                                lineHeight: 1.6,
+                                marginBottom: 36,
+                                maxWidth: 600,
+                                margin: "0 auto 36px",
+                            }}
+                        >
+                            {data.ctaText}
+                        </p>
+                        <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+                            <Link
+                                to="/assessment"
+                                style={{
+                                    display: "inline-block",
+                                    background: "#fff",
+                                    color: "var(--primary)",
+                                    padding: "16px 36px",
+                                    borderRadius: 30,
+                                    fontSize: 17,
+                                    fontWeight: 600,
+                                    fontFamily: "var(--font-family)",
+                                    textDecoration: "none",
+                                    transition: "all 0.3s",
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.transform = "translateY(-2px)";
+                                    e.currentTarget.style.boxShadow = "0 8px 32px rgba(255,255,255,0.3)";
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.transform = "translateY(0)";
+                                    e.currentTarget.style.boxShadow = "none";
+                                }}
+                            >
+                                Start Free Assessment
+                            </Link>
+                            <Link
+                                to="/contact-us"
+                                style={{
+                                    display: "inline-block",
+                                    background: "transparent",
+                                    color: "#fff",
+                                    padding: "16px 36px",
+                                    borderRadius: 30,
+                                    fontSize: 17,
+                                    fontWeight: 500,
+                                    fontFamily: "var(--font-family)",
+                                    textDecoration: "none",
+                                    border: "2px solid rgba(255,255,255,0.4)",
+                                    transition: "all 0.3s",
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.borderColor = "#fff";
+                                    e.currentTarget.style.background = "rgba(255,255,255,0.1)";
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.4)";
+                                    e.currentTarget.style.background = "transparent";
+                                }}
+                            >
+                                Contact Us
+                            </Link>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            )}
         </main>
     );
 };

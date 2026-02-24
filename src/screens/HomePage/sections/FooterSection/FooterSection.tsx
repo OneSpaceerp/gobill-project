@@ -1,21 +1,24 @@
+import { Link } from "react-router-dom";
+
 export const FooterSection = (): JSX.Element => {
   const expertiseLinks = [
-    { text: "Medical Billing", href: "#" },
-    { text: "Virtual Patient Engagement Officer", href: "#" },
-    { text: "Provider Credentialing", href: "#" },
+    { text: "Medical Billing Services", path: "/solutions/medical-billing-and-coding" },
+    { text: "Data & Reporting Analytics", path: "/data-reporting-analytics" },
+    { text: "AI-Powered Optimization", path: "/ai-optimization" },
+    { text: "Provider Credentialing", path: "/solutions/provider-credentialing" },
   ];
 
   const whoWeServeLinks = [
-    { text: "Large Practice", href: "#" },
-    { text: "Medium Practice", href: "#" },
-    { text: "Small Practice", href: "#" },
+    { text: "Large Practices", path: "#" },
+    { text: "Medium Practices", path: "#" },
+    { text: "Small Practices", path: "#" },
   ];
 
   const companyLinks = [
-    { text: "Why GoBill", href: "#why-gobill" },
-    { text: "About Us", href: "#about" },
-    { text: "FAQs", href: "#faqs" },
-    { text: "Site Map", href: "#sitemap" },
+    { text: "Why GoBill", path: "/why-gobill" },
+    { text: "About Us", path: "/about-us" },
+    { text: "FAQs", path: "/faqs" },
+    { text: "Site Map", path: "#" },
   ];
 
   const socialIcons = [
@@ -56,6 +59,7 @@ export const FooterSection = (): JSX.Element => {
     transition: "color 0.2s ease, transform 0.2s ease",
     display: "block",
     padding: "4px 0",
+    textDecoration: "none",
   };
 
   const headingStyle: React.CSSProperties = {
@@ -93,7 +97,7 @@ export const FooterSection = (): JSX.Element => {
             lineHeight: 1.2,
           }}
         >
-          Simplify Your Revenue Cycle with GoBill
+          Billing to profitability
         </h2>
         <p
           style={{
@@ -105,7 +109,7 @@ export const FooterSection = (): JSX.Element => {
             margin: "0 auto",
           }}
         >
-          Your trusted partner for stress-free billing and consistent cash flow
+          Driving Profitability and Value Creation through Strategic RCM
         </p>
       </div>
 
@@ -149,6 +153,41 @@ export const FooterSection = (): JSX.Element => {
             >
               From Billing to Brilliance: Financial excellence powered by AI
             </p>
+            {/* Let's Have a Talk Button */}
+            <div style={{ marginBottom: 24 }}>
+              <Link
+                to="/book-a-meeting"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "12px 28px",
+                  background: "#fff",
+                  color: "var(--text-dark)",
+                  borderRadius: "var(--radius-btn)",
+                  fontFamily: "var(--font-family)",
+                  fontWeight: 500,
+                  fontSize: 15,
+                  border: "1px solid var(--primary)",
+                  transition: "all 0.3s ease",
+                  whiteSpace: "nowrap" as const,
+                  textDecoration: "none"
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "var(--primary)";
+                  e.currentTarget.style.color = "#fff";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "#fff";
+                  e.currentTarget.style.color = "var(--text-dark)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
+              >
+                Let's Have a Talk
+              </Link>
+            </div>
+
             {/* Social Icons */}
             <div
               style={{
@@ -193,9 +232,9 @@ export const FooterSection = (): JSX.Element => {
           <div>
             <h3 style={headingStyle}>Expertise</h3>
             {expertiseLinks.map((link, idx) => (
-              <a
+              <Link
                 key={idx}
-                href={link.href}
+                to={link.path}
                 style={linkStyle}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = "#fff")
@@ -205,7 +244,7 @@ export const FooterSection = (): JSX.Element => {
                 }
               >
                 {link.text}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -215,7 +254,7 @@ export const FooterSection = (): JSX.Element => {
             {whoWeServeLinks.map((link, idx) => (
               <a
                 key={idx}
-                href={link.href}
+                href={link.path}
                 style={linkStyle}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = "#fff")
@@ -232,23 +271,23 @@ export const FooterSection = (): JSX.Element => {
           {/* Blogs */}
           <div>
             <h3 style={headingStyle}>Blogs</h3>
-            <a
-              href="#blogs"
+            <Link
+              to="/blogs"
               style={linkStyle}
               onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
             >
               Blogs
-            </a>
+            </Link>
           </div>
 
           {/* Company */}
           <div>
             <h3 style={headingStyle}>Company</h3>
             {companyLinks.map((link, idx) => (
-              <a
+              <Link
                 key={idx}
-                href={link.href}
+                to={link.path}
                 style={linkStyle}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = "#fff")
@@ -258,53 +297,21 @@ export const FooterSection = (): JSX.Element => {
                 }
               >
                 {link.text}
-              </a>
+              </Link>
             ))}
           </div>
 
           {/* Contact */}
           <div>
             <h3 style={headingStyle}>Contact Us</h3>
-            <a
-              href="#contact"
+            <Link
+              to="/contact-us"
               style={linkStyle}
               onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
             >
               Contact Us
-            </a>
-            <div style={{ marginTop: 20 }}>
-              <a
-                href="#talk"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  padding: "12px 28px",
-                  background: "#fff",
-                  color: "var(--text-dark)",
-                  borderRadius: "var(--radius-btn)",
-                  fontFamily: "var(--font-family)",
-                  fontWeight: 500,
-                  fontSize: 15,
-                  border: "1px solid var(--primary)",
-                  transition: "all 0.3s ease",
-                  whiteSpace: "nowrap" as const,
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "var(--primary)";
-                  e.currentTarget.style.color = "#fff";
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "#fff";
-                  e.currentTarget.style.color = "var(--text-dark)";
-                  e.currentTarget.style.transform = "translateY(0)";
-                }}
-              >
-                Let's Have a Talk
-              </a>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
@@ -337,16 +344,21 @@ export const FooterSection = (): JSX.Element => {
             © GoBill 2025
           </span>
           <div style={{ display: "flex", gap: 24 }}>
-            {["Privacy Policy", "Careers", "Contact"].map((item, idx) => (
-              <a
+            {[
+              { label: "Privacy Policy", path: "/privacy-policy" },
+              { label: "Terms and Conditions", path: "/terms-and-conditions" },
+              { label: "Contact", path: "/contact-us" }
+            ].map((item, idx) => (
+              <Link
                 key={idx}
-                href="#"
+                to={item.path}
                 style={{
                   fontFamily: "var(--font-family)",
                   fontWeight: 400,
                   fontSize: 14,
                   color: "rgba(255,255,255,0.7)",
                   transition: "color 0.2s ease",
+                  textDecoration: "none"
                 }}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = "#fff")
@@ -355,8 +367,8 @@ export const FooterSection = (): JSX.Element => {
                   (e.currentTarget.style.color = "rgba(255,255,255,0.7)")
                 }
               >
-                {item}
-              </a>
+                {item.label}
+              </Link>
             ))}
           </div>
         </div>

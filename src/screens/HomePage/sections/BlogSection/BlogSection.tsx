@@ -202,7 +202,7 @@ export const BlogSection = (): JSX.Element => {
               letterSpacing: "0.11px",
             }}
           >
-            Your Search for Practice Solutions Stops Here
+            Your Search For The Ultimate RCM Partner Stops Here
           </h2>
           <p
             style={{
@@ -214,8 +214,7 @@ export const BlogSection = (): JSX.Element => {
               letterSpacing: "0.08px",
             }}
           >
-            Comprehensive medical practice management and billing solutions that
-            optimize your revenue cycle and operational efficiency
+            Stop losing sleep over denied claims and shrinking margins. GoBill delivers end-to-end medical billing strategies that ensure you get paid faster, fuller, and with zero hassle.
           </p>
         </div>
 
@@ -259,7 +258,7 @@ export const BlogSection = (): JSX.Element => {
             {row2
               .slice()
               .reverse()
-              .map((s, i, arr) => (
+              .map((s, i) => (
                 <div key={s.step} style={{ display: "flex", alignItems: "center" }}>
                   {i > 0 && (
                     <div style={{ padding: "0 8px" }}>

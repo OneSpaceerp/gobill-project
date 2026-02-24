@@ -148,7 +148,7 @@ export const ServicesOverviewSection = (): JSX.Element => {
                   letterSpacing: "0.17px",
                 }}
               >
-                From Billing to Brilliance — Financial Excellence Powered by AI
+                From Billing to Brilliance
               </h1>
               <p
                 style={{
@@ -162,11 +162,7 @@ export const ServicesOverviewSection = (): JSX.Element => {
                   letterSpacing: "0.07px",
                 }}
               >
-                Behind every successful claim stands a hero… GoBill Hero takes on
-                the Claim Denial Creature — representing rejections and red tape
-                that slow your revenue. With precision and persistence, GoBill
-                cuts through the chaos, freeing your claims and securing the
-                payments your practice deserves.
+                Unlock your practice’s true potential with AI-powered, expert-led revenue cycle management.
               </p>
               <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
                 <a
