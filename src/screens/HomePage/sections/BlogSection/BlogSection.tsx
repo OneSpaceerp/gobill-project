@@ -1,4 +1,6 @@
+
 export const BlogSection = (): JSX.Element => {
+
   const services = [
     {
       step: 1,
@@ -50,34 +52,34 @@ export const BlogSection = (): JSX.Element => {
     },
   ];
 
-  const row1 = services.slice(0, 4);
-  const row2 = services.slice(4);
 
-  const ArrowRight = () => (
-    <svg width="40" height="20" viewBox="0 0 40 20" fill="none" style={{ flexShrink: 0 }}>
-      <line x1="0" y1="10" x2="32" y2="10" stroke="#665FFD" strokeWidth="2" strokeDasharray="6 4" />
-      <polygon points="32,4 40,10 32,16" fill="#665FFD" />
-    </svg>
-  );
+  const getCirclePos = (index: number) => {
+    // 8 items = 360 / 8 = 45 deg step
+    // We want index 0 (Step 1) to be at -90 degrees (top)
+    const angleDeg = (index * 45) - 90;
+    const angleRad = (angleDeg * Math.PI) / 180;
+    // Expanded ring radius to give circles breathing room
+    const radius = 240;
 
-  const ArrowLeft = () => (
-    <svg width="40" height="20" viewBox="0 0 40 20" fill="none" style={{ flexShrink: 0 }}>
-      <line x1="8" y1="10" x2="40" y2="10" stroke="#665FFD" strokeWidth="2" strokeDasharray="6 4" />
-      <polygon points="8,4 0,10 8,16" fill="#665FFD" />
-    </svg>
-  );
+    // We compute the X and Y translation from the center
+    const x = Math.cos(angleRad) * radius;
+    const y = Math.sin(angleRad) * radius;
 
-  const ArrowDown = () => (
-    <svg width="20" height="44" viewBox="0 0 20 44" fill="none">
-      <line x1="10" y1="0" x2="10" y2="36" stroke="#665FFD" strokeWidth="2" strokeDasharray="6 4" />
-      <polygon points="4,36 10,44 16,36" fill="#665FFD" />
-    </svg>
-  );
+    return { x, y };
+  };
+
+
 
   const Circle = ({
     service,
+    isVisible = false,
+    pos = { x: 0, y: 0 },
+    isDesktop = true,
   }: {
     service: (typeof services)[0];
+    isVisible?: boolean;
+    pos?: { x: number; y: number };
+    isDesktop?: boolean;
   }) => (
     <div
       style={{
@@ -85,7 +87,18 @@ export const BlogSection = (): JSX.Element => {
         flexDirection: "column",
         alignItems: "center",
         gap: 0,
-        position: "relative",
+        // If desktop, absolutely position relative to center of container
+        position: isDesktop ? "absolute" : "relative",
+        top: isDesktop ? "50%" : "auto",
+        left: isDesktop ? "50%" : "auto",
+        marginLeft: isDesktop ? -67.5 : 0, // Half of 135px width
+        marginTop: isDesktop ? -67.5 : 0,  // Half of 135px height
+
+        // Circle is permanently visible
+        opacity: 1,
+        transform: isDesktop ? `translate(${pos.x}px, ${pos.y}px) scale(1)` : 'translateY(0) scale(1)',
+        pointerEvents: "auto",
+        zIndex: 5,
       }}
     >
       {/* Step Badge */}
@@ -116,33 +129,36 @@ export const BlogSection = (): JSX.Element => {
       {/* Circle */}
       <div
         style={{
-          width: 170,
-          height: 170,
+          width: 135,
+          height: 135,
           borderRadius: "50%",
           background: service.bgColor,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          gap: 10,
-          padding: 20,
+          gap: 6,
+          padding: 10,
           cursor: "pointer",
           transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
           boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
         }}
         onMouseEnter={(e) => {
+          if (!isVisible) return;
           e.currentTarget.style.transform = "translateY(-6px) scale(1.06)";
           e.currentTarget.style.boxShadow = `0 16px 40px ${service.bgColor}60`;
+          e.currentTarget.style.transition = "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
         }}
         onMouseLeave={(e) => {
+          if (!isVisible) return;
           e.currentTarget.style.transform = "translateY(0) scale(1)";
           e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.15)";
         }}
       >
         <div
           style={{
-            width: 56,
-            height: 56,
+            width: 48,
+            height: 48,
             borderRadius: "50%",
             background: "linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%)",
             display: "flex",
@@ -154,17 +170,17 @@ export const BlogSection = (): JSX.Element => {
           <img
             src={service.icon}
             alt={service.title}
-            style={{ width: 40, height: 40, objectFit: "contain" }}
+            style={{ width: 32, height: 32, objectFit: "contain" }}
           />
         </div>
         <span
           style={{
             fontFamily: "var(--font-family)",
             fontWeight: 600,
-            fontSize: 12,
+            fontSize: 11,
             color: "#fff",
             textAlign: "center",
-            lineHeight: 1.3,
+            lineHeight: 1.2,
             whiteSpace: "pre-line",
           }}
         >
@@ -180,25 +196,26 @@ export const BlogSection = (): JSX.Element => {
       style={{
         padding: "var(--section-pad-y) 0",
         background: "#fff",
+        overflowX: "hidden", // Prevent horizontal scrollbar on transform
       }}
     >
-      <div className="container">
+      <div className="container" style={{ width: "100%" }}>
         {/* Section Header */}
         <div
           style={{
             textAlign: "center",
-            marginBottom: 60,
+            marginBottom: 20,
             maxWidth: 600,
-            margin: "0 auto 60px",
+            margin: "0 auto 20px",
           }}
         >
           <h2
             style={{
               fontFamily: "var(--font-family)",
               fontWeight: 600,
-              fontSize: "clamp(26px, 2.5vw, 32px)",
+              fontSize: "clamp(24px, 2.2vw, 28px)",
               color: "var(--navy)",
-              marginBottom: 20,
+              marginBottom: 16,
               letterSpacing: "0.11px",
             }}
           >
@@ -208,7 +225,7 @@ export const BlogSection = (): JSX.Element => {
             style={{
               fontFamily: "var(--font-family)",
               fontWeight: 400,
-              fontSize: "clamp(16px, 1.4vw, 22px)",
+              fontSize: "clamp(15px, 1.2vw, 18px)",
               color: "var(--text-black)",
               lineHeight: 1.5,
               letterSpacing: "0.08px",
@@ -218,60 +235,52 @@ export const BlogSection = (): JSX.Element => {
           </p>
         </div>
 
-        {/* ── Desktop Flow Layout ── */}
-        <div className="steps-flow-desktop" style={{ maxWidth: 1050, margin: "0 auto" }}>
-          {/* Row 1: Steps 1 → 2 → 3 → 4 */}
+        {/* ── Desktop Circular Layout ── */}
+        <div className="steps-circular-desktop" style={{ width: "100%", position: "relative" }}>
           <div
             style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 0,
+              width: 660, // Bound size safely containing 2x radius (480) + circle width (135) + breath
+              height: 660,
+              margin: "0 auto",
+              position: "relative",
             }}
           >
-            {row1.map((s, i) => (
-              <div key={s.step} style={{ display: "flex", alignItems: "center" }}>
-                <Circle service={s} />
-                {i < row1.length - 1 && (
-                  <div style={{ padding: "0 8px" }}>
-                    <ArrowRight />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+            {/* The Central Drawing Circle */}
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                width: 480, // Matches double the 240 radius
+                height: 480,
+                borderRadius: "50%",
+                border: "3px dashed rgba(102, 95, 253, 0.3)",
+                zIndex: 1,
+                // Fade in the ring once at least 1 circle is visible
+                opacity: 1,
+                transition: "opacity 1s ease",
+              }}
+            >
+            </div>
 
-          {/* Connector: Row 1 → Row 2 (right side) */}
-          <div style={{ display: "flex", justifyContent: "flex-end", paddingRight: 80 }}>
-            <ArrowDown />
-          </div>
-
-          {/* Row 2: Steps 5 ← 6 ← 7 ← 8 (displayed right-to-left visually, but 8 → 5 in order) */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 0,
-            }}
-          >
-            {row2
-              .slice()
-              .reverse()
-              .map((s, i) => (
-                <div key={s.step} style={{ display: "flex", alignItems: "center" }}>
-                  {i > 0 && (
-                    <div style={{ padding: "0 8px" }}>
-                      <ArrowLeft />
-                    </div>
-                  )}
-                  <Circle service={s} />
-                </div>
-              ))}
+            {/* The 8 Services Circles */}
+            {services.map((s, i) => {
+              const pos = getCirclePos(i);
+              return (
+                <Circle
+                  key={s.step}
+                  service={s}
+                  isVisible={true}
+                  pos={pos}
+                  isDesktop={true}
+                />
+              );
+            })}
           </div>
         </div>
 
-        {/* ── Mobile Grid Layout ── */}
+        {/* ── Mobile Flow Layout ── */}
         <div
           className="steps-flow-mobile"
           style={{
@@ -279,34 +288,35 @@ export const BlogSection = (): JSX.Element => {
             flexDirection: "column",
             alignItems: "center",
             gap: 8,
+            maxHeight: "80vh",
+            overflowY: "auto",
+            paddingBottom: 40
           }}
         >
-          {services.map((s, i) => (
-            <div
-              key={s.step}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <Circle service={s} />
-              {i < services.length - 1 && (
-                <div style={{ padding: "4px 0" }}>
-                  <ArrowDown />
-                </div>
-              )}
-            </div>
-          ))}
+          {services.map((s) => {
+            return (
+              <Circle key={s.step} service={s} isVisible={true} isDesktop={false} />
+            );
+          })}
         </div>
       </div>
 
       <style>{`
         @media (max-width: 900px) {
-          .steps-flow-desktop { display: none !important; }
-          .steps-flow-mobile { display: flex !important; }
+          .steps-circular-desktop { display: none !important; }
+          .steps-flow-mobile { 
+            display: grid !important; 
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            padding: 0 16px;
+          }
+        }
+        @media (max-width: 500px) {
+          .steps-flow-mobile { 
+            grid-template-columns: 1fr;
+          }
         }
       `}</style>
-    </section>
+    </section >
   );
 };

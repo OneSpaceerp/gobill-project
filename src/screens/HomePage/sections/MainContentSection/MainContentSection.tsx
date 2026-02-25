@@ -1,3 +1,6 @@
+import ellipse35 from "../../../../assets/outsource/Ellipse-35.png";
+import ellipse36 from "../../../../assets/outsource/Ellipse-36.svg";
+
 export const MainContentSection = (): JSX.Element => {
   /* ==============================
      DATA
@@ -31,10 +34,10 @@ export const MainContentSection = (): JSX.Element => {
   ];
 
   const keyAdvantages = [
-    "Boost revenue by up to 25% within 90 days",
-    "Fewer Denials – 99% first-pass claim approval rate",
-    "Certified Expertise – Managed by AAPC & AHIMA-certified billers",
-    "Seamless Integration – Works with your existing EMR and workflow",
+    { text: "Certified Expertise – Managed by AAPC & AHIMA-certified billers", offset: 0 },
+    { text: "Fewer Denials – 99% first-pass claim approval rate", offset: -60 }, // Push left to clear the hollow ring
+    { text: "Boost revenue by up to 25% within 90 days", offset: -60 },
+    { text: "Seamless Integration – Works with your existing EMR and workflow", offset: 0 },
   ];
 
   const whyGoBillFeatures = [
@@ -313,47 +316,111 @@ export const MainContentSection = (): JSX.Element => {
                 billing and data-backed strategy.
               </p>
 
-              {/* Key Advantages Pills */}
+              {/* Key Advantages Pills with C-Ring Graphic */}
               <div
+                className="advantages-graphic-container"
                 style={{
+                  position: "relative",
                   display: "flex",
-                  flexDirection: "column",
-                  gap: 14,
+                  alignItems: "center",
+                  minHeight: 380, // Provide baseline height for the ring
+                  paddingRight: 40, // Padding to ensure text isn't entirely blocked by the ring on small screens
                 }}
               >
-                {keyAdvantages.map((adv, idx) => (
-                  <div
-                    key={idx}
+                {/* The Graphic Rings (Background) */}
+                <div
+                  className="advantages-rings"
+                  style={{
+                    position: "absolute",
+                    right: 0,
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    width: 320,
+                    height: 320,
+                    zIndex: 0,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-end", // Align to right natively
+                  }}
+                >
+                  {/* Thick Outer Ring */}
+                  <img
+                    src={ellipse35}
+                    alt=""
                     style={{
-                      background: "#10217D",
-                      borderRadius: 30,
-                      padding: "16px 28px",
-                      border: "1px solid #E1E1F3",
-                      transition: "all 0.3s ease",
-                      cursor: "default",
+                      position: "absolute",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
                     }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = "translateX(8px)";
-                      e.currentTarget.style.boxShadow = "0 8px 24px rgba(16,33,125,0.3)";
+                  />
+                  {/* Inner Cutout/Circle */}
+                  <img
+                    src={ellipse36}
+                    alt=""
+                    style={{
+                      position: "absolute",
+                      width: "48%", // Sized accurately to create the crescent ring
+                      height: "48%",
+                      objectFit: "contain",
+                      right: 18, // Shift perfectly right to form the C-shape
+                      zIndex: 2,
                     }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = "translateX(0)";
-                      e.currentTarget.style.boxShadow = "none";
-                    }}
-                  >
-                    <span
+                  />
+                </div>
+
+                <div
+                  className="advantages-pills"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 16,
+                    width: "100%",
+                    position: "relative",
+                    alignItems: "flex-end", // Align right towards the circle
+                    zIndex: 3,
+                  }}
+                >
+                  {keyAdvantages.map((adv, idx) => (
+                    <div
+                      key={idx}
+                      className="advantage-pill"
                       style={{
-                        fontFamily: "var(--font-family)",
-                        fontWeight: 500,
-                        fontSize: "clamp(15px, 1.3vw, 20px)",
-                        color: "#fff",
-                        letterSpacing: "0.07px",
+                        background: "#10217D",
+                        borderRadius: 30,
+                        padding: "16px 28px",
+                        border: "8px solid #fff", // White border masks the ring beneath it!
+                        transition: "all 0.3s ease",
+                        cursor: "default",
+                        width: "fit-content",
+                        maxWidth: 400, // Constrain so it wraps like the Figma screenshot
+                        transform: `translateX(${adv.offset}px)`, // Use transform for precise shift!
+                        position: "relative",
+                        zIndex: 4,
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = `translateX(${adv.offset + 8}px)`;
+                        e.currentTarget.style.boxShadow = "0 8px 24px rgba(16,33,125,0.3)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = `translateX(${adv.offset}px)`;
+                        e.currentTarget.style.boxShadow = "none";
                       }}
                     >
-                      {adv}
-                    </span>
-                  </div>
-                ))}
+                      <span
+                        style={{
+                          fontFamily: "var(--font-family)",
+                          fontWeight: 500,
+                          fontSize: "clamp(15px, 1.3vw, 18px)",
+                          color: "#fff",
+                          letterSpacing: "0.07px",
+                        }}
+                      >
+                        {adv.text}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -503,6 +570,19 @@ export const MainContentSection = (): JSX.Element => {
           @media (max-width: 600px) {
             #why-gobill > div > div:first-child {
               flex-direction: column;
+            }
+            .advantages-graphic-container {
+              min-height: auto !important;
+              padding-right: 0 !important;
+            }
+            .advantages-rings {
+              display: none !important; /* Hide massive graphics on narrow mobile */
+            }
+            .advantages-pills {
+               align-items: center !important; /* Stack centered evenly with no offsets */
+            }
+            .advantage-pill {
+               transform: translateX(0) !important; 
             }
           }
         `}</style>
