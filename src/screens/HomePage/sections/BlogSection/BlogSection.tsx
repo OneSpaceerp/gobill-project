@@ -299,15 +299,16 @@ export const BlogSection = (): JSX.Element => {
             display: "none",
             flexDirection: "column",
             alignItems: "center",
-            gap: 8,
-            maxHeight: "80vh",
-            overflowY: "auto",
+            maxHeight: "none",
+            overflowY: "visible",
             paddingBottom: 40
           }}
         >
-          {services.map((s) => {
+          {services.map((s, idx) => {
             return (
-              <Circle key={s.step} service={s} isVisible={true} isDesktop={false} />
+              <div key={s.step} style={{ marginTop: idx > 0 ? -24 : 0, zIndex: 10 - idx }}>
+                <Circle service={s} isVisible={true} isDesktop={false} />
+              </div>
             );
           })}
         </div>
@@ -317,15 +318,8 @@ export const BlogSection = (): JSX.Element => {
         @media (max-width: 900px) {
           .steps-circular-desktop { display: none !important; }
           .steps-flow-mobile { 
-            display: grid !important; 
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            padding: 0 16px;
-          }
-        }
-        @media (max-width: 500px) {
-          .steps-flow-mobile { 
-            grid-template-columns: 1fr;
+            display: flex !important; 
+            padding: 20px 16px;
           }
         }
       `}</style>

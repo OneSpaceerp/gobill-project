@@ -489,8 +489,9 @@ export const MainContentSection = (): JSX.Element => {
               style={{
                 display: "none",
                 flexDirection: "column",
-                gap: 12,
                 alignItems: "center",
+                padding: "20px 16px",
+                overflow: "hidden"
               }}
             >
               {whyGoBillFeatures.map((feature, idx) => {
@@ -498,40 +499,53 @@ export const MainContentSection = (): JSX.Element => {
                   "#2C60FF", "#0291D3", "#9B62FF", "#233B82",
                   "#6E45FF", "#1B2C5F", "#4F5AFF", "#36C2C8",
                 ];
-                // For mobile, use smaller, gentler rotations for usability
-                const mobileRotations = [8, -6, 10, -8, 6, -10, 8, -6];
+                const isEven = idx % 2 === 0;
+                const rotation = isEven ? 5 : -5;
+
                 return (
                   <div
                     key={idx}
                     style={{
-                      width: 160,
-                      height: 160,
+                      width: "100%",
+                      maxWidth: 380,
+                      background: colors[idx],
+                      borderRadius: 24,
+                      padding: "24px 28px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      flexDirection: isEven ? "row" : "row-reverse",
+                      gap: 20,
+                      transform: `rotate(${rotation}deg)`,
+                      marginTop: idx > 0 ? -30 : 0,
                       position: "relative",
+                      zIndex: idx,
+                      boxShadow: "0 10px 30px rgba(0,0,0,0.15)"
                     }}
                   >
-                    <div
+                    <span
                       style={{
-                        position: "absolute",
-                        inset: 0,
-                        background: colors[idx],
-                        borderRadius: 30,
-                        transform: `rotate(${mobileRotations[idx]}deg)`,
-                      }}
-                    />
-                    <div
-                      style={{
-                        position: "relative",
-                        zIndex: 2,
-                        width: "100%",
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: 8,
-                        padding: 14,
+                        fontFamily: "var(--font-family)",
+                        fontWeight: 600,
+                        fontSize: "clamp(16px, 4.5vw, 20px)",
+                        color: "#fff",
+                        lineHeight: 1.3,
+                        flex: 1,
+                        textAlign: isEven ? "left" : "right"
                       }}
                     >
+                      {feature.title}
+                    </span>
+                    <div style={{
+                      width: 64,
+                      height: 64,
+                      borderRadius: "50%",
+                      background: "rgba(255,255,255,0.15)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0
+                    }}>
                       <img
                         src={feature.icon}
                         alt={feature.title}
@@ -542,18 +556,6 @@ export const MainContentSection = (): JSX.Element => {
                           filter: "brightness(0) invert(1)",
                         }}
                       />
-                      <span
-                        style={{
-                          fontFamily: "var(--font-family)",
-                          fontWeight: 500,
-                          fontSize: 12,
-                          color: "#fff",
-                          textAlign: "center",
-                          lineHeight: 1.3,
-                        }}
-                      >
-                        {feature.title}
-                      </span>
                     </div>
                   </div>
                 );
