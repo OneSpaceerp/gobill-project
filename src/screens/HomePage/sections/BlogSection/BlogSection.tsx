@@ -1,15 +1,4 @@
-import { useState, useEffect } from "react";
-
 export const BlogSection = (): JSX.Element => {
-  const [activeCircleIndex, setActiveCircleIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveCircleIndex((prev) => (prev + 1) % 10);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
   const services = [
     {
       step: 1,
@@ -297,47 +286,58 @@ export const BlogSection = (): JSX.Element => {
             })}
           </div>
         </div>
+      </div>
 
-        {/* ── Mobile Flow Layout ── */}
+      {/* ── Mobile Flow Layout ── */}
+      <div
+        className="steps-flow-mobile"
+        style={{
+          display: "none",
+          width: "100%",
+          overflow: "hidden",
+          paddingBottom: 40,
+          marginTop: 40
+        }}
+      >
         <div
-          className="steps-flow-mobile"
+          className="marquee-track"
           style={{
-            display: "none",
-            flexDirection: "column",
+            display: "flex",
             alignItems: "center",
-            justifyContent: "center",
-            height: 160,
-            position: "relative",
-            paddingBottom: 40
+            width: "max-content", // Key to ensure smooth scrolling
+            gap: 24, // Space between circles
+            paddingLeft: 24, // Initial space on loop boundary
           }}
         >
-          {services.map((s, idx) => {
-            return (
-              <div
-                key={s.step}
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  opacity: activeCircleIndex === idx ? 1 : 0,
-                  transition: "opacity 0.6s ease-in-out",
-                  pointerEvents: activeCircleIndex === idx ? "auto" : "none",
-                }}
-              >
-                <Circle service={s} isVisible={true} isDesktop={false} />
-              </div>
-            );
-          })}
+          {/* Double map for infinite loop */}
+          {[...services, ...services].map((s, idx) => (
+            <div key={`${s.step}-${idx}`} style={{ flexShrink: 0 }}>
+              <Circle service={s} isVisible={true} isDesktop={false} />
+            </div>
+          ))}
         </div>
       </div>
 
       <style>{`
+        @keyframes scrollMarquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            /* Scroll half the track, allowing the cloned set to perfectly align */
+            transform: translateX(calc(-50% - 12px)); 
+          }
+        }
         @media (max-width: 900px) {
           .steps-circular-desktop { display: none !important; }
           .steps-flow-mobile { 
-            display: flex !important; 
-            padding: 20px 16px;
+            display: block !important; 
+          }
+          .marquee-track {
+            animation: scrollMarquee 25s linear infinite;
+          }
+          .marquee-track:hover {
+            animation-play-state: paused;
           }
         }
       `}</style>
