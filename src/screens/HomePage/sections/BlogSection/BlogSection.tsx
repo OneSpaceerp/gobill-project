@@ -50,16 +50,28 @@ export const BlogSection = (): JSX.Element => {
       icon: "https://c.animaapp.com/WhTQfAgd/img/icon-2.png",
       bgColor: "#36c2c8",
     },
+    {
+      step: 9,
+      title: "Operation and\nFinancial Analysis",
+      icon: "https://c.animaapp.com/WhTQfAgd/img/icon-7.png",
+      bgColor: "#0e7c6b",
+    },
+    {
+      step: 10,
+      title: "Data & Reporting\nAnalytics",
+      icon: "https://c.animaapp.com/WhTQfAgd/img/icon-6.png",
+      bgColor: "#e86833",
+    },
   ];
 
 
   const getCirclePos = (index: number) => {
-    // 8 items = 360 / 8 = 45 deg step
+    // 10 items = 360 / 10 = 36 deg step
     // We want index 0 (Step 1) to be at -90 degrees (top)
-    const angleDeg = (index * 45) - 90;
+    const angleDeg = (index * 36) - 90;
     const angleRad = (angleDeg * Math.PI) / 180;
     // Expanded ring radius to give circles breathing room
-    const radius = 240;
+    const radius = 260;
 
     // We compute the X and Y translation from the center
     const x = Math.cos(angleRad) * radius;
@@ -91,8 +103,8 @@ export const BlogSection = (): JSX.Element => {
         position: isDesktop ? "absolute" : "relative",
         top: isDesktop ? "50%" : "auto",
         left: isDesktop ? "50%" : "auto",
-        marginLeft: isDesktop ? -67.5 : 0, // Half of 135px width
-        marginTop: isDesktop ? -67.5 : 0,  // Half of 135px height
+        marginLeft: isDesktop ? -57.5 : 0, // Half of 115px width
+        marginTop: isDesktop ? -57.5 : 0,  // Half of 115px height
 
         // Circle is permanently visible
         opacity: 1,
@@ -129,16 +141,16 @@ export const BlogSection = (): JSX.Element => {
       {/* Circle */}
       <div
         style={{
-          width: 135,
-          height: 135,
+          width: 115,
+          height: 115,
           borderRadius: "50%",
           background: service.bgColor,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          gap: 6,
-          padding: 10,
+          gap: 4,
+          padding: 8,
           cursor: "pointer",
           transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
           boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
@@ -170,14 +182,14 @@ export const BlogSection = (): JSX.Element => {
           <img
             src={service.icon}
             alt={service.title}
-            style={{ width: 32, height: 32, objectFit: "contain" }}
+            style={{ width: 28, height: 28, objectFit: "contain" }}
           />
         </div>
         <span
           style={{
             fontFamily: "var(--font-family)",
             fontWeight: 600,
-            fontSize: 11,
+            fontSize: 10,
             color: "#fff",
             textAlign: "center",
             lineHeight: 1.2,
@@ -239,8 +251,8 @@ export const BlogSection = (): JSX.Element => {
         <div className="steps-circular-desktop" style={{ width: "100%", position: "relative" }}>
           <div
             style={{
-              width: 660, // Bound size safely containing 2x radius (480) + circle width (135) + breath
-              height: 660,
+              width: 720, // Bound size safely containing 2x radius (520) + circle width (115) + breath
+              height: 720,
               margin: "0 auto",
               position: "relative",
             }}
@@ -252,8 +264,8 @@ export const BlogSection = (): JSX.Element => {
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                width: 480, // Matches double the 240 radius
-                height: 480,
+                width: 520, // Matches double the 260 radius
+                height: 520,
                 borderRadius: "50%",
                 border: "3px dashed rgba(102, 95, 253, 0.3)",
                 zIndex: 1,
@@ -264,7 +276,7 @@ export const BlogSection = (): JSX.Element => {
             >
             </div>
 
-            {/* The 8 Services Circles */}
+            {/* The 10 Services Circles */}
             {services.map((s, i) => {
               const pos = getCirclePos(i);
               return (

@@ -3,28 +3,28 @@ import { Link } from "react-router-dom";
 
 const faqs = [
     {
-        question: "What makes GoBill's AI-powered RCM different from traditional billing?",
-        answer: "Unlike traditional billing services that rely heavily on manual data entry and human review—which are prone to errors and delays—GoBill integrates proprietary AI algorithms that scrub claims for over 10 million coding rules in seconds. This ensures a 99% accuracy rate and significantly faster reimbursements, while our certified human experts handle the complex denials and payer negotiations."
+        question: "What does GoBill do?",
+        answer: "GoBill is your certified 360 medical billing services provider, assisting you in growing and managing your revenue cycle."
     },
     {
-        question: "How long does it take to see results after partnering with GoBill?",
-        answer: "Most of our partners see a noticeable difference within the first 30 to 60 days. Because our onboarding process seamlessly integrates with your existing EMR/PM systems, we can immediately begin identifying revenue leaks, working your aging A/R, and submitting cleaner claims."
+        question: "Why GoBill?",
+        answer: "With over 15 years of combined medical experience in the United States market; We will claim your payments fast, dynamically, accurately, and successfully. Cutting overhead costs by outsourcing rather than hiring a full-time employee."
     },
     {
-        question: "Which Practice Management (PM) and EHR systems do you integrate with?",
-        answer: "GoBill is platform-agnostic. We have deep experience integrating with all major EHR and PM systems, including Epic, Cerner, eClinicalWorks, AdvancedMD, Kareo, Athenahealth, DrChrono, and many others. Our tech team ensures a secure, HIPAA-compliant data bridge without disrupting your daily clinical workflow."
+        question: "What are the fees for GoBill's services?",
+        answer: "At GoBill, we provide our services for a percentage of the collected revenue, for insurance and patient payments. We offer services beyond sending your claims, our experienced team will assist you to grow and manage your revenue."
     },
     {
-        question: "Do I have to sign a long-term contract?",
-        answer: "We believe in earning your business every month through transparent results, not locking you into restrictive long-term contracts. While we do have standard service agreements, we structure them with flexibility in mind so you only stay if you're seeing continuous value."
+        question: "Is GoBill certified?",
+        answer: "GoBill is HIPAA (Health Insurance Portability and Accountability Act) certified and is presently pursuing ISO 9001:2000 certification for quality and operations. In addition, ISO 270001:2005 information security certification."
     },
     {
-        question: "How much do your services cost?",
-        answer: "Our pricing structure is entirely performance-based. We charge a competitive percentage of the revenue we successfully collect for your practice. This means we only get paid when you get paid, perfectly aligning our incentives with your practice's financial success."
+        question: "Can you improve my cash flow? How?",
+        answer: "GoBill's mission is to manage your revenue cycle management, claim your bills and grow your cash flow. We transmit claims electronically to all insurance companies that accept claims electronically, we will ensure you receive your payment in 3-4 weeks rather than the usual 3 months."
     },
     {
-        question: "What kind of reporting and analytics will I receive?",
-        answer: "You will have 24/7 access to our intuitive financial dashboard, which tracks key metrics like A/R aging, first-pass acceptance rates, and payer performance. Additionally, you will meet monthly with a dedicated Account Manager who will review these reports with you and provide strategic recommendations for further optimization."
+        question: "Which is more efficient: billing in-house or using GoBill?",
+        answer: "Building an in-house medical billing staff will be more expensive because you will have to pay for salaries, benefits, and training. On the other hand, GoBill will save you time and money while also providing you with the support of our staff."
     }
 ];
 

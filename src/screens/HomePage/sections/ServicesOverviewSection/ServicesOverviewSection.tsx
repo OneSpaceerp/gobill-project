@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 
 /* =============================================
-   Slide 2 — "See How It Works" 6-step process
-   Steps arranged in two rows of 3, connected by dashed lines
-   Row 1: Steps 1, 3, 5  (top text, bottom icon)
-   Row 2: Steps 2, 4, 6  (top icon, bottom text, right-aligned)
+   Slide 2 — "See How It Works" 8-step process
+   Steps arranged in two rows of 4, connected by dashed lines
+   Row 1: Steps 1, 3, 5, 7  (top text, bottom icon)
+   Row 2: Steps 2, 4, 6, 8  (top icon, bottom text, right-aligned)
    ============================================= */
 const stepsTop = [
   {
@@ -24,6 +24,12 @@ const stepsTop = [
     title: "Better Collections, Less Stress",
     desc: "Watch your revenue grow by up to 25%, with fewer denials, faster payments, and complete transparency every step of the way",
     icon: "/img/step-5.svg",
+  },
+  {
+    number: 7,
+    title: "Operation and Financial Analysis",
+    desc: "We conduct thorough operational and financial analyses to identify inefficiencies, optimize workflows, and ensure your practice runs at peak performance.",
+    icon: "/img/step-7.svg",
   },
 ];
 
@@ -45,6 +51,12 @@ const stepsBottom = [
     title: "AI-Powered Optimization",
     desc: "Our AI drives smarter billing by performing data analysis, risk management, evaluation, and cycle optimization, ensuring issues are prevented and your revenue cycle stays efficient",
     icon: "/img/step-6.svg",
+  },
+  {
+    number: 8,
+    title: "Data & Reporting Analytics",
+    desc: "Receive comprehensive data analytics and custom reporting dashboards that give you real-time visibility into every aspect of your revenue cycle.",
+    icon: "/img/step-8.svg",
   },
 ];
 
@@ -283,7 +295,7 @@ export const ServicesOverviewSection = (): JSX.Element => {
                   margin: "0 auto",
                 }}
               >
-                A proven 6-step process to boost your collections and simplify
+                A proven 8-step process to boost your collections and simplify
                 your workflow
               </h2>
             </div>
@@ -318,8 +330,8 @@ export const ServicesOverviewSection = (): JSX.Element => {
                   className="step-text-row-top"
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "1fr 1fr 1fr",
-                    gap: 40,
+                    gridTemplateColumns: "1fr 1fr 1fr 1fr",
+                    gap: 28,
                     marginBottom: 16,
                   }}
                 >
@@ -369,22 +381,28 @@ export const ServicesOverviewSection = (): JSX.Element => {
                   }}
                 >
                   {/* Step 1 icon */}
-                  <img src={stepsTop[0].icon} alt="Step 1" style={{ width: 80, height: 80, flexShrink: 0 }} />
+                  <img src={stepsTop[0].icon} alt="Step 1" style={{ width: 64, height: 64, flexShrink: 0 }} />
                   <div style={connectorStyle} />
                   {/* Step 2 icon */}
-                  <img src={stepsBottom[0].icon} alt="Step 2" style={{ width: 80, height: 80, flexShrink: 0 }} />
+                  <img src={stepsBottom[0].icon} alt="Step 2" style={{ width: 64, height: 64, flexShrink: 0 }} />
                   <div style={connectorStyle} />
                   {/* Step 3 icon */}
-                  <img src={stepsTop[1].icon} alt="Step 3" style={{ width: 80, height: 80, flexShrink: 0 }} />
+                  <img src={stepsTop[1].icon} alt="Step 3" style={{ width: 64, height: 64, flexShrink: 0 }} />
                   <div style={connectorStyle} />
                   {/* Step 4 icon */}
-                  <img src={stepsBottom[1].icon} alt="Step 4" style={{ width: 80, height: 80, flexShrink: 0 }} />
+                  <img src={stepsBottom[1].icon} alt="Step 4" style={{ width: 64, height: 64, flexShrink: 0 }} />
                   <div style={connectorStyle} />
                   {/* Step 5 icon */}
-                  <img src={stepsTop[2].icon} alt="Step 5" style={{ width: 80, height: 80, flexShrink: 0 }} />
+                  <img src={stepsTop[2].icon} alt="Step 5" style={{ width: 64, height: 64, flexShrink: 0 }} />
                   <div style={connectorStyle} />
                   {/* Step 6 icon */}
-                  <img src={stepsBottom[2].icon} alt="Step 6" style={{ width: 80, height: 80, flexShrink: 0 }} />
+                  <img src={stepsBottom[2].icon} alt="Step 6" style={{ width: 64, height: 64, flexShrink: 0 }} />
+                  <div style={connectorStyle} />
+                  {/* Step 7 icon */}
+                  <img src={stepsTop[3].icon} alt="Step 7" style={{ width: 64, height: 64, flexShrink: 0 }} />
+                  <div style={connectorStyle} />
+                  {/* Step 8 icon */}
+                  <img src={stepsBottom[3].icon} alt="Step 8" style={{ width: 64, height: 64, flexShrink: 0 }} />
                 </div>
 
                 {/* ── ROW 2: Steps 2, 4, 6 (icon row above, text below right-aligned) ── */}
@@ -392,8 +410,8 @@ export const ServicesOverviewSection = (): JSX.Element => {
                   className="step-text-row-bottom"
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "1fr 1fr 1fr",
-                    gap: 40,
+                    gridTemplateColumns: "1fr 1fr 1fr 1fr",
+                    gap: 28,
                     marginTop: 16,
                   }}
                 >

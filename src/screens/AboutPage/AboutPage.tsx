@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 
 export const AboutPage = (): JSX.Element => {
     const values = [
-        { title: "Client First", desc: "We prioritize our clients' needs and deliver tailored solutions that drive real results." },
-        { title: "Integrity", desc: "Transparency and honesty are at the core of everything we do." },
-        { title: "Innovation", desc: "We leverage cutting-edge technology and AI to stay ahead in medical billing." },
-        { title: "Excellence", desc: "We hold ourselves to the highest standards of quality and performance." },
-        { title: "Collaboration", desc: "We work as an extension of your team, ensuring seamless communication." },
-        { title: "Compliance", desc: "HIPAA compliance and data security are non-negotiable in our operations." },
+        { title: "Integrity and Transparency", desc: "When it comes to upholding confidentiality and business ethics, we make no compromises. We're fully transparent with our clients and accept accountability for the results of our work." },
+        { title: "Long-Term Partnership", desc: "We make a commitment to long-term strategies for our mutual growth and the development of our solutions to address your changing business needs and new challenges; your success is our success." },
+        { title: "Commitment", desc: "We stay focused on the desired results until they are achieved and our clients are completely satisfied." },
+        { title: "Regulatory Compliance", desc: "GoBill is committed to ensuring that its policies and procedures are in accordance with the industry's regulatory requirements in order to ensure the highest level of accuracy and hassle-free invoicing." },
+        { title: "Innovation", desc: "We are pioneers who consider ingenious ways to influence the future. We keep up with the latest trends while focusing on solutions that will enable us to rise to the top." },
+        { title: "People Oriented", desc: "We provide an atmosphere where each employee can find a role that's perfectly suited to their skills and where their potential can be maximized and leveraged." },
+        { title: "Collaboration", desc: "We help each other as we pursue the same goals. We are more productive when we cooperate and share common goals and values." },
     ];
 
     return (
@@ -23,11 +24,17 @@ export const AboutPage = (): JSX.Element => {
             >
                 <div className="container" style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 40 }}>
                     <div style={{ flex: "1 1 500px" }}>
+                        <p style={{ fontFamily: "var(--font-family)", fontWeight: 500, fontSize: 16, color: "rgba(255,255,255,0.7)", marginBottom: 12, letterSpacing: 1, textTransform: "uppercase" }}>
+                            About Us
+                        </p>
                         <h1 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(32px, 4vw, 52px)", color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>
-                            About GoBill
+                            This Is GoBill
                         </h1>
+                        <p style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(18px, 1.5vw, 24px)", color: "rgba(255,255,255,0.95)", lineHeight: 1.4, marginBottom: 16 }}>
+                            We Have The Expertise To Achieve Excellence.
+                        </p>
                         <p style={{ fontFamily: "var(--font-family)", fontWeight: 400, fontSize: "clamp(16px, 1.2vw, 20px)", color: "rgba(255,255,255,0.85)", lineHeight: 1.6, maxWidth: 600 }}>
-                            GoBill is a leading provider of medical billing, revenue cycle management, and practice management solutions designed to help healthcare providers maximize their revenue and streamline their operations.
+                            The dedicated staff at GoBill ensures you the highest possible reimbursement. We are a group of certified teams with extensive experience in medical billing, coding, claims processing, collections, and customized support hours according to business needs. Your success is our success.
                         </p>
                     </div>
                 </div>
@@ -39,11 +46,8 @@ export const AboutPage = (): JSX.Element => {
                     <h2 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(24px, 3vw, 36px)", color: "var(--text-dark)", marginBottom: 24, textAlign: "center" }}>
                         The GoBill Story
                     </h2>
-                    <p style={{ fontFamily: "var(--font-family)", fontSize: 17, color: "var(--text-body)", lineHeight: 1.8, marginBottom: 20, textAlign: "center" }}>
-                        Founded with a mission to transform healthcare revenue management, GoBill brings together certified billing professionals, advanced automation, and AI-powered analytics to deliver exceptional results for medical practices of all sizes.
-                    </p>
                     <p style={{ fontFamily: "var(--font-family)", fontSize: 17, color: "var(--text-body)", lineHeight: 1.8, textAlign: "center" }}>
-                        We understand the challenges that healthcare providers face — from complex payer requirements and shrinking reimbursements to staffing shortages and compliance demands. That's why we built GoBill: to be the trusted partner that handles your billing so you can focus on what matters most — your patients.
+                        In 2016, a group of skilled and certified doctors and accountants assisted by talented individuals in operations, sales, marketing, business development, and human resources combined with their expertise of over 15 years in the medical field. We initiated an ambitious project to help medical practices transform into better businesses and focus on delivering great patient care. With a clear vision, the group created a model to assist medical practices and organizations manage as well as generating more revenue from their businesses to boost the rate of successfully paid claims using cutting-edge technologies.
                     </p>
                 </div>
             </section>
@@ -54,13 +58,13 @@ export const AboutPage = (): JSX.Element => {
                     <div style={{ background: "linear-gradient(135deg, #665FFD, #10217D)", borderRadius: 20, padding: "40px 36px", color: "#fff" }}>
                         <h3 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: 28, marginBottom: 16 }}>Vision</h3>
                         <p style={{ fontFamily: "var(--font-family)", fontSize: 16, lineHeight: 1.7, opacity: 0.9 }}>
-                            To be the most trusted partner in healthcare revenue management, empowering providers to focus on patient care while we optimize their financial performance.
+                            We aim to shape the future of medical billing and BPO services in the United States, implementing the most effective and innovative business practices, revolutionizing revenue cycle management, and leading the way for fast-paced, secure, and trouble-free collection processes.
                         </p>
                     </div>
                     <div style={{ background: "linear-gradient(135deg, #10217D, #0a0655)", borderRadius: 20, padding: "40px 36px", color: "#fff" }}>
                         <h3 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: 28, marginBottom: 16 }}>Mission</h3>
                         <p style={{ fontFamily: "var(--font-family)", fontSize: 16, lineHeight: 1.7, opacity: 0.9 }}>
-                            To deliver exceptional medical billing and revenue cycle management solutions through innovation, integrity, and a relentless commitment to our clients' success.
+                            At GoBill we provide healthcare organizations with outstanding and fast-paced medical billing & operations solutions for the healthcare industry focused on clean claim submissions and ultra-speedy reimbursement while abiding by our core values of transparency, integrity, and accountability.
                         </p>
                     </div>
                 </div>
@@ -90,13 +94,13 @@ export const AboutPage = (): JSX.Element => {
             {/* CTA */}
             <section style={{ padding: "72px 0", background: "linear-gradient(135deg, #665FFD, #10217D)", textAlign: "center" }}>
                 <div className="container">
-                    <h2 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(24px, 3vw, 40px)", color: "#fff", marginBottom: 16 }}>Ready to Get Started?</h2>
-                    <p style={{ fontFamily: "var(--font-family)", fontSize: 18, color: "rgba(255,255,255,0.85)", marginBottom: 36, maxWidth: 500, margin: "0 auto 36px" }}>Let's discuss how GoBill can transform your practice's revenue cycle.</p>
-                    <Link to="/contact-us" style={{ display: "inline-block", background: "#fff", color: "var(--primary)", padding: "16px 40px", borderRadius: 30, fontSize: 17, fontWeight: 600, fontFamily: "var(--font-family)", textDecoration: "none", transition: "all 0.3s" }}
+                    <h2 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(24px, 3vw, 40px)", color: "#fff", marginBottom: 16 }}>Ready to talk?</h2>
+                    <p style={{ fontFamily: "var(--font-family)", fontSize: 18, color: "rgba(255,255,255,0.85)", marginBottom: 36, maxWidth: 500, margin: "0 auto 36px" }}>Manage your practice all from one place.</p>
+                    <Link to="/book-a-meeting" style={{ display: "inline-block", background: "#fff", color: "var(--primary)", padding: "16px 40px", borderRadius: 30, fontSize: 17, fontWeight: 600, fontFamily: "var(--font-family)", textDecoration: "none", transition: "all 0.3s" }}
                         onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(255,255,255,0.3)"; }}
                         onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
                     >
-                        Contact Us
+                        Schedule A Meeting
                     </Link>
                 </div>
             </section>

@@ -1,16 +1,80 @@
-import { Link } from "react-router-dom";
+
 
 export const BlogsPage = (): JSX.Element => {
     const blogs = [
-        { title: "The Future of Medical Billing: AI and Automation", date: "January 15, 2025", category: "Technology", excerpt: "Discover how artificial intelligence is transforming revenue cycle management and what it means for your practice." },
-        { title: "5 Common Reasons for Claim Denials (And How to Prevent Them)", date: "January 8, 2025", category: "Billing Tips", excerpt: "Learn about the most frequent causes of claim denials and practical strategies to improve your first-pass acceptance rate." },
-        { title: "Understanding the 2025 CPT Code Changes", date: "December 28, 2024", category: "Coding Updates", excerpt: "A comprehensive overview of the latest CPT code changes and how they impact your billing operations." },
-        { title: "How to Reduce Days in Accounts Receivable", date: "December 20, 2024", category: "Collections", excerpt: "Proven strategies to accelerate your collections and reduce the time between service delivery and payment." },
-        { title: "HIPAA Compliance: A Complete Guide for Medical Practices", date: "December 12, 2024", category: "Compliance", excerpt: "Everything you need to know about maintaining HIPAA compliance in your billing and administrative processes." },
-        { title: "The Benefits of Outsourcing Medical Billing", date: "December 5, 2024", category: "Practice Management", excerpt: "Why more practices are choosing to outsource their billing and the tangible benefits they're seeing." },
+        {
+            title: "How To Speed Up The Prior Authorization Process",
+            date: "January 2, 2024",
+            image: "https://www.gobill.co/wp-content/uploads/2023/12/how-to-speed-up-the-prior-authorization-process1.png",
+            link: "https://www.gobill.co/blogs/how-to-speed-up-the-prior-authorization-process",
+        },
+        {
+            title: "Understanding Clean Claim In Medical Billing & How To Improve It",
+            date: "December 28, 2023",
+            image: "https://www.gobill.co/wp-content/uploads/2023/12/understanding-clean-claim-in-medical-billing-how-to-improve.png",
+            link: "https://www.gobill.co/blogs/understanding-clean-claim-in-medical-billing-how-to-improve-it",
+        },
+        {
+            title: "6 Common Reasons For Claims Denials & What To Do",
+            date: "December 25, 2023",
+            image: "https://www.gobill.co/wp-content/uploads/2023/12/x-common-reasons-for-claims-denials-what-to-do1.png",
+            link: "https://www.gobill.co/blogs/6-common-reasons-for-claims-denials-what-to-do",
+        },
+        {
+            title: "The Importance Of Patient Scheduling (Plus Best Practices)",
+            date: "December 21, 2023",
+            image: "https://www.gobill.co/wp-content/uploads/2023/12/the-importance-of-patient-scheduling-plus-best-practice.png",
+            link: "https://www.gobill.co/blogs/the-importance-of-patient-scheduling-plus-best-practices",
+        },
+        {
+            title: "Understanding Accounts Receivable in Medical Billing",
+            date: "December 19, 2023",
+            image: "https://www.gobill.co/wp-content/uploads/2023/12/person-medical-invoice-blue-credit-card-healthcare-accounts-receivable-payment.png",
+            link: "https://www.gobill.co/blogs/understanding-accounts-receivable-in-medical-billing",
+        },
+        {
+            title: "Physician Credentialing: What It Is & Why It Matters",
+            date: "December 14, 2023",
+            image: "https://www.gobill.co/wp-content/uploads/2023/12/physician-credentialing-what-it-is-why-it-matter.png",
+            link: "https://www.gobill.co/blogs/physician-credentialing-what-it-is-why-it-matters",
+        },
+        {
+            title: "6 Medical Billing Process Steps That Are Essential for Healthcare Providers",
+            date: "December 12, 2023",
+            image: "https://www.gobill.co/wp-content/uploads/2023/12/6-steps-of-a-successful-medical-billing-processs.png",
+            link: "https://www.gobill.co/blogs/6-medical-billing-process-steps-that-are-essential-for-healthcare-providers",
+        },
+        {
+            title: "Why Outsourcing Your Medical Billing Is A Good Idea",
+            date: "December 7, 2023",
+            image: "https://www.gobill.co/wp-content/uploads/2023/12/why-outsourcing-your-medical-billing-good-idea.png",
+            link: "https://www.gobill.co/blogs/why-outsourcing-your-medical-billing-is-a-good-idea",
+        },
+        {
+            title: "A Guide To Healthcare Revenue Cycle Management",
+            date: "December 5, 2023",
+            image: "https://www.gobill.co/wp-content/uploads/2023/12/a-guide-to-healthcare-revenue-cycle-mgmt.png",
+            link: "https://www.gobill.co/blogs/a-guide-to-healthcare-revenue-cycle-management",
+        },
+        {
+            title: "Demystifying the Enrollment and Credentialing Process for Medicare and Medicaid",
+            date: "April 26, 2023",
+            image: "https://www.gobill.co/wp-content/uploads/2023/04/blog-3.jpg",
+            link: "https://www.gobill.co/blogs/demystifying-the-enrollment-and-credentialing-process-for-medicare-and-medicaid-a-comprehensive-guide-to-credentialing-services",
+        },
+        {
+            title: "Navigating the Complexities of Medical Billing and Coding",
+            date: "April 26, 2023",
+            image: "https://www.gobill.co/wp-content/uploads/2023/04/blog-2.jpg",
+            link: "https://www.gobill.co/blogs/navigating-the-complexities-of-medical-billing-and-coding-challenges-and-solutions",
+        },
+        {
+            title: "Medical Billing: The Full Scoop",
+            date: "April 10, 2023",
+            image: "https://www.gobill.co/wp-content/uploads/2023/04/blog-1.jpg",
+            link: "https://www.gobill.co/blogs/medical-billing-the-full-scoop",
+        },
     ];
-
-    const colors = ["#665FFD", "#10217D", "#0a0655", "#665FFD", "#10217D", "#0a0655"];
 
     return (
         <main>
@@ -31,8 +95,11 @@ export const BlogsPage = (): JSX.Element => {
                 <div className="container">
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 28, maxWidth: 1100, margin: "0 auto" }}>
                         {blogs.map((blog, i) => (
-                            <article
+                            <a
                                 key={i}
+                                href={blog.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 style={{
                                     background: "#fff",
                                     borderRadius: 16,
@@ -41,6 +108,8 @@ export const BlogsPage = (): JSX.Element => {
                                     transition: "all 0.3s",
                                     cursor: "pointer",
                                     border: "1px solid rgba(0,0,0,0.04)",
+                                    textDecoration: "none",
+                                    display: "block",
                                 }}
                                 onMouseEnter={(e) => {
                                     e.currentTarget.style.transform = "translateY(-4px)";
@@ -51,27 +120,20 @@ export const BlogsPage = (): JSX.Element => {
                                     e.currentTarget.style.boxShadow = "0 2px 24px rgba(0,0,0,0.06)";
                                 }}
                             >
-                                {/* Colored header bar */}
-                                <div style={{ height: 6, background: `linear-gradient(90deg, ${colors[i]}, ${colors[(i + 1) % colors.length]})` }} />
-                                <div style={{ padding: "24px 28px 28px" }}>
-                                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
-                                        <span style={{
-                                            fontFamily: "var(--font-family)", fontSize: 12, fontWeight: 600, color: colors[i],
-                                            background: `${colors[i]}10`, padding: "4px 12px", borderRadius: 20,
-                                            textTransform: "uppercase", letterSpacing: 0.5,
-                                        }}>
-                                            {blog.category}
-                                        </span>
-                                        <span style={{ fontFamily: "var(--font-family)", fontSize: 13, color: "var(--text-body)" }}>{blog.date}</span>
-                                    </div>
-                                    <h3 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: 18, color: "var(--text-dark)", lineHeight: 1.4, marginBottom: 12 }}>
+                                {/* Blog Image */}
+                                <div style={{
+                                    width: "100%",
+                                    height: 200,
+                                    background: `url(${blog.image}) center/cover no-repeat`,
+                                    backgroundColor: "#f0f2f5",
+                                }} />
+                                <div style={{ padding: "20px 24px 24px" }}>
+                                    <span style={{ fontFamily: "var(--font-family)", fontSize: 13, color: "var(--text-body)", display: "block", marginBottom: 10 }}>{blog.date}</span>
+                                    <h3 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: 17, color: "var(--text-dark)", lineHeight: 1.4, margin: 0 }}>
                                         {blog.title}
                                     </h3>
-                                    <p style={{ fontFamily: "var(--font-family)", fontSize: 14, color: "var(--text-body)", lineHeight: 1.6, margin: 0 }}>
-                                        {blog.excerpt}
-                                    </p>
                                 </div>
-                            </article>
+                            </a>
                         ))}
                     </div>
                 </div>

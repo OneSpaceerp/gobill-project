@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 /* ──────────────────────────────────────
    Icons
@@ -36,13 +36,25 @@ const Icons = {
    Navigation data matching updated brief
    ────────────────────────────────────── */
 const expertiseMenu = [
-  { label: "Medical Billing Services", path: "/solutions/medical-billing-and-coding" },
-  { label: "Revenue Cycle Management (RCM)", path: "/solutions/rcm" },
-  { label: "A/R Collections Management", path: "/solutions/ar-collections-management" },
-  { label: "Denial Management", path: "/solutions/denial-management" },
-  { label: "Virtual Patient Engagement Officer", path: "/solutions/appointment-scheduling" },
-  { label: "Pre-Authorization & Eligibility Verification", path: "/solutions/pre-authorization" },
-  { label: "Appointment Scheduling", path: "/solutions/appointment-scheduling" },
+  {
+    label: "Medical Billing Services",
+    path: "/solutions/medical-billing-and-coding",
+    subMenu: [
+      { label: "Medical Billing Services", path: "/solutions/medical-billing-and-coding" },
+      { label: "Revenue Cycle Management (RCM)", path: "/solutions/rcm" },
+      { label: "A/R Collections Management", path: "/solutions/ar-collections-management" },
+      { label: "Denial Management", path: "/solutions/denial-management" },
+    ]
+  },
+  {
+    label: "Virtual Patient Engagement Officer",
+    path: "/solutions/virtual-front-desk-officer",
+    subMenu: [
+      { label: "Virtual Patient Engagement Officer", path: "/solutions/virtual-front-desk-officer" },
+      { label: "Pre-Authorization and Eligibility Verification", path: "/solutions/pre-authorization" },
+      { label: "Appointment Scheduling", path: "/solutions/appointment-scheduling" },
+    ]
+  },
   {
     label: "Provider Credentialing",
     path: "/solutions/provider-credentialing",
@@ -79,16 +91,18 @@ const Dropdown = ({
   onClose: () => void;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
   const [hoveredSubmenu, setHoveredSubmenu] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!open) return;
     const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) onClose();
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setTimeout(() => onClose(), 0);
+      }
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
-  }, [onClose]);
+  }, [onClose, open]);
 
   return (
     <div ref={ref} onMouseLeave={() => setHoveredSubmenu(null)} style={{ position: "relative" }}>
@@ -173,11 +187,9 @@ const Dropdown = ({
                 onMouseEnter={() => setHoveredSubmenu(item.label)}
                 style={{ position: "relative" }}
               >
-                <div
-                  onClick={(e) => {
-                    navigate(item.path);
-                    onClose();
-                  }}
+                <Link
+                  to={item.path}
+                  onClick={onClose}
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
@@ -201,7 +213,7 @@ const Dropdown = ({
                       <path d="M1 9L5 5L1 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   )}
-                </div>
+                </Link>
 
                 {/* SubMenu implementation */}
                 {item.subMenu && hoveredSubmenu === item.label && (
@@ -381,38 +393,12 @@ export const HeroSection = (): JSX.Element => {
           className="desktop-nav"
           style={{ display: "flex", alignItems: "center", gap: 14 }}
         >
-          <a
-            href="tel:+18884649750"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 6,
-              fontFamily: "var(--font-family)",
-              fontSize: 14,
-              fontWeight: 500,
-              color: "var(--primary-dark)",
-              whiteSpace: "nowrap",
-              textDecoration: "none",
-            }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-            </svg>
-            +1 (888)-464-9750
-          </a>
           <Link
             to="/assessment"
-            className="btn-outline"
-            style={{ padding: "8px 16px", fontSize: 12, textDecoration: "none", whiteSpace: "nowrap" }}
-          >
-            Complimentary Assessment
-          </Link>
-          <Link
-            to="/book-a-meeting"
             className="btn-primary"
             style={{ padding: "8px 16px", fontSize: 12, textDecoration: "none", whiteSpace: "nowrap" }}
           >
-            Book A Meeting
+            Complimentary Assessment
           </Link>
         </div>
 
@@ -581,16 +567,9 @@ export const HeroSection = (): JSX.Element => {
 
           {/* CTAs */}
           <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 16 }}>
-            <a href="tel:+18884649750" style={{ fontFamily: "var(--font-family)", fontSize: 15, fontWeight: 500, color: "var(--primary-dark)", textAlign: "center", textDecoration: "none" }}>
-              📞 +1 (888)-464-9750
-            </a>
-            <Link to="/assessment" className="btn-outline" onClick={() => setMobileOpen(false)}
+            <Link to="/assessment" className="btn-primary" onClick={() => setMobileOpen(false)}
               style={{ padding: "12px 24px", fontSize: 15, textAlign: "center", textDecoration: "none" }}>
               Complimentary Assessment
-            </Link>
-            <Link to="/book-a-meeting" className="btn-primary" onClick={() => setMobileOpen(false)}
-              style={{ padding: "12px 24px", fontSize: 15, textAlign: "center", textDecoration: "none" }}>
-              Book A Meeting
             </Link>
           </div>
         </div>

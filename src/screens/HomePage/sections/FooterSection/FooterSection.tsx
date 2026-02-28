@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 export const FooterSection = (): JSX.Element => {
   const expertiseLinks = [
     { text: "Medical Billing Services", path: "/solutions/medical-billing-and-coding" },
-    { text: "Data & Reporting Analytics", path: "/data-reporting-analytics" },
-    { text: "AI-Powered Optimization", path: "/ai-optimization" },
+    { text: "Data & Reporting Analytics", path: "#" },
+    { text: "AI-Powered Optimization", path: "#" },
     { text: "Provider Credentialing", path: "/solutions/provider-credentialing" },
+    { text: "Virtual Patient Engagement Officer", path: "/solutions/virtual-front-desk-officer" },
   ];
 
   const whoWeServeLinks = [

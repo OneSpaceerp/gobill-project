@@ -13,9 +13,8 @@ export const ContactPage = (): JSX.Element => {
     };
 
     const contactInfo = [
-        { icon: "📞", label: "Phone", value: "+1 (888)-464-9750", href: "tel:+18884649750" },
-        { icon: "✉️", label: "Email", value: "info@gobill.co", href: "mailto:info@gobill.co" },
-        { icon: "📍", label: "Address", value: "GoBill Headquarters, United States", href: null },
+        { icon: "✉️", label: "Email", value: "sales@gobill.co", href: "mailto:sales@gobill.co" },
+        { icon: "📍", label: "Address", value: "Continental Plaza, 411 Hackensack Ave, 2nd Floor, NJ 07601", href: null },
     ];
 
     const inputStyle: React.CSSProperties = {
