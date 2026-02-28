@@ -1,5 +1,14 @@
+import { useState, useEffect } from "react";
 
 export const BlogSection = (): JSX.Element => {
+  const [activeCircleIndex, setActiveCircleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveCircleIndex((prev) => (prev + 1) % 10);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   const services = [
     {
@@ -64,7 +73,6 @@ export const BlogSection = (): JSX.Element => {
     },
   ];
 
-
   const getCirclePos = (index: number) => {
     // 10 items = 360 / 10 = 36 deg step
     // We want index 0 (Step 1) to be at -90 degrees (top)
@@ -79,8 +87,6 @@ export const BlogSection = (): JSX.Element => {
 
     return { x, y };
   };
-
-
 
   const Circle = ({
     service,
@@ -299,14 +305,26 @@ export const BlogSection = (): JSX.Element => {
             display: "none",
             flexDirection: "column",
             alignItems: "center",
-            maxHeight: "none",
-            overflowY: "visible",
+            justifyContent: "center",
+            height: 160,
+            position: "relative",
             paddingBottom: 40
           }}
         >
           {services.map((s, idx) => {
             return (
-              <div key={s.step} style={{ marginTop: idx > 0 ? -24 : 0, zIndex: 10 - idx }}>
+              <div
+                key={s.step}
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  opacity: activeCircleIndex === idx ? 1 : 0,
+                  transition: "opacity 0.6s ease-in-out",
+                  pointerEvents: activeCircleIndex === idx ? "auto" : "none",
+                }}
+              >
                 <Circle service={s} isVisible={true} isDesktop={false} />
               </div>
             );
