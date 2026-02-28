@@ -1,16 +1,7 @@
-import { useState, useEffect } from "react";
 import ellipse35 from "../../../../assets/outsource/Ellipse-35.png";
 import ellipse36 from "../../../../assets/outsource/Ellipse-36.svg";
 
 export const MainContentSection = (): JSX.Element => {
-  const [activeCardIndex, setActiveCardIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveCardIndex((prev) => (prev + 1) % 8); // 8 features
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
   /* ==============================
      DATA
      ============================== */
@@ -492,99 +483,122 @@ export const MainContentSection = (): JSX.Element => {
               />
             </div>
 
-            {/* Mobile: Stacked cards */}
+            {/* Mobile: Infinite Vertical Stacked Cards */}
             <div
               className="why-cards-mobile"
               style={{
                 display: "none",
-                flexDirection: "column",
-                alignItems: "center",
-                padding: "20px 16px",
-                overflow: "hidden"
+                width: "100%",
+                height: 550, // Clip the overflow to create a window for the sliding cards
+                overflow: "hidden",
+                position: "relative",
+                padding: "10px 16px",
               }}
             >
-              {whyGoBillFeatures.map((feature, idx) => {
-                const colors = [
-                  "#2C60FF", "#0291D3", "#9B62FF", "#233B82",
-                  "#6E45FF", "#1B2C5F", "#4F5AFF", "#36C2C8",
-                ];
-                const isEven = idx % 2 === 0;
-                const isAct = idx === activeCardIndex;
+              <div
+                className="marquee-track-vertical"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  width: "100%",
+                }}
+              >
+                {[...whyGoBillFeatures, ...whyGoBillFeatures].map((feature, idx) => {
+                  const colors = [
+                    "#2C60FF", "#0291D3", "#9B62FF", "#233B82",
+                    "#6E45FF", "#1B2C5F", "#4F5AFF", "#36C2C8",
+                  ];
+                  const colorIdx = idx % 8;
+                  const isEven = idx % 2 === 0;
+                  const rotation = isEven ? 5 : -5;
 
-                const baseRotation = isEven ? 5 : -5;
-                const rotation = isAct ? 0 : baseRotation;
-                const scale = isAct ? 1.05 : 1;
-                const marginTop = idx === 0 ? 0 : isAct ? 10 : -30;
-                const marginBottom = isAct ? 40 : 0;
+                  // For a perfect continuous loop spanning negative margins:
+                  // The first item sets the baseline. 
+                  // Every subsequent item pulls up -30.
+                  const marginTop = idx === 0 ? 0 : -30;
 
-                return (
-                  <div
-                    key={idx}
-                    style={{
-                      width: "100%",
-                      maxWidth: 380,
-                      background: colors[idx],
-                      borderRadius: 24,
-                      padding: "24px 28px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      flexDirection: isEven ? "row" : "row-reverse",
-                      gap: 20,
-                      transform: `scale(${scale}) rotate(${rotation}deg)`,
-                      marginTop,
-                      marginBottom,
-                      position: "relative",
-                      zIndex: isAct ? 20 : idx,
-                      boxShadow: isAct ? "0 20px 40px rgba(0,0,0,0.3)" : "0 10px 30px rgba(0,0,0,0.15)",
-                      transition: "all 0.6s cubic-bezier(0.25, 1, 0.5, 1)",
-                    }}
-                  >
-                    <span
+                  return (
+                    <div
+                      key={idx}
                       style={{
-                        fontFamily: "var(--font-family)",
-                        fontWeight: 600,
-                        fontSize: "clamp(16px, 4.5vw, 20px)",
-                        color: "#fff",
-                        lineHeight: 1.3,
-                        flex: 1,
-                        textAlign: isEven ? "left" : "right"
+                        width: "100%",
+                        maxWidth: 380,
+                        background: colors[colorIdx],
+                        borderRadius: 24,
+                        padding: "24px 28px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        flexDirection: isEven ? "row" : "row-reverse",
+                        gap: 20,
+                        transform: `rotate(${rotation}deg)`,
+                        marginTop,
+                        position: "relative",
+                        zIndex: idx,
+                        boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                        flexShrink: 0,
                       }}
                     >
-                      {feature.title}
-                    </span>
-                    <div style={{
-                      width: 64,
-                      height: 64,
-                      borderRadius: "50%",
-                      background: "rgba(255,255,255,0.15)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0
-                    }}>
-                      <img
-                        src={feature.icon}
-                        alt={feature.title}
+                      <span
                         style={{
-                          width: 36,
-                          height: 36,
-                          objectFit: "contain",
-                          filter: "brightness(0) invert(1)",
+                          fontFamily: "var(--font-family)",
+                          fontWeight: 600,
+                          fontSize: "clamp(16px, 4.5vw, 20px)",
+                          color: "#fff",
+                          lineHeight: 1.3,
+                          flex: 1,
+                          textAlign: isEven ? "left" : "right"
                         }}
-                      />
+                      >
+                        {feature.title}
+                      </span>
+                      <div style={{
+                        width: 64,
+                        height: 64,
+                        borderRadius: "50%",
+                        background: "rgba(255,255,255,0.15)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0
+                      }}>
+                        <img
+                          src={feature.icon}
+                          alt={feature.title}
+                          style={{
+                            width: 36,
+                            height: 36,
+                            objectFit: "contain",
+                            filter: "brightness(0) invert(1)",
+                          }}
+                        />
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
 
         <style>{`
+          @keyframes scrollMarqueeVertical {
+            0% {
+              transform: translateY(0);
+            }
+            100% {
+              /* Exact measurement offset for perfectly jumping halfway down the doubled set */
+              /* 15px is the offset required to account for the single missing 30px overlap at index 0 */
+              transform: translateY(calc(-50% - 15px));
+            }
+          }
           @media (max-width: 900px) {
             .why-cards-desktop { display: none !important; }
-            .why-cards-mobile { display: flex !important; }
+            .why-cards-mobile { display: block !important; }
+            .marquee-track-vertical {
+              animation: scrollMarqueeVertical 25s linear infinite;
+            }
           }
           @media (max-width: 600px) {
             #why-gobill > div > div:first-child {
