@@ -1,7 +1,16 @@
+import { useState, useEffect } from "react";
 import ellipse35 from "../../../../assets/outsource/Ellipse-35.png";
 import ellipse36 from "../../../../assets/outsource/Ellipse-36.svg";
 
 export const MainContentSection = (): JSX.Element => {
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveCardIndex((prev) => (prev + 1) % 8); // 8 features
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
   /* ==============================
      DATA
      ============================== */
@@ -500,7 +509,13 @@ export const MainContentSection = (): JSX.Element => {
                   "#6E45FF", "#1B2C5F", "#4F5AFF", "#36C2C8",
                 ];
                 const isEven = idx % 2 === 0;
-                const rotation = isEven ? 5 : -5;
+                const isAct = idx === activeCardIndex;
+
+                const baseRotation = isEven ? 5 : -5;
+                const rotation = isAct ? 0 : baseRotation;
+                const scale = isAct ? 1.05 : 1;
+                const marginTop = idx === 0 ? 0 : isAct ? 10 : -30;
+                const marginBottom = isAct ? 40 : 0;
 
                 return (
                   <div
@@ -516,11 +531,13 @@ export const MainContentSection = (): JSX.Element => {
                       justifyContent: "space-between",
                       flexDirection: isEven ? "row" : "row-reverse",
                       gap: 20,
-                      transform: `rotate(${rotation}deg)`,
-                      marginTop: idx > 0 ? -30 : 0,
+                      transform: `scale(${scale}) rotate(${rotation}deg)`,
+                      marginTop,
+                      marginBottom,
                       position: "relative",
-                      zIndex: idx,
-                      boxShadow: "0 10px 30px rgba(0,0,0,0.15)"
+                      zIndex: isAct ? 20 : idx,
+                      boxShadow: isAct ? "0 20px 40px rgba(0,0,0,0.3)" : "0 10px 30px rgba(0,0,0,0.15)",
+                      transition: "all 0.6s cubic-bezier(0.25, 1, 0.5, 1)",
                     }}
                   >
                     <span
