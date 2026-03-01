@@ -502,6 +502,7 @@ export const MainContentSection = (): JSX.Element => {
                   flexDirection: "column",
                   alignItems: "center",
                   width: "100%",
+                  gap: 16,
                 }}
               >
                 {[...whyGoBillFeatures, ...whyGoBillFeatures].map((feature, idx) => {
@@ -512,11 +513,6 @@ export const MainContentSection = (): JSX.Element => {
                   const colorIdx = idx % 8;
                   const isEven = idx % 2 === 0;
                   const rotation = isEven ? 5 : -5;
-
-                  // For a perfect continuous loop spanning negative margins:
-                  // The first item sets the baseline. 
-                  // Every subsequent item pulls up -30.
-                  const marginTop = idx === 0 ? 0 : -30;
 
                   return (
                     <div
@@ -533,7 +529,6 @@ export const MainContentSection = (): JSX.Element => {
                         flexDirection: isEven ? "row" : "row-reverse",
                         gap: 20,
                         transform: `rotate(${rotation}deg)`,
-                        marginTop,
                         position: "relative",
                         zIndex: idx,
                         boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
@@ -588,9 +583,8 @@ export const MainContentSection = (): JSX.Element => {
               transform: translateY(0);
             }
             100% {
-              /* Exact measurement offset for perfectly jumping halfway down the doubled set */
-              /* 15px is the offset required to account for the single missing 30px overlap at index 0 */
-              transform: translateY(calc(-50% - 15px));
+              /* Move exactly -50% (the height of the first 8 items) plus half the gap between the two identical sets */
+              transform: translateY(calc(-50% - 8px));
             }
           }
           @media (max-width: 900px) {
