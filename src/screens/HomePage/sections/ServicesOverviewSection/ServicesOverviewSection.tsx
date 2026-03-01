@@ -325,23 +325,148 @@ export const ServicesOverviewSection = (): JSX.Element => {
               />
 
               <div style={{ position: "relative", zIndex: 1 }}>
-                {/* ── ROW 1: Steps 1, 3, 5 (text on top, icon row below) ── */}
-                <div
-                  className="step-text-row-top"
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr 1fr 1fr",
-                    gap: 28,
-                    marginBottom: 16,
-                  }}
-                >
-                  {stepsTop.map((step) => (
-                    <div key={step.number}>
+
+                {/* ── DESKTOP LAYOUT (Zig-zag) ── */}
+                <div className="steps-desktop-only">
+                  {/* ── ROW 1: Steps 1, 3, 5 (text on top, icon row below) ── */}
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "1fr 1fr 1fr 1fr",
+                      gap: 28,
+                      marginBottom: 16,
+                    }}
+                  >
+                    {stepsTop.map((step) => (
+                      <div key={step.number}>
+                        <p
+                          style={{
+                            fontFamily: "var(--font-family)",
+                            fontWeight: 500,
+                            fontSize: 16,
+                            color: "#09064E",
+                            margin: 0,
+                            lineHeight: 1.4,
+                            fontStyle: "italic",
+                          }}
+                        >
+                          Step {step.number}—
+                          <br />
+                          <strong style={{ fontWeight: 500, fontStyle: "italic" }}>{step.title}</strong>
+                        </p>
+                        <p
+                          style={{
+                            fontFamily: "var(--font-family)",
+                            fontWeight: 400,
+                            fontSize: 14,
+                            color: "#343434",
+                            margin: "8px 0 0",
+                            lineHeight: 1.55,
+                            maxWidth: 310,
+                          }}
+                        >
+                          {step.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* ── ICON ROW: All 6 icons connected by dashed lines ── */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: 0,
+                      margin: "16px 0",
+                    }}
+                  >
+                    {/* Step 1 icon */}
+                    <img src={stepsTop[0].icon} alt="Step 1" style={{ width: 64, height: 64, flexShrink: 0 }} />
+                    <div style={connectorStyle} />
+                    {/* Step 2 icon */}
+                    <img src={stepsBottom[0].icon} alt="Step 2" style={{ width: 64, height: 64, flexShrink: 0 }} />
+                    <div style={connectorStyle} />
+                    {/* Step 3 icon */}
+                    <img src={stepsTop[1].icon} alt="Step 3" style={{ width: 64, height: 64, flexShrink: 0 }} />
+                    <div style={connectorStyle} />
+                    {/* Step 4 icon */}
+                    <img src={stepsBottom[1].icon} alt="Step 4" style={{ width: 64, height: 64, flexShrink: 0 }} />
+                    <div style={connectorStyle} />
+                    {/* Step 5 icon */}
+                    <img src={stepsTop[2].icon} alt="Step 5" style={{ width: 64, height: 64, flexShrink: 0 }} />
+                    <div style={connectorStyle} />
+                    {/* Step 6 icon */}
+                    <img src={stepsBottom[2].icon} alt="Step 6" style={{ width: 64, height: 64, flexShrink: 0 }} />
+                    <div style={connectorStyle} />
+                    {/* Step 7 icon */}
+                    <img src={stepsTop[3].icon} alt="Step 7" style={{ width: 64, height: 64, flexShrink: 0 }} />
+                    <div style={connectorStyle} />
+                    {/* Step 8 icon */}
+                    <img src={stepsBottom[3].icon} alt="Step 8" style={{ width: 64, height: 64, flexShrink: 0 }} />
+                  </div>
+
+                  {/* ── ROW 2: Steps 2, 4, 6 (icon row above, text below right-aligned) ── */}
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "1fr 1fr 1fr 1fr",
+                      gap: 28,
+                      marginTop: 16,
+                    }}
+                  >
+                    {stepsBottom.map((step) => (
+                      <div key={step.number} style={{ textAlign: "right" }}>
+                        <p
+                          style={{
+                            fontFamily: "var(--font-family)",
+                            fontWeight: 500,
+                            fontSize: 16,
+                            color: "#09064E",
+                            margin: 0,
+                            lineHeight: 1.4,
+                            fontStyle: "italic",
+                          }}
+                        >
+                          Step {step.number}—
+                          <br />
+                          <strong style={{ fontWeight: 500, fontStyle: "italic" }}>{step.title}</strong>
+                        </p>
+                        <p
+                          style={{
+                            fontFamily: "var(--font-family)",
+                            fontWeight: 400,
+                            fontSize: 14,
+                            color: "#343434",
+                            margin: "8px 0 0",
+                            lineHeight: 1.55,
+                            marginLeft: "auto",
+                            maxWidth: 340,
+                          }}
+                        >
+                          {step.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* ── MOBILE LAYOUT (Sequential 1 to 8) ── */}
+                <div className="steps-mobile-only" style={{ display: "none", flexDirection: "column", gap: 40, marginTop: 16 }}>
+                  {[...stepsTop, ...stepsBottom].sort((a, b) => a.number - b.number).map((step) => (
+                    <div key={step.number} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+                      <div style={{
+                        width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.4)",
+                        display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16,
+                        boxShadow: "0 4px 16px rgba(0,0,0,0.05)"
+                      }}>
+                        <img src={step.icon} alt={`Step ${step.number}`} style={{ width: 44, height: 44 }} />
+                      </div>
                       <p
                         style={{
                           fontFamily: "var(--font-family)",
                           fontWeight: 500,
-                          fontSize: 16,
+                          fontSize: 18,
                           color: "#09064E",
                           margin: 0,
                           lineHeight: 1.4,
@@ -350,17 +475,17 @@ export const ServicesOverviewSection = (): JSX.Element => {
                       >
                         Step {step.number}—
                         <br />
-                        <strong style={{ fontWeight: 500, fontStyle: "italic" }}>{step.title}</strong>
+                        <strong style={{ fontWeight: 600, fontStyle: "italic", color: "var(--primary)" }}>{step.title}</strong>
                       </p>
                       <p
                         style={{
                           fontFamily: "var(--font-family)",
                           fontWeight: 400,
-                          fontSize: 14,
+                          fontSize: 15,
                           color: "#343434",
-                          margin: "8px 0 0",
+                          margin: "12px 0 0",
                           lineHeight: 1.55,
-                          maxWidth: 310,
+                          maxWidth: 500,
                         }}
                       >
                         {step.desc}
@@ -369,86 +494,6 @@ export const ServicesOverviewSection = (): JSX.Element => {
                   ))}
                 </div>
 
-                {/* ── ICON ROW: All 6 icons connected by dashed lines ── */}
-                <div
-                  className="icon-row"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: 0,
-                    margin: "16px 0",
-                  }}
-                >
-                  {/* Step 1 icon */}
-                  <img src={stepsTop[0].icon} alt="Step 1" style={{ width: 64, height: 64, flexShrink: 0 }} />
-                  <div style={connectorStyle} />
-                  {/* Step 2 icon */}
-                  <img src={stepsBottom[0].icon} alt="Step 2" style={{ width: 64, height: 64, flexShrink: 0 }} />
-                  <div style={connectorStyle} />
-                  {/* Step 3 icon */}
-                  <img src={stepsTop[1].icon} alt="Step 3" style={{ width: 64, height: 64, flexShrink: 0 }} />
-                  <div style={connectorStyle} />
-                  {/* Step 4 icon */}
-                  <img src={stepsBottom[1].icon} alt="Step 4" style={{ width: 64, height: 64, flexShrink: 0 }} />
-                  <div style={connectorStyle} />
-                  {/* Step 5 icon */}
-                  <img src={stepsTop[2].icon} alt="Step 5" style={{ width: 64, height: 64, flexShrink: 0 }} />
-                  <div style={connectorStyle} />
-                  {/* Step 6 icon */}
-                  <img src={stepsBottom[2].icon} alt="Step 6" style={{ width: 64, height: 64, flexShrink: 0 }} />
-                  <div style={connectorStyle} />
-                  {/* Step 7 icon */}
-                  <img src={stepsTop[3].icon} alt="Step 7" style={{ width: 64, height: 64, flexShrink: 0 }} />
-                  <div style={connectorStyle} />
-                  {/* Step 8 icon */}
-                  <img src={stepsBottom[3].icon} alt="Step 8" style={{ width: 64, height: 64, flexShrink: 0 }} />
-                </div>
-
-                {/* ── ROW 2: Steps 2, 4, 6 (icon row above, text below right-aligned) ── */}
-                <div
-                  className="step-text-row-bottom"
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr 1fr 1fr",
-                    gap: 28,
-                    marginTop: 16,
-                  }}
-                >
-                  {stepsBottom.map((step) => (
-                    <div key={step.number} style={{ textAlign: "right" }}>
-                      <p
-                        style={{
-                          fontFamily: "var(--font-family)",
-                          fontWeight: 500,
-                          fontSize: 16,
-                          color: "#09064E",
-                          margin: 0,
-                          lineHeight: 1.4,
-                          fontStyle: "italic",
-                        }}
-                      >
-                        Step {step.number}—
-                        <br />
-                        <strong style={{ fontWeight: 500, fontStyle: "italic" }}>{step.title}</strong>
-                      </p>
-                      <p
-                        style={{
-                          fontFamily: "var(--font-family)",
-                          fontWeight: 400,
-                          fontSize: 14,
-                          color: "#343434",
-                          margin: "8px 0 0",
-                          lineHeight: 1.55,
-                          marginLeft: "auto",
-                          maxWidth: 340,
-                        }}
-                      >
-                        {step.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
 
@@ -565,30 +610,10 @@ export const ServicesOverviewSection = (): JSX.Element => {
             flex-direction: column;
             text-align: center;
           }
-          .step-text-row-top,
-          .step-text-row-bottom {
-            grid-template-columns: 1fr !important;
-            gap: 20px !important;
-          }
-          .step-text-row-bottom > div {
-            text-align: left !important;
-          }
-          .icon-row {
-            flex-wrap: wrap !important;
-            gap: 12px !important;
-            justify-content: center !important;
-          }
-          .icon-row > div {
-            display: none !important;
-          }
+          .steps-desktop-only { display: none !important; }
+          .steps-mobile-only { display: flex !important; }
           .steps-area {
-            padding: 24px 16px !important;
-          }
-        }
-        @media (max-width: 1024px) {
-          .icon-row img {
-            width: 64px !important;
-            height: 64px !important;
+            padding: 32px 16px !important;
           }
         }
       `}</style>
