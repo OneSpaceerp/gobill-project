@@ -74,7 +74,7 @@ export const AssessmentPage = (): JSX.Element => {
                 <div className="container" style={{ maxWidth: 1000, background: "#fff", borderRadius: 24, padding: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.08)", minHeight: 750 }}>
                     <div
                         className="calendly-inline-widget"
-                        data-url="https://calendly.com/gobillsales/30min?background_color=ffffff&text_color=080857&primary_color=665ffd"
+                        data-url="https://calendly.com/gobillsales/discuss-results?background_color=ffffff&text_color=080857&primary_color=665ffd"
                         style={{ minWidth: "320px", height: "700px" }}
                     ></div>
                 </div>
