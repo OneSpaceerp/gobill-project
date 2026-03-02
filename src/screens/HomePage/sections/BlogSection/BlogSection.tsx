@@ -108,31 +108,6 @@ export const BlogSection = (): JSX.Element => {
         zIndex: 5,
       }}
     >
-      {/* Step Badge */}
-      <div
-        style={{
-          position: "absolute",
-          top: -8,
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: 28,
-          height: 28,
-          borderRadius: "50%",
-          background: "#fff",
-          border: "2px solid #665FFD",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontFamily: "var(--font-family)",
-          fontWeight: 700,
-          fontSize: 13,
-          color: "#665FFD",
-          zIndex: 2,
-          boxShadow: "0 2px 8px rgba(102,95,253,0.2)",
-        }}
-      >
-        {service.step}
-      </div>
       {/* Circle */}
       <div
         style={{
