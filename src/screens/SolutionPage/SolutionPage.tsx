@@ -153,16 +153,16 @@ export const SolutionPage = (): JSX.Element => {
                             ))}
                         </div>
                         {/* Visual side (image or decorative block) */}
-                        {idx === 0 && data.heroImage ? (
+                        {(idx === 0 && data.heroImage) || (idx === 1 && data.iconImage) ? (
                             <div style={{
-                                flex: "1 1 360px", minHeight: 400,
+                                flex: "1 1 360px", minHeight: idx === 0 ? 400 : 360,
                                 borderRadius: 20, overflow: "hidden",
                                 display: "flex", alignItems: "center", justifyContent: "center",
                                 position: "relative",
                                 boxShadow: "0 24px 48px rgba(0,0,0,0.06), 0 8px 24px rgba(102,95,253,0.1)",
                                 border: "1px solid rgba(102,95,253,0.1)"
                             }}>
-                                <img src={data.heroImage} alt={section.title} style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute", inset: 0 }} />
+                                <img src={idx === 0 ? data.heroImage : data.iconImage} alt={section.title} style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute", inset: 0 }} />
                             </div>
                         ) : (
                             <div style={{
@@ -306,7 +306,7 @@ export const SolutionPage = (): JSX.Element => {
                             bottom: -30, left: -30,
                         }} />
                         {data.iconImage ? (
-                            <img src={data.iconImage} alt="Service Icon" style={{ width: 160, height: 160, objectFit: "contain", zIndex: 1, filter: "drop-shadow(0 12px 24px rgba(0,0,0,0.15))" }} />
+                            <img src={data.iconImage} alt="Service Icon" style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute", inset: 0, zIndex: 1 }} />
                         ) : (
                             <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="0.8" style={{ zIndex: 1 }}>
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -344,7 +344,7 @@ export const SolutionPage = (): JSX.Element => {
                                 top: 30, left: 30,
                             }} />
                             {data.iconImage ? (
-                                <img src={data.iconImage} alt="Details Icon" style={{ width: 120, height: 120, objectFit: "contain", zIndex: 1, filter: "drop-shadow(0 12px 24px rgba(0,0,0,0.15))" }} />
+                                <img src={data.iconImage} alt="Details Icon" style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute", inset: 0, zIndex: 1 }} />
                             ) : (
                                 <svg width="90" height="90" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="0.8" style={{ zIndex: 1 }}>
                                     <path d="M18 20V10M12 20V4M6 20v-6" />
