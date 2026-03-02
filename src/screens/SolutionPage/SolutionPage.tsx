@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { solutionPages } from "../../data/solutionData";
+import { CheckCircle2 } from "lucide-react";
 
 /* ── Checkmark Icon ── */
 const CheckIcon = () => (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <circle cx="10" cy="10" r="10" fill="var(--primary)" fillOpacity="0.12" />
-        <path d="M6 10L9 13L14 7" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+    <CheckCircle2 color="var(--primary)" size={22} strokeWidth={2.5} />
 );
 
 /* ── Accordion Arrow ── */
@@ -154,40 +152,53 @@ export const SolutionPage = (): JSX.Element => {
                                 </p>
                             ))}
                         </div>
-                        {/* Visual side (decorative gradient block) */}
-                        <div style={{
-                            flex: "1 1 360px", minHeight: 300,
-                            borderRadius: 20, overflow: "hidden",
-                            background: idx % 2 === 0
-                                ? "linear-gradient(135deg, #665FFD 0%, #10217D 100%)"
-                                : "linear-gradient(135deg, #10217D 0%, #0a0655 100%)",
-                            display: "flex", alignItems: "center", justifyContent: "center",
-                            position: "relative",
-                        }}>
+                        {/* Visual side (image or decorative block) */}
+                        {idx === 0 && data.heroImage ? (
                             <div style={{
-                                width: 120, height: 120, borderRadius: "50%",
-                                background: "rgba(255,255,255,0.08)", position: "absolute",
-                                top: 40, left: 40,
-                            }} />
+                                flex: "1 1 360px", minHeight: 400,
+                                borderRadius: 20, overflow: "hidden",
+                                display: "flex", alignItems: "center", justifyContent: "center",
+                                position: "relative",
+                                boxShadow: "0 24px 48px rgba(0,0,0,0.06), 0 8px 24px rgba(102,95,253,0.1)",
+                                border: "1px solid rgba(102,95,253,0.1)"
+                            }}>
+                                <img src={data.heroImage} alt={section.title} style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute", inset: 0 }} />
+                            </div>
+                        ) : (
                             <div style={{
-                                width: 80, height: 80, borderRadius: "50%",
-                                background: "rgba(255,255,255,0.06)", position: "absolute",
-                                bottom: 30, right: 30,
-                            }} />
-                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                                {idx % 2 === 0 ? (
-                                    <>
-                                        <path d="M12 2v20M2 12h20" />
-                                        <circle cx="12" cy="12" r="8" />
-                                    </>
-                                ) : (
-                                    <>
-                                        <rect x="3" y="3" width="18" height="18" rx="2" />
-                                        <path d="M3 9h18M9 21V9" />
-                                    </>
-                                )}
-                            </svg>
-                        </div>
+                                flex: "1 1 360px", minHeight: 300,
+                                borderRadius: 20, overflow: "hidden",
+                                background: idx % 2 === 0
+                                    ? "linear-gradient(135deg, #665FFD 0%, #10217D 100%)"
+                                    : "linear-gradient(135deg, #10217D 0%, #0a0655 100%)",
+                                display: "flex", alignItems: "center", justifyContent: "center",
+                                position: "relative",
+                            }}>
+                                <div style={{
+                                    width: 120, height: 120, borderRadius: "50%",
+                                    background: "rgba(255,255,255,0.08)", position: "absolute",
+                                    top: 40, left: 40,
+                                }} />
+                                <div style={{
+                                    width: 80, height: 80, borderRadius: "50%",
+                                    background: "rgba(255,255,255,0.06)", position: "absolute",
+                                    bottom: 30, right: 30,
+                                }} />
+                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                                    {idx % 2 === 0 ? (
+                                        <>
+                                            <path d="M12 2v20M2 12h20" />
+                                            <circle cx="12" cy="12" r="8" />
+                                        </>
+                                    ) : (
+                                        <>
+                                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                                            <path d="M3 9h18M9 21V9" />
+                                        </>
+                                    )}
+                                </svg>
+                            </div>
+                        )}
                     </div>
                 </section>
             ))}
