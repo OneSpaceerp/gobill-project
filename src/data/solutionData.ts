@@ -17,6 +17,7 @@ export interface SolutionPageData {
     partnerSection?: { title: string; text: string };
     features: { title: string; description: string }[];
     heroImage?: string;
+    iconImage?: string;
     ctaTitle?: string;
     ctaText?: string;
 }
@@ -90,6 +91,7 @@ export const solutionPages: SolutionPageData[] = [
         ctaTitle: "Reduce Errors and Maximize Revenue",
         ctaText: "Whether your billing model needs a complete overhaul or just an improvement, we'll build a tailored improvement plan with customized solutions specifically for your practice.",
         heroImage: "/assets/services/rcm.png",
+        iconImage: "/assets/services/icons/rcm.png",
     },
 
     /* ═══════════════════════════════════════════════════════
@@ -159,6 +161,7 @@ export const solutionPages: SolutionPageData[] = [
         ctaTitle: "Ready to Optimize Your Billing Cycle?",
         ctaText: "Our certified medical billing specialists will analyze your current billing processes and identify opportunities to increase collections and reduce costs.",
         heroImage: "/assets/services/billing.png",
+        iconImage: "/assets/services/icons/billing.png",
     },
 
     /* ═══════════════════════════════════════════════════════
@@ -222,6 +225,7 @@ export const solutionPages: SolutionPageData[] = [
         ctaTitle: "Ready to Boost Your Claim Approval Rate?",
         ctaText: "GoBill's expert denial management services can help you streamline your billing processes and ensure faster, more accurate reimbursements.",
         heroImage: "/assets/services/denial.png",
+        iconImage: "/assets/services/icons/denial.png",
     },
 
     /* ═══════════════════════════════════════════════════════
@@ -282,6 +286,7 @@ export const solutionPages: SolutionPageData[] = [
         ctaTitle: "Maximize Patient Access and Ease Workflow for Your Physicians",
         ctaText: "Explore GoBill's patient appointment scheduling solutions and streamline your operations so you can focus on delivering high-quality care.",
         heroImage: "/assets/services/scheduling.png",
+        iconImage: "/assets/services/icons/scheduling.png",
     },
 
     /* ═══════════════════════════════════════════════════════
@@ -344,6 +349,7 @@ export const solutionPages: SolutionPageData[] = [
         ctaTitle: "Get Consistent Cash Flow",
         ctaText: "GoBill's A/R collections solution can reduce your payment turnaround time and ensure timely reimbursements for a financially healthy practice.",
         heroImage: "/assets/services/ar.png",
+        iconImage: "/assets/services/icons/ar.png",
     },
 
     /* ═══════════════════════════════════════════════════════
@@ -408,6 +414,7 @@ export const solutionPages: SolutionPageData[] = [
         ctaTitle: "Get More Claims Approved",
         ctaText: "Enhance your workflow with GoBill. Our health insurance preauthorization ensures real-time eligibility verification and improved revenue collection.",
         heroImage: "/assets/services/preauth.png",
+        iconImage: "/assets/services/icons/preauth.png",
     },
 
     /* ═══════════════════════════════════════════════════════
@@ -477,6 +484,7 @@ export const solutionPages: SolutionPageData[] = [
         ctaTitle: "Ready To Enroll?",
         ctaText: "GoBill's expertise in insurance credentialing for providers ensures that your practice meets all compliance requirements efficiently.",
         heroImage: "/assets/services/credentialing.png",
+        iconImage: "/assets/services/icons/credentialing.png",
     },
 
     /* ═══════════════════════════════════════════════════════
@@ -546,5 +554,6 @@ export const solutionPages: SolutionPageData[] = [
         ctaTitle: "Quality Hires for Less",
         ctaText: "Save up to 75% on payroll expenses without compromising on quality or efficiency with our virtual medical receptionists.",
         heroImage: "/assets/services/virtualdesk.png",
+        iconImage: "/assets/services/icons/virtualdesk.png",
     },
 ];
