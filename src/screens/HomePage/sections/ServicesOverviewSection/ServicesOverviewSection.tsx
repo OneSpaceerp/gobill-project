@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 
 /* =============================================
    Slide 2 — "See How It Works" 8-step process
@@ -499,8 +500,8 @@ export const ServicesOverviewSection = (): JSX.Element => {
 
             {/* ── CTA Button ── */}
             <div style={{ textAlign: "center", marginTop: 36 }}>
-              <a
-                href="#assessment"
+              <Link
+                to="/assessment"
                 style={{
                   display: "inline-block",
                   background: "#665FFD",
@@ -529,7 +530,7 @@ export const ServicesOverviewSection = (): JSX.Element => {
                 }}
               >
                 Start Your Complimentary Assessment Today
-              </a>
+              </Link>
             </div>
           </div>
         </div>

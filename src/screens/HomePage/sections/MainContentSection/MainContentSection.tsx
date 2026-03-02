@@ -1,5 +1,6 @@
 import ellipse35 from "../../../../assets/outsource/Ellipse-35.png";
 import ellipse36 from "../../../../assets/outsource/Ellipse-36.svg";
+import { Link } from "react-router-dom";
 
 export const MainContentSection = (): JSX.Element => {
   /* ==============================
@@ -856,8 +857,8 @@ export const MainContentSection = (): JSX.Element => {
               Identify areas for improvement, boost your revenue cycle
               efficiency, and enjoy consistently high reimbursement rates.
             </p>
-            <a
-              href="#start-assessment"
+            <Link
+              to="/assessment"
               className="btn-outline"
               style={{
                 background: "#fff",
@@ -865,10 +866,12 @@ export const MainContentSection = (): JSX.Element => {
                 borderColor: "var(--primary)",
                 fontSize: 20,
                 padding: "18px 48px",
+                display: "inline-block",
+                textDecoration: "none"
               }}
             >
               Start Now
-            </a>
+            </Link>
           </div>
         </div>
       </section>
