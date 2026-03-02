@@ -179,7 +179,8 @@ export const ServicesOverviewSection = (): JSX.Element => {
               </p>
               <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
                 <a
-                  href="#book"
+                  href="https://calendly.com/gobillsales/discuss-results"
+                  target="_blank" rel="noopener noreferrer"
                   className="btn-primary"
                   style={{
                     fontSize: "clamp(16px, 1.2vw, 20px)",

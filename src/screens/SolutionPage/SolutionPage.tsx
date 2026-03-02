@@ -85,8 +85,9 @@ export const SolutionPage = (): JSX.Element => {
                     }}>
                         {data.tagline}
                     </p>
-                    <Link
-                        to="/assessment"
+                    <a
+                        href="https://calendly.com/gobillsales/discuss-results"
+                        target="_blank" rel="noopener noreferrer"
                         style={{
                             display: "inline-block", background: "#fff",
                             color: "var(--primary)", padding: "16px 36px",
@@ -98,7 +99,7 @@ export const SolutionPage = (): JSX.Element => {
                         onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
                     >
                         Book A Meeting
-                    </Link>
+                    </a>
                 </div>
             </section>
 

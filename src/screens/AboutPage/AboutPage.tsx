@@ -96,12 +96,12 @@ export const AboutPage = (): JSX.Element => {
                 <div className="container">
                     <h2 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(24px, 3vw, 40px)", color: "#fff", marginBottom: 16 }}>Ready to talk?</h2>
                     <p style={{ fontFamily: "var(--font-family)", fontSize: 18, color: "rgba(255,255,255,0.85)", marginBottom: 36, maxWidth: 500, margin: "0 auto 36px" }}>Manage your practice all from one place.</p>
-                    <Link to="/book-a-meeting" style={{ display: "inline-block", background: "#fff", color: "var(--primary)", padding: "16px 40px", borderRadius: 30, fontSize: 17, fontWeight: 600, fontFamily: "var(--font-family)", textDecoration: "none", transition: "all 0.3s" }}
+                    <a href="https://calendly.com/gobillsales/discuss-results" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "#fff", color: "var(--primary)", padding: "16px 40px", borderRadius: 30, fontSize: 17, fontWeight: 600, fontFamily: "var(--font-family)", textDecoration: "none", transition: "all 0.3s" }}
                         onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(255,255,255,0.3)"; }}
                         onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
                     >
                         Schedule A Meeting
-                    </Link>
+                    </a>
                 </div>
             </section>
         </main>

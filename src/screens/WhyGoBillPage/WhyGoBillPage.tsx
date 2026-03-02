@@ -35,9 +35,9 @@ export const WhyGoBillPage = (): JSX.Element => {
                         GoBill is a medical billing and practice management outsourcing company with 360 healthcare services. Our staff are exceptionally qualified Virtual Front-Desk Assistants and Revenue Cycle Management experts worth 10 years of certified experience and all the "know-how" of a medical practice's financial health.
                     </p>
                     <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-                        <Link to="/book-a-meeting" style={{ display: "inline-block", background: "#fff", color: "var(--primary)", padding: "16px 36px", borderRadius: 30, fontSize: 17, fontWeight: 600, fontFamily: "var(--font-family)", textDecoration: "none" }}>
+                        <a href="https://calendly.com/gobillsales/discuss-results" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "#fff", color: "var(--primary)", padding: "16px 36px", borderRadius: 30, fontSize: 17, fontWeight: 600, fontFamily: "var(--font-family)", textDecoration: "none" }}>
                             Book A Meeting
-                        </Link>
+                        </a>
                         <Link to="/assessment" style={{ display: "inline-block", background: "transparent", color: "#fff", padding: "16px 36px", borderRadius: 30, fontSize: 17, fontWeight: 500, fontFamily: "var(--font-family)", textDecoration: "none", border: "2px solid rgba(255,255,255,0.4)" }}>
                             Complimentary Assessment
                         </Link>
@@ -121,9 +121,9 @@ export const WhyGoBillPage = (): JSX.Element => {
                     <h2 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(24px, 3vw, 40px)", color: "var(--text-dark)", marginBottom: 16 }}>Ready to See the Difference?</h2>
                     <p style={{ fontFamily: "var(--font-family)", fontSize: 18, color: "var(--text-body)", marginBottom: 36, maxWidth: 500, margin: "0 auto 36px" }}>Schedule your complimentary assessment and discover your revenue potential.</p>
                     <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-                        <Link to="/book-a-meeting" className="btn-primary" style={{ padding: "16px 40px", fontSize: 17, textDecoration: "none" }}>
+                        <a href="https://calendly.com/gobillsales/discuss-results" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: "16px 40px", fontSize: 17, textDecoration: "none" }}>
                             Book A Meeting
-                        </Link>
+                        </a>
                         <Link to="/assessment" style={{ display: "inline-block", background: "transparent", color: "var(--primary)", padding: "16px 40px", borderRadius: 30, fontSize: 17, fontWeight: 500, fontFamily: "var(--font-family)", textDecoration: "none", border: "2px solid var(--primary)" }}>
                             Complimentary Assessment
                         </Link>

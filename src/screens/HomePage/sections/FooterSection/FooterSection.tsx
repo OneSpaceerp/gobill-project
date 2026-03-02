@@ -156,8 +156,9 @@ export const FooterSection = (): JSX.Element => {
             </p>
             {/* Let's Have a Talk Button */}
             <div style={{ marginBottom: 24 }}>
-              <Link
-                to="/book-a-meeting"
+              <a
+                href="https://calendly.com/gobillsales/discuss-results"
+                target="_blank" rel="noopener noreferrer"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -186,7 +187,7 @@ export const FooterSection = (): JSX.Element => {
                 }}
               >
                 Let's Have a Talk
-              </Link>
+              </a>
             </div>
 
             {/* Social Icons */}

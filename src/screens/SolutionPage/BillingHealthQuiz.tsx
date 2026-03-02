@@ -141,7 +141,8 @@ export const BillingHealthQuiz = () => {
 
                     <div style={{ textAlign: "center" }}>
                         <a
-                            href="#book"
+                            href="https://calendly.com/gobillsales/discuss-results"
+                            target="_blank" rel="noopener noreferrer"
                             style={{
                                 display: "inline-block",
                                 background: "var(--primary)",
