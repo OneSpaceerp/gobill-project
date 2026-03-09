@@ -42,8 +42,12 @@ export const SolutionPage = (): JSX.Element => {
             <section
                 style={{
                     background: data.heroBgImage
-                        ? `url(${data.heroBgImage}) center/cover no-repeat`
+                        ? undefined
                         : "linear-gradient(135deg, #0a0655 0%, #10217D 50%, #665FFD 100%)",
+                    backgroundImage: data.heroBgImage ? `url("${data.heroBgImage}")` : undefined,
+                    backgroundSize: data.heroBgImage ? "cover" : undefined,
+                    backgroundPosition: data.heroBgImage ? "center" : undefined,
+                    backgroundRepeat: data.heroBgImage ? "no-repeat" : undefined,
                     padding: "110px 0 90px",
                     position: "relative",
                     overflow: "hidden",
