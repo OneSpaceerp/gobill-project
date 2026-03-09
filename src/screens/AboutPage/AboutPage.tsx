@@ -16,29 +16,29 @@ export const AboutPage = (): JSX.Element => {
             {/* Hero */}
             <section
                 style={{
-                    background: "linear-gradient(135deg, #0a0655 0%, #10217D 60%, #665FFD 100%)",
+                    backgroundImage: 'url("/headers/about-us.jpg")',
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
                     padding: "100px 0 80px",
                     position: "relative",
                     overflow: "hidden",
                 }}
             >
-                <div className="container" style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 40 }}>
-                    <div style={{ flex: "1 1 500px" }}>
-                        <p style={{ fontFamily: "var(--font-family)", fontWeight: 500, fontSize: 16, color: "rgba(255,255,255,0.7)", marginBottom: 12, letterSpacing: 1, textTransform: "uppercase" }}>
+                <div className="container" style={{ position: "relative", zIndex: 2 }}>
+                    <div style={{ maxWidth: 700 }}>
+                        <p style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: 16, color: "#000", marginBottom: 12, letterSpacing: 1, textTransform: "uppercase" }}>
                             About Us
                         </p>
-                        <h1 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(32px, 4vw, 52px)", color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>
+                        <h1 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(32px, 4vw, 52px)", color: "#000", lineHeight: 1.15, marginBottom: 20 }}>
                             This Is GoBill
                         </h1>
-                        <p style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(18px, 1.5vw, 24px)", color: "rgba(255,255,255,0.95)", lineHeight: 1.4, marginBottom: 16 }}>
+                        <p style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(18px, 1.5vw, 24px)", color: "#111", lineHeight: 1.4, marginBottom: 16 }}>
                             We Have The Expertise To Achieve Excellence.
                         </p>
-                        <p style={{ fontFamily: "var(--font-family)", fontWeight: 400, fontSize: "clamp(16px, 1.2vw, 20px)", color: "rgba(255,255,255,0.85)", lineHeight: 1.6, maxWidth: 600 }}>
+                        <p style={{ fontFamily: "var(--font-family)", fontWeight: 500, fontSize: "clamp(16px, 1.2vw, 20px)", color: "#222", lineHeight: 1.6, maxWidth: 600 }}>
                             The dedicated staff at GoBill ensures you the highest possible reimbursement. We are a group of certified teams with extensive experience in medical billing, coding, claims processing, collections, and customized support hours according to business needs. Your success is our success.
                         </p>
-                    </div>
-                    <div style={{ flex: "1 1 400px", display: "flex", justifyContent: "center" }}>
-                        <img src="/assets/company/about-header.jpg" alt="About GoBill" style={{ width: "100%", maxWidth: 600, borderRadius: 20, boxShadow: "0 24px 48px rgba(0,0,0,0.2)" }} />
                     </div>
                 </div>
             </section>

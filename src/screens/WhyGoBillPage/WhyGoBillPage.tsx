@@ -23,29 +23,32 @@ export const WhyGoBillPage = (): JSX.Element => {
     return (
         <main>
             {/* Hero */}
-            <section style={{ background: "linear-gradient(135deg, #0a0655 0%, #10217D 60%, #665FFD 100%)", padding: "100px 0 80px" }}>
-                <div className="container" style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 40 }}>
-                    <div style={{ flex: "1 1 500px" }}>
-                        <h1 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(32px, 4vw, 52px)", color: "#fff", lineHeight: 1.15, marginBottom: 20, maxWidth: 700 }}>
+            <section style={{
+                backgroundImage: 'url("/headers/why-gobill.jpg")',
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                padding: "100px 0 80px",
+            }}>
+                <div className="container" style={{ position: "relative", zIndex: 2 }}>
+                    <div style={{ maxWidth: 700 }}>
+                        <h1 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(32px, 4vw, 52px)", color: "#000", lineHeight: 1.15, marginBottom: 20, maxWidth: 700 }}>
                             Why GoBill?
                         </h1>
-                        <p style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(18px, 1.5vw, 24px)", color: "rgba(255,255,255,0.95)", lineHeight: 1.4, marginBottom: 16, maxWidth: 640 }}>
+                        <p style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(18px, 1.5vw, 24px)", color: "#111", lineHeight: 1.4, marginBottom: 16, maxWidth: 640 }}>
                             Collect 100% of Your Profit Faster at an Affordable Rate
                         </p>
-                        <p style={{ fontFamily: "var(--font-family)", fontSize: "clamp(16px, 1.2vw, 20px)", color: "rgba(255,255,255,0.85)", lineHeight: 1.6, maxWidth: 640, marginBottom: 32 }}>
+                        <p style={{ fontFamily: "var(--font-family)", fontSize: "clamp(16px, 1.2vw, 20px)", color: "#222", lineHeight: 1.6, maxWidth: 640, marginBottom: 32 }}>
                             GoBill is a medical billing and practice management outsourcing company with 360 healthcare services. Our staff are exceptionally qualified Virtual Front-Desk Assistants and Revenue Cycle Management experts worth 10 years of certified experience and all the "know-how" of a medical practice's financial health.
                         </p>
                         <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-                            <a href="https://calendly.com/gobillsales/discuss-results" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "#fff", color: "var(--primary)", padding: "16px 36px", borderRadius: 30, fontSize: 17, fontWeight: 600, fontFamily: "var(--font-family)", textDecoration: "none" }}>
+                            <a href="https://calendly.com/gobillsales/discuss-results" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "var(--primary)", color: "#fff", padding: "16px 36px", borderRadius: 30, fontSize: 17, fontWeight: 600, fontFamily: "var(--font-family)", textDecoration: "none" }}>
                                 Book A Meeting
                             </a>
-                            <Link to="/assessment" style={{ display: "inline-block", background: "transparent", color: "#fff", padding: "16px 36px", borderRadius: 30, fontSize: 17, fontWeight: 500, fontFamily: "var(--font-family)", textDecoration: "none", border: "2px solid rgba(255,255,255,0.4)" }}>
+                            <Link to="/assessment" style={{ display: "inline-block", background: "transparent", color: "#000", padding: "16px 36px", borderRadius: 30, fontSize: 17, fontWeight: 500, fontFamily: "var(--font-family)", textDecoration: "none", border: "2px solid rgba(0,0,0,0.4)" }}>
                                 Complimentary Assessment
                             </Link>
                         </div>
-                    </div>
-                    <div style={{ flex: "1 1 400px", display: "flex", justifyContent: "center" }}>
-                        <img src="/assets/company/whygobill-header.jpg" alt="Why GoBill" style={{ width: "100%", maxWidth: 600, borderRadius: 20, boxShadow: "0 24px 48px rgba(0,0,0,0.2)" }} />
                     </div>
                 </div>
             </section>
