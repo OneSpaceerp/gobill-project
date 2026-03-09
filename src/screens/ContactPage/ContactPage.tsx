@@ -33,7 +33,7 @@ export const ContactPage = (): JSX.Element => {
     return (
         <main>
             {/* Hero */}
-            <section style={{ background: "linear-gradient(135deg, #0a0655 0%, #10217D 60%, #665FFD 100%)", padding: "100px 0 80px" }}>
+            <section style={{ background: "linear-gradient(135deg, #3a2db8 0%, #635CFB 50%, #8a7fff 100%)", padding: "100px 0 80px" }}>
                 <div className="container" style={{ display: "flex", alignItems: "flex-start", flexWrap: "wrap", gap: 48 }}>
                     {/* Left text */}
                     <div style={{ flex: "1 1 360px" }}>
