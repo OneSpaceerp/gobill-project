@@ -40,7 +40,7 @@ export const FaqsPage = (): JSX.Element => {
             {/* HERO SECTION */}
             <section
                 style={{
-                    background: "linear-gradient(135deg, #0a0655 0%, #10217D 50%, #665FFD 100%)",
+                    background: "linear-gradient(135deg, #3a2db8 0%, #635CFB 50%, #8a7fff 100%)",
                     padding: "100px 24px 60px",
                     textAlign: "center"
                 }}
