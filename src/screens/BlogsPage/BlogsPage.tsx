@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 export const BlogsPage = (): JSX.Element => {
     const blogs = [
@@ -95,11 +95,10 @@ export const BlogsPage = (): JSX.Element => {
                 <div className="container">
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 28, maxWidth: 1100, margin: "0 auto" }}>
                         {blogs.map((blog, i) => (
-                            <a
+                            <Link
                                 key={i}
-                                href={blog.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                to={blog.link.replace("https://www.gobill.co/blogs/", "/blogs/")}
+                                onClick={() => window.scrollTo(0, 0)}
                                 style={{
                                     background: "#fff",
                                     borderRadius: 16,
@@ -129,11 +128,9 @@ export const BlogsPage = (): JSX.Element => {
                                 }} />
                                 <div style={{ padding: "20px 24px 24px" }}>
                                     <span style={{ fontFamily: "var(--font-family)", fontSize: 13, color: "var(--text-body)", display: "block", marginBottom: 10 }}>{blog.date}</span>
-                                    <h3 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: 17, color: "var(--text-dark)", lineHeight: 1.4, margin: 0 }}>
-                                        {blog.title}
-                                    </h3>
+                                    <h3 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: 17, color: "var(--text-dark)", lineHeight: 1.4, margin: 0 }} dangerouslySetInnerHTML={{ __html: blog.title }} />
                                 </div>
-                            </a>
+                            </Link>
                         ))}
                     </div>
                 </div>

@@ -10,6 +10,7 @@ import { FaqsPage } from "./screens/FaqsPage/FaqsPage";
 import { PrivacyPolicyPage } from "./screens/PrivacyPolicyPage/PrivacyPolicyPage";
 import { TermsConditionsPage } from "./screens/TermsConditionsPage/TermsConditionsPage";
 import { AssessmentPage } from "./screens/AssessmentPage/AssessmentPage";
+import { BlogArticlePage } from "./screens/BlogArticlePage/BlogArticlePage";
 import { HeroSection } from "./screens/HomePage/sections/HeroSection";
 import { FooterSection } from "./screens/HomePage/sections/FooterSection";
 
@@ -47,6 +48,7 @@ export const App = (): JSX.Element => {
                 <Route path="/about-us" element={<AboutPage />} />
                 <Route path="/why-gobill" element={<WhyGoBillPage />} />
                 <Route path="/blogs" element={<BlogsPage />} />
+                <Route path="/blogs/:slug" element={<BlogArticlePage />} />
                 <Route path="/data-reporting-analytics" element={<DataReportingAnalyticsPage />} />
                 <Route path="/ai-optimization" element={<AIPoweredOptimizationPage />} />
                 <Route path="/contact-us" element={<ContactPage />} />
