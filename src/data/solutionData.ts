@@ -18,6 +18,7 @@ export interface SolutionPageData {
     partnerSection?: { title: string; text: string };
     features: { title: string; description: string }[];
     heroImage?: string;
+    heroBgImage?: string;
     iconImage?: string;
     ctaTitle?: string;
     ctaText?: string;
@@ -94,6 +95,7 @@ export const solutionPages: SolutionPageData[] = [
         ctaTitle: "Reduce Errors and Maximize Revenue",
         ctaText: "Whether your billing model needs a complete overhaul or just an improvement, we'll build a tailored improvement plan with customized solutions specifically for your practice.",
         heroImage: "/assets/services/rcm.png",
+        heroBgImage: "/assets/headers/rcm.jpg",
         iconImage: "/assets/services/icons/rcm.png",
         includeImage: "/assets/services/includes/include_rcm.png",
         statsImage: "/assets/services/stats/stats_rcm.png",
@@ -184,6 +186,7 @@ export const solutionPages: SolutionPageData[] = [
         ctaTitle: "Ready to Optimize Your Billing Cycle?",
         ctaText: "Our certified medical billing specialists will analyze your current billing processes and identify opportunities to increase collections and reduce costs.",
         heroImage: "/assets/services/medical-billing-and-coding/drive/header.jpg",
+        heroBgImage: "/assets/headers/medical-billing-and-coding.jpg",
         iconImage: "/assets/services/icons/billing.png",
         includeImage: "/assets/services/includes/include_billing.png",
         statsImage: "/assets/services/stats/stats_billing.png",
@@ -268,6 +271,7 @@ export const solutionPages: SolutionPageData[] = [
         ctaTitle: "Ready to Boost Your Claim Approval Rate?",
         ctaText: "GoBill's expert denial management services can help you streamline your billing processes and ensure faster, more accurate reimbursements.",
         heroImage: "/assets/services/denial/drive/header.jpg",
+        heroBgImage: "/assets/headers/denial-management.jpg",
         iconImage: "/assets/services/icons/denial.png",
         includeImage: "/assets/services/includes/include_denial.png",
         statsImage: "/assets/services/stats/stats_denial.png",
@@ -349,6 +353,7 @@ export const solutionPages: SolutionPageData[] = [
         ctaTitle: "Maximize Patient Access and Ease Workflow for Your Physicians",
         ctaText: "Explore GoBill's patient appointment scheduling solutions and streamline your operations so you can focus on delivering high-quality care.",
         heroImage: "/assets/services/scheduling/drive/header.jpg",
+        heroBgImage: "/assets/headers/appointment-scheduling.jpg",
         iconImage: "/assets/services/icons/scheduling.png",
         includeImage: "/assets/services/includes/include_scheduling.png",
         statsImage: "/assets/services/stats/stats_scheduling.png",
@@ -432,6 +437,7 @@ export const solutionPages: SolutionPageData[] = [
         ctaTitle: "Get Consistent Cash Flow",
         ctaText: "GoBill's A/R collections solution can reduce your payment turnaround time and ensure timely reimbursements for a financially healthy practice.",
         heroImage: "/assets/services/ar.png",
+        heroBgImage: "/assets/headers/ar-collections-management.jpg",
         iconImage: "/assets/services/icons/ar.png",
         includeImage: "/assets/services/includes/include_ar.png",
         statsImage: "/assets/services/stats/stats_ar.png",
@@ -517,6 +523,7 @@ export const solutionPages: SolutionPageData[] = [
         ctaTitle: "Get More Claims Approved",
         ctaText: "Enhance your workflow with GoBill. Our health insurance preauthorization ensures real-time eligibility verification and improved revenue collection.",
         heroImage: "/assets/services/preauth/drive/header.jpg",
+        heroBgImage: "/assets/headers/pre-authorization.jpg",
         iconImage: "/assets/services/icons/preauth.png",
         includeImage: "/assets/services/includes/include_preauth.png",
         statsImage: "/assets/services/stats/stats_preauth.png",
@@ -607,6 +614,7 @@ export const solutionPages: SolutionPageData[] = [
         ctaTitle: "Ready To Enroll?",
         ctaText: "GoBill's expertise in insurance credentialing for providers ensures that your practice meets all compliance requirements efficiently.",
         heroImage: "/assets/services/credentialing/drive/header.jpg",
+        heroBgImage: "/assets/headers/provider-credentialing.jpg",
         iconImage: "/assets/services/icons/credentialing.png",
         includeImage: "/assets/services/includes/include_credentialing.png",
         statsImage: "/assets/services/stats/stats_credentialing.png",
@@ -689,6 +697,7 @@ export const solutionPages: SolutionPageData[] = [
         ctaTitle: "Quality Hires for Less",
         ctaText: "Save up to 75% on payroll expenses without compromising on quality or efficiency with our virtual medical receptionists.",
         heroImage: "/assets/services/virtualdesk.png",
+        heroBgImage: "/assets/headers/virtual-front-desk-officer.jpg",
         iconImage: "/assets/services/icons/virtualdesk.png",
         includeImage: "/assets/services/includes/include_virtualdesk.png",
         statsImage: "/assets/services/stats/stats_virtualdesk.png",

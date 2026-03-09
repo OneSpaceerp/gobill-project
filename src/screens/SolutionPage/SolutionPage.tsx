@@ -41,7 +41,9 @@ export const SolutionPage = (): JSX.Element => {
             {/* ═══════════════════ HERO ═══════════════════ */}
             <section
                 style={{
-                    background: "linear-gradient(135deg, #0a0655 0%, #10217D 50%, #665FFD 100%)",
+                    background: data.heroBgImage
+                        ? `url(${data.heroBgImage}) center/cover no-repeat`
+                        : "linear-gradient(135deg, #0a0655 0%, #10217D 50%, #665FFD 100%)",
                     padding: "110px 0 90px",
                     position: "relative",
                     overflow: "hidden",
@@ -61,25 +63,27 @@ export const SolutionPage = (): JSX.Element => {
                         background: "rgba(102,95,253,0.1)", filter: "blur(60px)",
                     }}
                 />
-                <div className="container">
+                <div className="container" style={{ position: "relative", zIndex: 2 }}>
                     <p style={{
-                        fontFamily: "var(--font-family)", fontWeight: 500, fontSize: 16,
-                        color: "rgba(255,255,255,0.7)", marginBottom: 12,
+                        fontFamily: "var(--font-family)", fontWeight: 600, fontSize: 16,
+                        color: data.heroBgImage ? "#000" : "rgba(255,255,255,0.7)", marginBottom: 12,
                         letterSpacing: 1, textTransform: "uppercase",
                     }}>
                         Solutions
                     </p>
                     <h1 style={{
                         fontFamily: "var(--font-family)", fontWeight: 700,
-                        fontSize: "clamp(32px, 4vw, 52px)", color: "#fff",
-                        lineHeight: 1.15, marginBottom: 20, maxWidth: 700,
+                        fontSize: "clamp(32px, 4vw, 52px)",
+                        color: data.heroBgImage ? "#000" : "#fff",
+                        lineHeight: 1.15, marginBottom: 20, maxWidth: 800,
                     }}>
                         {data.heroTitle}
                     </h1>
                     <p style={{
-                        fontFamily: "var(--font-family)", fontWeight: 400,
-                        fontSize: "clamp(16px, 1.2vw, 20px)", color: "rgba(255,255,255,0.85)",
-                        lineHeight: 1.6, maxWidth: 640, marginBottom: 32,
+                        fontFamily: "var(--font-family)", fontWeight: 500,
+                        fontSize: "clamp(16px, 1.2vw, 20px)",
+                        color: data.heroBgImage ? "#111" : "rgba(255,255,255,0.85)",
+                        lineHeight: 1.6, maxWidth: 700, marginBottom: 32,
                     }}>
                         {data.tagline}
                     </p>
@@ -87,13 +91,15 @@ export const SolutionPage = (): JSX.Element => {
                         href="https://calendly.com/gobillsales/discuss-results"
                         target="_blank" rel="noopener noreferrer"
                         style={{
-                            display: "inline-block", background: "#fff",
-                            color: "var(--primary)", padding: "16px 36px",
+                            display: "inline-block",
+                            background: data.heroBgImage ? "var(--primary)" : "#fff",
+                            color: data.heroBgImage ? "#fff" : "var(--primary)",
+                            padding: "16px 36px",
                             borderRadius: 30, fontSize: 17, fontWeight: 600,
                             fontFamily: "var(--font-family)", textDecoration: "none",
                             transition: "all 0.3s",
                         }}
-                        onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(255,255,255,0.3)"; }}
+                        onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(102,95,253,0.3)"; }}
                         onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
                     >
                         Book A Meeting
