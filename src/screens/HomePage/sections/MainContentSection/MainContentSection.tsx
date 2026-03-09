@@ -551,82 +551,93 @@ export const MainContentSection = (): JSX.Element => {
             }}
           >
             {blogPosts.map((post, idx) => (
-              <article
+              <Link
                 key={idx}
-                style={{
-                  background: "#fff",
-                  borderRadius: "var(--radius-card)",
-                  overflow: "hidden",
-                  boxShadow: "var(--shadow-card)",
-                  transition: "all 0.4s ease",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-6px)";
-                  e.currentTarget.style.boxShadow =
-                    "0 16px 40px rgba(16,33,125,0.2)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "var(--shadow-card)";
-                }}
+                to="/blogs"
+                onClick={() => window.scrollTo(0, 0)}
+                style={{ textDecoration: "none", display: "block", height: "100%" }}
               >
-                <div
+                <article
                   style={{
-                    width: "100%",
-                    height: 220,
+                    background: "#fff",
+                    borderRadius: "var(--radius-card)",
                     overflow: "hidden",
+                    boxShadow: "var(--shadow-card)",
+                    transition: "all 0.4s ease",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-6px)";
+                    e.currentTarget.style.boxShadow =
+                      "0 16px 40px rgba(16,33,125,0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "var(--shadow-card)";
                   }}
                 >
-                  <img
-                    src={post.image}
-                    alt={post.title}
+                  <div
                     style={{
                       width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      transition: "transform 0.4s ease",
-                    }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.transform = "scale(1.05)")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.transform = "scale(1)")
-                    }
-                  />
-                </div>
-                <div style={{ padding: "20px 20px 24px" }}>
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-family)",
-                      fontWeight: 500,
-                      fontSize: 17,
-                      color: "var(--m3-text-black)",
-                      lineHeight: 1.4,
-                      marginBottom: 12,
+                      height: 220,
+                      overflow: "hidden",
                     }}
                   >
-                    {post.title}
-                  </h3>
-                  <time
-                    style={{
-                      fontFamily: "var(--font-family)",
-                      fontWeight: 500,
-                      fontSize: 12,
-                      color: "var(--text-muted)",
-                    }}
-                  >
-                    {post.date}
-                  </time>
-                </div>
-              </article>
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        transition: "transform 0.4s ease",
+                      }}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.transform = "scale(1.05)")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.transform = "scale(1)")
+                      }
+                    />
+                  </div>
+                  <div style={{ padding: "20px 20px 24px" }}>
+                    <h3
+                      style={{
+                        fontFamily: "var(--font-family)",
+                        fontWeight: 500,
+                        fontSize: 17,
+                        color: "var(--m3-text-black)",
+                        lineHeight: 1.4,
+                        marginBottom: 12,
+                      }}
+                    >
+                      {post.title}
+                    </h3>
+                    <time
+                      style={{
+                        fontFamily: "var(--font-family)",
+                        fontWeight: 500,
+                        fontSize: 12,
+                        color: "var(--text-muted)",
+                      }}
+                    >
+                      {post.date}
+                    </time>
+                  </div>
+                </article>
+              </Link>
             ))}
           </div>
 
           <div style={{ textAlign: "center" }}>
-            <a href="#all-blogs" className="btn-outline" style={{ fontSize: 18, padding: "16px 40px" }}>
+            <Link
+              to="/blogs"
+              onClick={() => window.scrollTo(0, 0)}
+              className="btn-outline"
+              style={{ fontSize: 18, padding: "16px 40px", display: "inline-block", textDecoration: "none" }}
+            >
               More Blogs
-            </a>
+            </Link>
           </div>
         </div>
 
