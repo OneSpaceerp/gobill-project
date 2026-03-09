@@ -14,7 +14,7 @@ export const ContactPage = (): JSX.Element => {
 
     const contactInfo = [
         { icon: "✉️", label: "Email", value: "sales@gobill.co", href: "mailto:sales@gobill.co" },
-        { icon: "📍", label: "Address", value: "Continental Plaza, 411 Hackensack Ave, 2nd Floor, NJ 07601", href: null },
+        { icon: "📍", label: "Address", value: "411 Hackensack Ave, Continental Plaza, 2nd Floor, NJ 07601", href: null },
     ];
 
     const inputStyle: React.CSSProperties = {
