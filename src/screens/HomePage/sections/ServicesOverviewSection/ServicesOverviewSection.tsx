@@ -84,21 +84,38 @@ export const ServicesOverviewSection = (): JSX.Element => {
   }, [next, isPaused]);
 
   useEffect(() => {
+    const activeRef = activeSlide === 0 ? slide0Ref : slide1Ref;
+
     const updateHeight = () => {
-      if (activeSlide === 0 && slide0Ref.current) {
-        setTrackHeight(slide0Ref.current.offsetHeight);
-      } else if (activeSlide === 1 && slide1Ref.current) {
-        setTrackHeight(slide1Ref.current.offsetHeight);
+      if (activeRef.current) {
+        setTrackHeight(activeRef.current.offsetHeight);
       }
     };
+
     updateHeight();
 
-    // Add a slight delay for initial render height calculation of images
-    const timeoutId = setTimeout(updateHeight, 100);
+    // Recalculate after short delays for fonts/layout settling
+    const t1 = setTimeout(updateHeight, 100);
+    const t2 = setTimeout(updateHeight, 300);
+    const t3 = setTimeout(updateHeight, 600);
+
+    // Also recalculate when images inside the active slide finish loading
+    const images = activeRef.current?.querySelectorAll("img, video") ?? [];
+    const onLoad = () => updateHeight();
+    images.forEach((img) => {
+      img.addEventListener("load", onLoad);
+      img.addEventListener("loadeddata", onLoad);
+    });
 
     window.addEventListener("resize", updateHeight);
     return () => {
-      clearTimeout(timeoutId);
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      images.forEach((img) => {
+        img.removeEventListener("load", onLoad);
+        img.removeEventListener("loadeddata", onLoad);
+      });
       window.removeEventListener("resize", updateHeight);
     };
   }, [activeSlide]);
