@@ -2,6 +2,7 @@ export interface ContentSection {
     title: string;
     text: string[];
     layout?: "left" | "right" | "center";
+    image?: string;
 }
 
 export interface SolutionPageData {
@@ -20,6 +21,8 @@ export interface SolutionPageData {
     iconImage?: string;
     ctaTitle?: string;
     ctaText?: string;
+    includeImage?: string;
+    statsImage?: string;
 }
 
 export const solutionPages: SolutionPageData[] = [
@@ -92,6 +95,8 @@ export const solutionPages: SolutionPageData[] = [
         ctaText: "Whether your billing model needs a complete overhaul or just an improvement, we'll build a tailored improvement plan with customized solutions specifically for your practice.",
         heroImage: "/assets/services/rcm.png",
         iconImage: "/assets/services/icons/rcm.png",
+        includeImage: "/assets/services/includes/include_rcm.png",
+        statsImage: "/assets/services/stats/stats_rcm.png",
     },
 
     /* ═══════════════════════════════════════════════════════
@@ -112,6 +117,7 @@ export const solutionPages: SolutionPageData[] = [
                     "At GoBill, our medical billing services are provided by professionals who are skilled in attaining timely reimbursements for medical facilities and healthcare providers. We comply with industry standards, boost claim submission accuracy rates, reduce claim denials, and deploy technology-assisted workflows for maximum efficiency."
                 ],
                 layout: "right",
+                image: "/assets/services/medical-billing-and-coding/drive/sec1.png"
             },
             {
                 title: "GoBill Medical Billing Services",
@@ -120,7 +126,24 @@ export const solutionPages: SolutionPageData[] = [
                     "Our team handles the entire billing process from start to finish, including charge entry, claim generation, submission, follow-up, and payment posting."
                 ],
                 layout: "left",
+                image: "/assets/services/medical-billing-and-coding/drive/sec2.png"
             },
+            {
+                title: "Advanced Billing Solutions",
+                text: [
+                    "We utilize the latest smart technology and deep industry expertise to handle all your billing needs, minimizing the risk of under-coding or over-coding."
+                ],
+                layout: "right",
+                image: "/assets/services/medical-billing-and-coding/drive/sec3.png"
+            },
+            {
+                title: "Transparent Reporting & Analysis",
+                text: [
+                    "Gain complete visibility into your practice's financial health with real-time reporting, customized analytics, and ongoing dedicated support."
+                ],
+                layout: "left",
+                image: "/assets/services/medical-billing-and-coding/drive/sec4.png"
+            }
         ],
         detailedFeatures: [
             { title: "Information Capture", description: "We thoroughly validate patient eligibility, responsibility, required pre-authorizations, and insurance coverage details before patient visits, which improves cycle time and lowers the chance of front-end claim denial by 40%." },
@@ -160,8 +183,10 @@ export const solutionPages: SolutionPageData[] = [
         ],
         ctaTitle: "Ready to Optimize Your Billing Cycle?",
         ctaText: "Our certified medical billing specialists will analyze your current billing processes and identify opportunities to increase collections and reduce costs.",
-        heroImage: "/assets/services/billing.png",
+        heroImage: "/assets/services/medical-billing-and-coding/drive/header.jpg",
         iconImage: "/assets/services/icons/billing.png",
+        includeImage: "/assets/services/includes/include_billing.png",
+        statsImage: "/assets/services/stats/stats_billing.png",
     },
 
     /* ═══════════════════════════════════════════════════════
@@ -182,6 +207,7 @@ export const solutionPages: SolutionPageData[] = [
                     "At GoBill, we implement a robust denial management solution to ensure our clients get faster reimbursement for their services and achieve steady cash flow. Our healthcare denial management team resolves issues, resubmits claims to insurance payers, and investigates the causes of your denials to prevent future risks."
                 ],
                 layout: "right",
+                image: "/assets/services/denial/drive/sec1.png"
             },
             {
                 title: "GoBill Denial Management Services",
@@ -189,7 +215,24 @@ export const solutionPages: SolutionPageData[] = [
                     "Our denial management medical billing solutions include: investigating legacy and sophisticated Claim Adjustment Reason Codes (CARCs), identifying trends and root causes of denials, auditing processes for patient eligibility and provider credentialing, correcting and resubmitting denials, devising workflows for each type of denial worklist, and implementing denial prevention strategies."
                 ],
                 layout: "left",
+                image: "/assets/services/denial/drive/sec2.png"
             },
+            {
+                title: "Proactive Denial Prevention",
+                text: [
+                    "We don't just fix denials; we prevent them. By training your staff and adjusting workflows based on deep analytics, we stop rejections before they ever happen."
+                ],
+                layout: "right",
+                image: "/assets/services/denial/drive/sec3.png"
+            },
+            {
+                title: "Dedicated Resolution Team",
+                text: [
+                    "Have a difficult claim? Our experienced appellate team builds evidence-based appeal packets and works directly with payers to overturn complex denials for you."
+                ],
+                layout: "left",
+                image: "/assets/services/denial/drive/sec4.png"
+            }
         ],
         detailedFeatures: [
             { title: "Investigate Claim Adjustment Reason Codes (CARCs)", description: "We investigate legacy and sophisticated Claim Adjustment Reason Codes to identify the exact reasons for each denial and develop targeted resolution strategies." },
@@ -224,8 +267,10 @@ export const solutionPages: SolutionPageData[] = [
         ],
         ctaTitle: "Ready to Boost Your Claim Approval Rate?",
         ctaText: "GoBill's expert denial management services can help you streamline your billing processes and ensure faster, more accurate reimbursements.",
-        heroImage: "/assets/services/denial.png",
+        heroImage: "/assets/services/denial/drive/header.jpg",
         iconImage: "/assets/services/icons/denial.png",
+        includeImage: "/assets/services/includes/include_denial.png",
+        statsImage: "/assets/services/stats/stats_denial.png",
     },
 
     /* ═══════════════════════════════════════════════════════
@@ -246,6 +291,7 @@ export const solutionPages: SolutionPageData[] = [
                     "GoBill's appointment solutions streamline the scheduling of consultations, examinations, routine check-ups, and treatments, leading to happier patients and uninterrupted revenue. Our efficient workflows optimize your scheduling process without increasing your operating costs."
                 ],
                 layout: "right",
+                image: "/assets/services/scheduling/drive/sec1.png"
             },
             {
                 title: "The Process",
@@ -253,7 +299,24 @@ export const solutionPages: SolutionPageData[] = [
                     "GoBill's healthcare appointment scheduling is a flexible, all-in-one contact center solution that empowers providers to assess the volume of calls, develop customized professional scripts, verify eligibility and prior authorization requirements, monitor and confirm availability, organize physician calendars, maintain flexibility to fix, change, reschedule, or cross-schedule appointments, send automated appointment reminders, track new appointments and no-shows, and provide a record of each patient's information."
                 ],
                 layout: "left",
+                image: "/assets/services/scheduling/drive/sec2.png"
             },
+            {
+                title: "Automated Patient Reminders",
+                text: [
+                    "Reduce no-show rates effortlessly. Our system automatically dispatches customized SMS, email, and voice reminders to patients ahead of their scheduled appointments to ensure they stay on track and your calendars remain full."
+                ],
+                layout: "right",
+                image: "/assets/services/scheduling/drive/sec3.png"
+            },
+            {
+                title: "Enhanced Patient Experience",
+                text: [
+                    "Enhance your patients' journey with 24/7 online access, providing them the ease to schedule, reschedule, or cancel whenever they want. A seamless booking experience keeps patient satisfaction high and administration light."
+                ],
+                layout: "left",
+                image: "/assets/services/scheduling/drive/sec4.png"
+            }
         ],
         detailedFeatures: [
             { title: "Assess Call Volume", description: "Assess the volume of calls to assign the appropriate number of agents for efficient appointment scheduling." },
@@ -285,8 +348,10 @@ export const solutionPages: SolutionPageData[] = [
         ],
         ctaTitle: "Maximize Patient Access and Ease Workflow for Your Physicians",
         ctaText: "Explore GoBill's patient appointment scheduling solutions and streamline your operations so you can focus on delivering high-quality care.",
-        heroImage: "/assets/services/scheduling.png",
+        heroImage: "/assets/services/scheduling/drive/header.jpg",
         iconImage: "/assets/services/icons/scheduling.png",
+        includeImage: "/assets/services/includes/include_scheduling.png",
+        statsImage: "/assets/services/stats/stats_scheduling.png",
     },
 
     /* ═══════════════════════════════════════════════════════
@@ -306,6 +371,7 @@ export const solutionPages: SolutionPageData[] = [
                     "GoBill helps you apply policies and procedures to eliminate those costly invoicing errors and messy collection processes that hold your practice back from operating at its best."
                 ],
                 layout: "right",
+                image: "/assets/services/ar/drive/sec1.png"
             },
             {
                 title: "Higher Reimbursement Rates",
@@ -313,7 +379,24 @@ export const solutionPages: SolutionPageData[] = [
                     "Our accounts receivable collections solution enables your practice to collect more payments on time, eliminate bad debt write-offs and unpaid claims, improve patient satisfaction, submit invoices on time, track the status of your claims, and minimize claim and payment errors."
                 ],
                 layout: "left",
+                image: "/assets/services/ar/drive/sec2.png"
             },
+            {
+                title: "Comprehensive Claim Tracking",
+                text: [
+                    "Take control of your revenue. Our advanced systems continuously monitor the lifecycle of every claim, aggressively chasing down pending items and rapidly addressing any issues that cause payment delays."
+                ],
+                layout: "right",
+                image: "/assets/services/ar/drive/sec3.png"
+            },
+            {
+                title: "Efficient Payment Management",
+                text: [
+                    "Accelerate the A/R cycle with structured follow-ups. Whether interacting with insurance companies or communicating remaining balances to patients, our team secures funds smoothly and professionally."
+                ],
+                layout: "left",
+                image: "/assets/services/ar/drive/sec4.png"
+            }
         ],
         detailedFeatures: [
             { title: "Collect More Payments on Time", description: "Categorize insurance providers by response speed and denials rate. Increase billing cycles sent to insurance companies and patients for a higher chance of early collection. Enable pre-payments for appointments. Run periodic A/R reports. Track and analyze trends and fluctuations in A/R collections." },
@@ -350,6 +433,8 @@ export const solutionPages: SolutionPageData[] = [
         ctaText: "GoBill's A/R collections solution can reduce your payment turnaround time and ensure timely reimbursements for a financially healthy practice.",
         heroImage: "/assets/services/ar.png",
         iconImage: "/assets/services/icons/ar.png",
+        includeImage: "/assets/services/includes/include_ar.png",
+        statsImage: "/assets/services/stats/stats_ar.png",
     },
 
     /* ═══════════════════════════════════════════════════════
@@ -370,6 +455,7 @@ export const solutionPages: SolutionPageData[] = [
                     "GoBill's proactive health insurance preauthorization approach informs patients of their payment responsibilities upfront, which improves their experience and increases treatment satisfaction rates."
                 ],
                 layout: "right",
+                image: "/assets/services/preauth/drive/sec1.png"
             },
             {
                 title: "Reduce Denials Rate by 40%",
@@ -377,7 +463,24 @@ export const solutionPages: SolutionPageData[] = [
                     "Outsourcing your insurance eligibility verification and prior authorization to GoBill means you can be confident in an efficient process that makes your operations seamless and satisfies your patients."
                 ],
                 layout: "left",
+                image: "/assets/services/preauth/drive/sec2.png"
             },
+            {
+                title: "Accelerated Approval Process",
+                text: [
+                    "We navigate the complexities of payer portals and phone lines rapidly, securing necessary authorizations before care delivery so your practice can proceed without reimbursement risks."
+                ],
+                layout: "right",
+                image: "/assets/services/preauth/drive/sec3.png"
+            },
+            {
+                title: "Peace of Mind for Patients",
+                text: [
+                    "Clear upfront communication about co-pays and deductibles eliminates surprise medical bills, earning patient trust and improving the likelihood of successful point-of-service collections."
+                ],
+                layout: "left",
+                image: "/assets/services/preauth/drive/sec4.png"
+            }
         ],
         detailedFeatures: [
             { title: "Patient Information Collection", description: "Obtain demographic information from the patient or referral source and create an account for each patient." },
@@ -413,8 +516,10 @@ export const solutionPages: SolutionPageData[] = [
         ],
         ctaTitle: "Get More Claims Approved",
         ctaText: "Enhance your workflow with GoBill. Our health insurance preauthorization ensures real-time eligibility verification and improved revenue collection.",
-        heroImage: "/assets/services/preauth.png",
+        heroImage: "/assets/services/preauth/drive/header.jpg",
         iconImage: "/assets/services/icons/preauth.png",
+        includeImage: "/assets/services/includes/include_preauth.png",
+        statsImage: "/assets/services/stats/stats_preauth.png",
     },
 
     /* ═══════════════════════════════════════════════════════
@@ -435,6 +540,7 @@ export const solutionPages: SolutionPageData[] = [
                     "Errors in insurance credentialing for providers can result in fines and penalties from medical boards, financial losses, delays in claim reimbursements, and loss of credibility when facing lawsuits. GoBill's provider credentialing service takes an efficient and thorough approach to ensure your practice avoids such pitfalls."
                 ],
                 layout: "right",
+                image: "/assets/services/credentialing/drive/sec1.png"
             },
             {
                 title: "GoBill Provider Credentialing & Enrollment Solutions",
@@ -442,7 +548,24 @@ export const solutionPages: SolutionPageData[] = [
                     "Our medical provider credentialing services eliminate risks of legal liability and boost provider referrals. We handle the entire application process, regularly updating and verifying your qualifications, so you don't have to worry about potential problems along the way."
                 ],
                 layout: "left",
+                image: "/assets/services/credentialing/drive/sec2.png"
             },
+            {
+                title: "Streamlined Application Management",
+                text: [
+                    "We diligently gather, review, and submit all necessary documentation to CAQH and individual payers, reducing the administrative burden on your staff and accelerating your enrollment cycle."
+                ],
+                layout: "right",
+                image: "/assets/services/credentialing/drive/sec3.png"
+            },
+            {
+                title: "Expansive Network Reach",
+                text: [
+                    "Expand your patient base by securely enrolling in both major commercial networks and government programs like Medicare/Medicaid with complete confidence in our vigilant tracking and compliance."
+                ],
+                layout: "left",
+                image: "/assets/services/credentialing/drive/sec4.png"
+            }
         ],
         detailedFeatures: [
             { title: "Collecting Provider Credentials", description: "We gather and scrutinize provider and healthcare facility documentation, including practice licenses, work history, peer references, educational qualifications, and more." },
@@ -483,8 +606,10 @@ export const solutionPages: SolutionPageData[] = [
         ],
         ctaTitle: "Ready To Enroll?",
         ctaText: "GoBill's expertise in insurance credentialing for providers ensures that your practice meets all compliance requirements efficiently.",
-        heroImage: "/assets/services/credentialing.png",
+        heroImage: "/assets/services/credentialing/drive/header.jpg",
         iconImage: "/assets/services/icons/credentialing.png",
+        includeImage: "/assets/services/includes/include_credentialing.png",
+        statsImage: "/assets/services/stats/stats_credentialing.png",
     },
 
     /* ═══════════════════════════════════════════════════════
@@ -505,6 +630,7 @@ export const solutionPages: SolutionPageData[] = [
                     "GoBill's healthcare virtual assistants manage all front-end medical billing processes with a customized approach that fits your practice, ensuring error-free data entry and exceptional patient support. Patients can communicate remotely and face-to-face, fill in forms, sign e-signatures through a touch screen, and send the necessary documents by running them through a scanner."
                 ],
                 layout: "right",
+                image: "/assets/services/virtualdesk/drive/sec1.png"
             },
             {
                 title: "Front-End Roles",
@@ -512,7 +638,16 @@ export const solutionPages: SolutionPageData[] = [
                     "Efficient and accurate virtual front desk officers for busy offices: keep patient payment records updated, meet and greet patients, enhance patient communication, send patient reminders, manage documents on CRM tools, perform systemic information collection, document all patient encounters, schedule follow-ups, provide customized support hours, and cater to patient needs and special requests."
                 ],
                 layout: "left",
+                image: "/assets/services/virtualdesk/drive/sec2.png"
             },
+            {
+                title: "Always-On Patient Support",
+                text: [
+                    "Never miss a call or an opportunity to impress a patient. Our virtual front desk guarantees professional, prompt, and HIPAA-compliant engagement, elevating your practice's local reputation at a fraction of the cost."
+                ],
+                layout: "right",
+                image: "/assets/services/virtualdesk/drive/sec3.png"
+            }
         ],
         detailedFeatures: [
             { title: "Pre-Registration and Appointment Scheduling", description: "Collect patient demographics and necessary documentation before the appointment or upon arriving at the office." },
@@ -555,5 +690,7 @@ export const solutionPages: SolutionPageData[] = [
         ctaText: "Save up to 75% on payroll expenses without compromising on quality or efficiency with our virtual medical receptionists.",
         heroImage: "/assets/services/virtualdesk.png",
         iconImage: "/assets/services/icons/virtualdesk.png",
+        includeImage: "/assets/services/includes/include_virtualdesk.png",
+        statsImage: "/assets/services/stats/stats_virtualdesk.png",
     },
 ];

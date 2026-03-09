@@ -69,9 +69,9 @@ const companyMenu = [
 ];
 
 const whoWeServeMenu = [
-  { label: "Large Practices", path: "#", isStatic: true },
-  { label: "Medium Practices", path: "#", isStatic: true },
-  { label: "Small Practices", path: "#", isStatic: true }
+  { label: "Large Practices", path: "/contact-us" },
+  { label: "Medium Practices", path: "/contact-us" },
+  { label: "Small Practices", path: "/contact-us" }
 ];
 
 /* ── Reusable dropdown component ── */

@@ -201,6 +201,8 @@ export const FooterSection = (): JSX.Element => {
                 <a
                   key={idx}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.name}
                   style={{
                     width: 40,

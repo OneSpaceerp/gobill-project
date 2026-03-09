@@ -41,49 +41,6 @@ export const MainContentSection = (): JSX.Element => {
     { text: "Seamless Integration – Works with your existing EMR and workflow", offset: 0 },
   ];
 
-  const whyGoBillFeatures = [
-    {
-      icon: "https://c.animaapp.com/WhTQfAgd/img/group-163112@2x.png",
-      title: "Guaranteed High Reimbursement Rates",
-      desc: "Our certified experts focus on maximizing your collections using New York-specific payer rules, ensuring you receive the highest possible payment for every claim submitted.",
-    },
-    {
-      icon: "https://c.animaapp.com/WhTQfAgd/img/group-163116@2x.png",
-      title: "Rapid and Accurate Claim Submissions",
-      desc: "We leverage state-of-the-art technology to submit clean claims fast, drastically reducing the chance of rejection and ensuring quick turnaround on payments.",
-    },
-    {
-      icon: "https://c.animaapp.com/WhTQfAgd/img/group-163119@2x.png",
-      title: "Personalized New York Client Support",
-      desc: "GoBill provides dedicated account managers located in the US who understand the unique compliance and regulatory landscape of New York healthcare.",
-    },
-    {
-      icon: "https://c.animaapp.com/WhTQfAgd/img/group-163107@2x.png",
-      title: "Actionable, Transparent Reporting",
-      desc: "Receive customized reports on A/R aging, denial trends, and payment analysis, giving you real-time visibility and control over your practice's financial health.",
-    },
-    {
-      icon: "https://c.animaapp.com/WhTQfAgd/img/group-163124@2x.png",
-      title: "Proactive Authorization Management",
-      desc: "We actively track and manage referrals and prior authorizations before the service is rendered, eliminating costly retroactive denials.",
-    },
-    {
-      icon: "https://c.animaapp.com/WhTQfAgd/img/uit-shield.svg",
-      title: "Expert Denial & Appeals Management",
-      desc: "Our team proactively follows up, appeals, and re-submits complicated claims with tenacious expertise to recover revenue others leave on the table.",
-    },
-    {
-      icon: "https://c.animaapp.com/WhTQfAgd/img/group-163130@2x.png",
-      title: "Significant Reduction in Overhead Costs",
-      desc: "By outsourcing to GoBill, you eliminate the need for in-house billing staff, software, and training, turning a fixed expense into a predictable cost.",
-    },
-    {
-      icon: "https://c.animaapp.com/WhTQfAgd/img/group-4@2x.png",
-      title: "Iron-Clad HIPAA & Compliance",
-      desc: "We adhere to the strictest federal and New York state compliance standards, including HIPAA, protecting your practice from regulatory risk.",
-    },
-  ];
-
   const blogPosts = [
     {
       image: "https://c.animaapp.com/WhTQfAgd/img/image@4x.png",
@@ -462,13 +419,12 @@ export const MainContentSection = (): JSX.Element => {
               </p>
             </div>
 
-            {/* Figma Snake Cards – Desktop */}
+            {/* Figma Snake Cards (Image) - Displayed uniformly on desktop and mobile */}
             <div
-              className="why-cards-desktop"
               style={{
                 maxWidth: 1000,
                 margin: "0 auto",
-                display: "flex", // Keep flex to center image
+                display: "flex",
                 justifyContent: "center",
               }}
             >
@@ -483,118 +439,10 @@ export const MainContentSection = (): JSX.Element => {
                 }}
               />
             </div>
-
-            {/* Mobile: Infinite Vertical Stacked Cards */}
-            <div
-              className="why-cards-mobile"
-              style={{
-                display: "none",
-                width: "100%",
-                height: 550, // Clip the overflow to create a window for the sliding cards
-                overflow: "hidden",
-                position: "relative",
-                padding: "10px 16px",
-              }}
-            >
-              <div
-                className="marquee-track-vertical"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  width: "100%",
-                  gap: 16,
-                }}
-              >
-                {[...whyGoBillFeatures, ...whyGoBillFeatures].map((feature, idx) => {
-                  const colors = [
-                    "#2C60FF", "#0291D3", "#9B62FF", "#233B82",
-                    "#6E45FF", "#1B2C5F", "#4F5AFF", "#36C2C8",
-                  ];
-                  const colorIdx = idx % 8;
-                  const isEven = idx % 2 === 0;
-                  const rotation = isEven ? 5 : -5;
-
-                  return (
-                    <div
-                      key={idx}
-                      style={{
-                        width: "100%",
-                        maxWidth: 380,
-                        background: colors[colorIdx],
-                        borderRadius: 24,
-                        padding: "24px 28px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        flexDirection: isEven ? "row" : "row-reverse",
-                        gap: 20,
-                        transform: `rotate(${rotation}deg)`,
-                        position: "relative",
-                        zIndex: idx,
-                        boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
-                        flexShrink: 0,
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontFamily: "var(--font-family)",
-                          fontWeight: 600,
-                          fontSize: "clamp(16px, 4.5vw, 20px)",
-                          color: "#fff",
-                          lineHeight: 1.3,
-                          flex: 1,
-                          textAlign: isEven ? "left" : "right"
-                        }}
-                      >
-                        {feature.title}
-                      </span>
-                      <div style={{
-                        width: 64,
-                        height: 64,
-                        borderRadius: "50%",
-                        background: "rgba(255,255,255,0.15)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexShrink: 0
-                      }}>
-                        <img
-                          src={feature.icon}
-                          alt={feature.title}
-                          style={{
-                            width: 36,
-                            height: 36,
-                            objectFit: "contain",
-                            filter: "brightness(0) invert(1)",
-                          }}
-                        />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
           </div>
         </div>
 
         <style>{`
-          @keyframes scrollMarqueeVertical {
-            0% {
-              transform: translateY(0);
-            }
-            100% {
-              /* Move exactly -50% (the height of the first 8 items) plus half the gap between the two identical sets */
-              transform: translateY(calc(-50% - 8px));
-            }
-          }
-          @media (max-width: 900px) {
-            .why-cards-desktop { display: none !important; }
-            .why-cards-mobile { display: block !important; }
-            .marquee-track-vertical {
-              animation: scrollMarqueeVertical 25s linear infinite;
-            }
-          }
           @media (max-width: 600px) {
             #why-gobill > div > div:first-child {
               flex-direction: column;

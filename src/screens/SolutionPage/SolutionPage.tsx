@@ -153,7 +153,20 @@ export const SolutionPage = (): JSX.Element => {
                             ))}
                         </div>
                         {/* Visual side (image or decorative block) */}
-                        {(idx === 0 && data.heroImage) || (idx === 1 && data.iconImage) ? (
+                        {section.image ? (
+                            <div style={{
+                                flex: "1 1 360px", minHeight: 360,
+                                borderRadius: 20, overflow: "hidden",
+                                display: "flex", alignItems: "center", justifyContent: "center",
+                                position: "relative",
+                                boxShadow: "0 24px 48px rgba(0,0,0,0.06), 0 8px 24px rgba(102,95,253,0.1)",
+                                border: "1px solid rgba(102,95,253,0.1)",
+                                aspectRatio: "1/1",
+                                background: "#fff"
+                            }}>
+                                <img src={section.image} alt={section.title} style={{ width: "100%", height: "100%", objectFit: "contain", padding: 24, position: "absolute", inset: 0 }} />
+                            </div>
+                        ) : (idx === 0 && data.heroImage) || (idx === 1 && data.iconImage) ? (
                             <div style={{
                                 flex: "1 1 360px", minHeight: idx === 0 ? 400 : 360,
                                 borderRadius: 20, overflow: "hidden",
@@ -289,7 +302,7 @@ export const SolutionPage = (): JSX.Element => {
                     </div>
                     {/* Visual side */}
                     <div style={{
-                        flex: "1 1 360px", minHeight: 350,
+                        flex: "1 1 360px", aspectRatio: "1 / 1",
                         borderRadius: 20, overflow: "hidden",
                         background: "linear-gradient(135deg, #0a0655 0%, #665FFD 100%)",
                         display: "flex", alignItems: "center", justifyContent: "center",
@@ -305,7 +318,9 @@ export const SolutionPage = (): JSX.Element => {
                             background: "rgba(255,255,255,0.04)", position: "absolute",
                             bottom: -30, left: -30,
                         }} />
-                        {data.iconImage ? (
+                        {data.includeImage ? (
+                            <img src={data.includeImage} alt="Service Features" style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute", inset: 0, zIndex: 1 }} />
+                        ) : data.iconImage ? (
                             <img src={data.iconImage} alt="Service Icon" style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute", inset: 0, zIndex: 1 }} />
                         ) : (
                             <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="0.8" style={{ zIndex: 1 }}>
@@ -332,7 +347,7 @@ export const SolutionPage = (): JSX.Element => {
                     >
                         {/* Visual side */}
                         <div style={{
-                            flex: "1 1 340px", minHeight: 300,
+                            flex: "1 1 340px", aspectRatio: "1 / 1",
                             borderRadius: 20,
                             background: "linear-gradient(135deg, #665FFD 0%, #10217D 100%)",
                             display: "flex", alignItems: "center", justifyContent: "center",
@@ -343,7 +358,9 @@ export const SolutionPage = (): JSX.Element => {
                                 background: "rgba(255,255,255,0.08)", position: "absolute",
                                 top: 30, left: 30,
                             }} />
-                            {data.iconImage ? (
+                            {data.statsImage ? (
+                                <img src={data.statsImage} alt="Details Stats" style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute", inset: 0, zIndex: 1 }} />
+                            ) : data.iconImage ? (
                                 <img src={data.iconImage} alt="Details Icon" style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute", inset: 0, zIndex: 1 }} />
                             ) : (
                                 <svg width="90" height="90" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="0.8" style={{ zIndex: 1 }}>

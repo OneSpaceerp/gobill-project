@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Link } from "react-router-dom";
 
 /* =============================================
@@ -66,6 +66,10 @@ export const ServicesOverviewSection = (): JSX.Element => {
   const [isPaused, setIsPaused] = useState(false);
   const totalSlides = 2;
 
+  const slide0Ref = useRef<HTMLDivElement>(null);
+  const slide1Ref = useRef<HTMLDivElement>(null);
+  const [trackHeight, setTrackHeight] = useState<number | string>("auto");
+
   const goTo = useCallback(
     (idx: number) => setActiveSlide((idx + totalSlides) % totalSlides),
     []
@@ -78,6 +82,26 @@ export const ServicesOverviewSection = (): JSX.Element => {
     const id = setInterval(next, 7000);
     return () => clearInterval(id);
   }, [next, isPaused]);
+
+  useEffect(() => {
+    const updateHeight = () => {
+      if (activeSlide === 0 && slide0Ref.current) {
+        setTrackHeight(slide0Ref.current.offsetHeight);
+      } else if (activeSlide === 1 && slide1Ref.current) {
+        setTrackHeight(slide1Ref.current.offsetHeight);
+      }
+    };
+    updateHeight();
+
+    // Add a slight delay for initial render height calculation of images
+    const timeoutId = setTimeout(updateHeight, 100);
+
+    window.addEventListener("resize", updateHeight);
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("resize", updateHeight);
+    };
+  }, [activeSlide]);
 
   const arrowBtn: React.CSSProperties = {
     position: "absolute",
@@ -121,15 +145,18 @@ export const ServicesOverviewSection = (): JSX.Element => {
       <div
         style={{
           display: "flex",
+          alignItems: "flex-start",
           width: `${totalSlides * 100}%`,
           transform: `translateX(-${activeSlide * (100 / totalSlides)}%)`,
-          transition: "transform 0.7s cubic-bezier(.4,0,.2,1)",
+          transition: "transform 0.7s cubic-bezier(.4,0,.2,1), height 0.7s cubic-bezier(.4,0,.2,1)",
+          height: trackHeight,
         }}
       >
         {/* ====================================
             SLIDE 1 — Hero  (original content)
             ==================================== */}
         <div
+          ref={slide0Ref}
           style={{
             width: `${100 / totalSlides}%`,
             flexShrink: 0,
@@ -264,6 +291,7 @@ export const ServicesOverviewSection = (): JSX.Element => {
             Zigzag layout matching the Figma design
             ==================================== */}
         <div
+          ref={slide1Ref}
           style={{
             width: `${100 / totalSlides}%`,
             flexShrink: 0,

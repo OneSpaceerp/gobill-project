@@ -37,6 +37,9 @@ export const AboutPage = (): JSX.Element => {
                             The dedicated staff at GoBill ensures you the highest possible reimbursement. We are a group of certified teams with extensive experience in medical billing, coding, claims processing, collections, and customized support hours according to business needs. Your success is our success.
                         </p>
                     </div>
+                    <div style={{ flex: "1 1 400px", display: "flex", justifyContent: "center" }}>
+                        <img src="/assets/company/about-header.jpg" alt="About GoBill" style={{ width: "100%", maxWidth: 600, borderRadius: 20, boxShadow: "0 24px 48px rgba(0,0,0,0.2)" }} />
+                    </div>
                 </div>
             </section>
 
