@@ -79,7 +79,7 @@ export const BlogsPage = (): JSX.Element => {
     return (
         <main>
             {/* Hero */}
-            <section style={{ background: "linear-gradient(135deg, #0a0655 0%, #10217D 60%, #665FFD 100%)", padding: "100px 0 60px", textAlign: "center" }}>
+            <section style={{ background: "linear-gradient(135deg, #3a2db8 0%, #635CFB 50%, #8a7fff 100%)", padding: "100px 0 60px", textAlign: "center" }}>
                 <div className="container">
                     <h1 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(32px, 4vw, 52px)", color: "#fff", marginBottom: 16 }}>
                         GoBill Blog
