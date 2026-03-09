@@ -239,6 +239,7 @@ export const FooterSection = (): JSX.Element => {
               <Link
                 key={idx}
                 to={link.path}
+                onClick={() => window.scrollTo(0, 0)}
                 style={linkStyle}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = "#fff")
@@ -256,9 +257,10 @@ export const FooterSection = (): JSX.Element => {
           <div>
             <h3 style={headingStyle}>Who We Serve</h3>
             {whoWeServeLinks.map((link, idx) => (
-              <a
+              <Link
                 key={idx}
-                href={link.path}
+                to={link.path}
+                onClick={() => window.scrollTo(0, 0)}
                 style={linkStyle}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = "#fff")
@@ -268,7 +270,7 @@ export const FooterSection = (): JSX.Element => {
                 }
               >
                 {link.text}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -277,6 +279,7 @@ export const FooterSection = (): JSX.Element => {
             <h3 style={headingStyle}>Blogs</h3>
             <Link
               to="/blogs"
+              onClick={() => window.scrollTo(0, 0)}
               style={linkStyle}
               onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
@@ -292,6 +295,7 @@ export const FooterSection = (): JSX.Element => {
               <Link
                 key={idx}
                 to={link.path}
+                onClick={() => window.scrollTo(0, 0)}
                 style={linkStyle}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = "#fff")
@@ -310,6 +314,7 @@ export const FooterSection = (): JSX.Element => {
             <h3 style={headingStyle}>Contact Us</h3>
             <Link
               to="/contact-us"
+              onClick={() => window.scrollTo(0, 0)}
               style={linkStyle}
               onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
@@ -356,6 +361,7 @@ export const FooterSection = (): JSX.Element => {
               <Link
                 key={idx}
                 to={item.path}
+                onClick={() => window.scrollTo(0, 0)}
                 style={{
                   fontFamily: "var(--font-family)",
                   fontWeight: 400,
