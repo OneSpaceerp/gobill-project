@@ -68,12 +68,6 @@ const companyMenu = [
   { label: "FAQs", path: "/faqs" },
 ];
 
-const whoWeServeMenu = [
-  { label: "Large Practices", path: "/contact-us" },
-  { label: "Medium Practices", path: "/contact-us" },
-  { label: "Small Practices", path: "/contact-us" }
-];
-
 /* ── Reusable dropdown component ── */
 const Dropdown = ({
   label,
@@ -321,18 +315,6 @@ export const HeroSection = (): JSX.Element => {
             onClose={() => setOpenDropdown(null)}
           />
 
-          {/* Who We Serve ▾ */}
-          <Dropdown
-            label="Who We Serve"
-            icon={Icons.WhoWeServe}
-            items={whoWeServeMenu}
-            open={openDropdown === "whoWeServe"}
-            toggle={() =>
-              setOpenDropdown(openDropdown === "whoWeServe" ? null : "whoWeServe")
-            }
-            onClose={() => setOpenDropdown(null)}
-          />
-
           {/* Company ▾ */}
           <Dropdown
             label="Company"
@@ -491,32 +473,6 @@ export const HeroSection = (): JSX.Element => {
                         ))}
                       </div>
                     )}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Who We Serve accordion */}
-          <div style={{ borderBottom: "1px solid rgba(0,0,0,0.05)" }}>
-            <button
-              onClick={() => setMobileExpanded(mobileExpanded === "whoWeServe" ? null : "whoWeServe")}
-              style={{
-                width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center",
-                padding: "14px 0", background: "none", border: "none", cursor: "pointer",
-                fontFamily: "var(--font-family)", fontSize: 16, fontWeight: 500, color: "var(--text-dark)",
-              }}
-            >
-              <span style={{ display: "flex", alignItems: "center", gap: 8 }}>{Icons.WhoWeServe} Who We Serve</span>
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ transform: mobileExpanded === "whoWeServe" ? "rotate(180deg)" : "none", transition: "transform 0.25s" }}>
-                <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-            {mobileExpanded === "whoWeServe" && (
-              <div style={{ paddingLeft: 16, paddingBottom: 8 }}>
-                {whoWeServeMenu.map((item, idx) => (
-                  <div key={idx} style={{ display: "block", padding: "10px 0", fontSize: 15, color: "var(--text-dark)", fontFamily: "var(--font-family)", cursor: "default" }}>
-                    {item.label}
                   </div>
                 ))}
               </div>

@@ -9,11 +9,7 @@ export const FooterSection = (): JSX.Element => {
     { text: "Virtual Patient Engagement Officer", path: "/solutions/virtual-front-desk-officer" },
   ];
 
-  const whoWeServeLinks = [
-    { text: "Large Practices", path: "#" },
-    { text: "Medium Practices", path: "#" },
-    { text: "Small Practices", path: "#" },
-  ];
+
 
   const companyLinks = [
     { text: "Why GoBill", path: "/why-gobill" },
@@ -121,15 +117,15 @@ export const FooterSection = (): JSX.Element => {
           padding: "48px 24px",
         }}
       >
-        <div
-          className="footer-grid"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr 1fr",
-            gap: 32,
-            alignItems: "start",
-          }}
-        >
+          <div
+            className="footer-grid"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "2fr 1.5fr 1.5fr 1.5fr 1.5fr",
+              gap: 32,
+              alignItems: "start",
+            }}
+          >
           {/* Logo + Motto */}
           <div>
             <img
@@ -236,27 +232,6 @@ export const FooterSection = (): JSX.Element => {
           <div>
             <h3 style={headingStyle}>Expertise</h3>
             {expertiseLinks.map((link, idx) => (
-              <Link
-                key={idx}
-                to={link.path}
-                onClick={() => window.scrollTo(0, 0)}
-                style={linkStyle}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "#fff")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = "rgba(255,255,255,0.85)")
-                }
-              >
-                {link.text}
-              </Link>
-            ))}
-          </div>
-
-          {/* Who We Serve */}
-          <div>
-            <h3 style={headingStyle}>Who We Serve</h3>
-            {whoWeServeLinks.map((link, idx) => (
               <Link
                 key={idx}
                 to={link.path}
