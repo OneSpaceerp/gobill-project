@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { PiggyBank, BadgeCheck, Clock, RefreshCw, TrendingUp, UserCheck, FileText, Check } from "lucide-react";
+import { PiggyBank, BadgeCheck, Clock, RefreshCw, TrendingUp, UserCheck, FileText, Banknote, GraduationCap, Building, Briefcase, Users, AlertTriangle } from "lucide-react";
 
 export const WhyGoBillPage = (): JSX.Element => {
     const reasons = [
@@ -13,12 +13,12 @@ export const WhyGoBillPage = (): JSX.Element => {
     ];
 
     const expenses = [
-        "Billing staff salaries and benefits",
-        "Staff training on industry and technology updates",
-        "Facility expenses housing staff",
-        "Administrative supplies and services",
-        "Staff turnover or replacement",
-        "Medical billing errors",
+        { title: "Billing staff salaries and benefits", icon: Banknote },
+        { title: "Staff training on industry and technology updates", icon: GraduationCap },
+        { title: "Facility expenses housing staff", icon: Building },
+        { title: "Administrative supplies and services", icon: Briefcase },
+        { title: "Staff turnover or replacement", icon: Users },
+        { title: "Medical billing errors", icon: AlertTriangle },
     ];
 
     return (
@@ -129,9 +129,9 @@ export const WhyGoBillPage = (): JSX.Element => {
                         {expenses.map((exp, i) => (
                             <div key={i} style={{ background: "#fff", borderRadius: 12, padding: "20px 24px", display: "flex", alignItems: "center", gap: 16, boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
                                 <div style={{ width: 36, height: 36, borderRadius: "50%", background: "linear-gradient(135deg, #665FFD, #10217D)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", flexShrink: 0 }}>
-                                    <Check size={18} strokeWidth={3} />
+                                    <exp.icon size={18} strokeWidth={2.5} />
                                 </div>
-                                <span style={{ fontFamily: "var(--font-family)", fontSize: 15, color: "var(--text-dark)", fontWeight: 500 }}>{exp}</span>
+                                <span style={{ fontFamily: "var(--font-family)", fontSize: 15, color: "var(--text-dark)", fontWeight: 500 }}>{exp.title}</span>
                             </div>
                         ))}
                     </div>
