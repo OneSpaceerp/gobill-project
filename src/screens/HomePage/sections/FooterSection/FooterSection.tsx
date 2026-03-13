@@ -15,7 +15,7 @@ export const FooterSection = (): JSX.Element => {
     { text: "Why GoBill", path: "/why-gobill" },
     { text: "About Us", path: "/about-us" },
     { text: "FAQs", path: "/faqs" },
-    { text: "Site Map", path: "#" },
+    { text: "Site Map", path: "/sitemap" },
   ];
 
   const socialIcons = [

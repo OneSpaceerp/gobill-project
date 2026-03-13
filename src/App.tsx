@@ -11,6 +11,7 @@ import { PrivacyPolicyPage } from "./screens/PrivacyPolicyPage/PrivacyPolicyPage
 import { TermsConditionsPage } from "./screens/TermsConditionsPage/TermsConditionsPage";
 import { AssessmentPage } from "./screens/AssessmentPage/AssessmentPage";
 import { BlogArticlePage } from "./screens/BlogArticlePage/BlogArticlePage";
+import { SiteMapPage } from "./screens/SiteMapPage/SiteMapPage";
 import { HeroSection } from "./screens/HomePage/sections/HeroSection";
 import { FooterSection } from "./screens/HomePage/sections/FooterSection";
 
@@ -58,6 +59,7 @@ export const App = (): JSX.Element => {
                 <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
                 <Route path="/terms-and-conditions" element={<TermsConditionsPage />} />
                 <Route path="/assessment" element={<AssessmentPage />} />
+                <Route path="/sitemap" element={<SiteMapPage />} />
                 <Route path="/book-a-meeting" element={<AssessmentPage />} />
             </Routes>
         </Layout>
