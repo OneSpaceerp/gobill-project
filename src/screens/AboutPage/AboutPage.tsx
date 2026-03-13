@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 
 export const AboutPage = (): JSX.Element => {
     const values = [
@@ -16,27 +15,36 @@ export const AboutPage = (): JSX.Element => {
             {/* Hero */}
             <section
                 style={{
+                    position: "relative",
                     backgroundImage: 'url("/headers/about-us.jpg")',
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
                     padding: "100px 0 80px",
-                    position: "relative",
                     overflow: "hidden",
                 }}
             >
+                {/* ── Background Overlay for Text Readability ── */}
+                <div
+                    style={{
+                        position: "absolute", inset: 0,
+                        background: "linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%)",
+                        zIndex: 1
+                    }}
+                />
+
                 <div className="container" style={{ position: "relative", zIndex: 2 }}>
                     <div style={{ maxWidth: 700 }}>
-                        <p style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: 16, color: "#000", marginBottom: 12, letterSpacing: 1, textTransform: "uppercase" }}>
+                        <p style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: 16, color: "rgba(255,255,255,0.7)", marginBottom: 12, letterSpacing: 1, textTransform: "uppercase" }}>
                             About Us
                         </p>
-                        <h1 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(32px, 4vw, 52px)", color: "#000", lineHeight: 1.15, marginBottom: 20 }}>
+                        <h1 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(32px, 4vw, 52px)", color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>
                             This Is GoBill
                         </h1>
-                        <p style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(18px, 1.5vw, 24px)", color: "#111", lineHeight: 1.4, marginBottom: 16 }}>
+                        <p style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: "clamp(18px, 1.5vw, 24px)", color: "#f0f0f0", lineHeight: 1.4, marginBottom: 16 }}>
                             We Have The Expertise To Achieve Excellence.
                         </p>
-                        <p style={{ fontFamily: "var(--font-family)", fontWeight: 500, fontSize: "clamp(16px, 1.2vw, 20px)", color: "#222", lineHeight: 1.6, maxWidth: 600 }}>
+                        <p style={{ fontFamily: "var(--font-family)", fontWeight: 500, fontSize: "clamp(16px, 1.2vw, 20px)", color: "rgba(255,255,255,0.9)", lineHeight: 1.6, maxWidth: 600 }}>
                             The dedicated staff at GoBill ensures you the highest possible reimbursement. We are a group of certified teams with extensive experience in medical billing, coding, claims processing, collections, and customized support hours according to business needs. Your success is our success.
                         </p>
                     </div>

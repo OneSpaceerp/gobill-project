@@ -53,6 +53,17 @@ export const SolutionPage = (): JSX.Element => {
                     overflow: "hidden",
                 }}
             >
+                {/* ── Background Overlay for Text Readability ── */}
+                {data.heroBgImage && (
+                    <div
+                        style={{
+                            position: "absolute", inset: 0,
+                            background: "linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%)",
+                            zIndex: 1
+                        }}
+                    />
+                )}
+
                 <div
                     style={{
                         position: "absolute", top: -100, right: -100,
@@ -70,7 +81,7 @@ export const SolutionPage = (): JSX.Element => {
                 <div className="container" style={{ position: "relative", zIndex: 2 }}>
                     <p style={{
                         fontFamily: "var(--font-family)", fontWeight: 600, fontSize: 16,
-                        color: data.heroBgImage ? "#000" : "rgba(255,255,255,0.7)", marginBottom: 12,
+                        color: "rgba(255,255,255,0.7)", marginBottom: 12,
                         letterSpacing: 1, textTransform: "uppercase",
                     }}>
                         Solutions
@@ -78,7 +89,7 @@ export const SolutionPage = (): JSX.Element => {
                     <h1 style={{
                         fontFamily: "var(--font-family)", fontWeight: 700,
                         fontSize: "clamp(32px, 4vw, 52px)",
-                        color: data.heroBgImage ? "#000" : "#fff",
+                        color: "#fff",
                         lineHeight: 1.15, marginBottom: 20, maxWidth: 800,
                     }}>
                         {data.heroTitle}
@@ -86,7 +97,7 @@ export const SolutionPage = (): JSX.Element => {
                     <p style={{
                         fontFamily: "var(--font-family)", fontWeight: 500,
                         fontSize: "clamp(16px, 1.2vw, 20px)",
-                        color: data.heroBgImage ? "#111" : "rgba(255,255,255,0.85)",
+                        color: "rgba(255,255,255,0.85)",
                         lineHeight: 1.6, maxWidth: 700, marginBottom: 32,
                     }}>
                         {data.tagline}
@@ -96,8 +107,8 @@ export const SolutionPage = (): JSX.Element => {
                         target="_blank" rel="noopener noreferrer"
                         style={{
                             display: "inline-block",
-                            background: data.heroBgImage ? "var(--primary)" : "#fff",
-                            color: data.heroBgImage ? "#fff" : "var(--primary)",
+                            background: "var(--primary)",
+                            color: "#fff",
                             padding: "16px 36px",
                             borderRadius: 30, fontSize: 17, fontWeight: 600,
                             fontFamily: "var(--font-family)", textDecoration: "none",
