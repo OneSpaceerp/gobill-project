@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
+import { PiggyBank, BadgeCheck, Clock, RefreshCw, TrendingUp, UserCheck, FileText, Check } from "lucide-react";
 
 export const WhyGoBillPage = (): JSX.Element => {
     const reasons = [
-        { title: "Cost Saving", desc: "Hire your own outsourced US-Based team of medical billing and coding certified experts directly through GoBill without worrying about the costs of technology, talent acquisition and management, and office facility." },
-        { title: "Quality Control", desc: "We provide a 99% accuracy rate of medical billing and practice management services with our high-end technology and certified medical billers and coders." },
-        { title: "Real-Time Patient Services", desc: "We provide real-time patient eligibility verification, appointment scheduling, and patient engagement services to improve patient satisfaction and practice revenue." },
-        { title: "Full Cycle RCM", desc: "We manage everything from patient registration, insurance verification, and coding to claim submission, denial management, and accounts receivable collections." },
-        { title: "Increased Revenue", desc: "Our clients see an average of 25% increase in their net collections within the first few months of partnering with us." },
-        { title: "Dedicated Account Manager", desc: "You will have a dedicated account manager to handle all your queries, provide regular updates, and ensure smooth operations of your practice." },
-        { title: "Periodic Reports", desc: "You will consistently receive periodic reports monthly or quarterly detailing information that concerns you such as accounts receivables, payment adjustments, and billable services, amongst others." },
+        { title: "Cost Saving", icon: PiggyBank, desc: "Hire your own outsourced US-Based team of medical billing and coding certified experts directly through GoBill without worrying about the costs of technology, talent acquisition and management, and office facility." },
+        { title: "Quality Control", icon: BadgeCheck, desc: "We provide a 99% accuracy rate of medical billing and practice management services with our high-end technology and certified medical billers and coders." },
+        { title: "Real-Time Patient Services", icon: Clock, desc: "We provide real-time patient eligibility verification, appointment scheduling, and patient engagement services to improve patient satisfaction and practice revenue." },
+        { title: "Full Cycle RCM", icon: RefreshCw, desc: "We manage everything from patient registration, insurance verification, and coding to claim submission, denial management, and accounts receivable collections." },
+        { title: "Increased Revenue", icon: TrendingUp, desc: "Our clients see an average of 25% increase in their net collections within the first few months of partnering with us." },
+        { title: "Dedicated Account Manager", icon: UserCheck, desc: "You will have a dedicated account manager to handle all your queries, provide regular updates, and ensure smooth operations of your practice." },
+        { title: "Periodic Reports", icon: FileText, desc: "You will consistently receive periodic reports monthly or quarterly detailing information that concerns you such as accounts receivables, payment adjustments, and billable services, amongst others." },
     ];
 
     const expenses = [
@@ -87,7 +88,9 @@ export const WhyGoBillPage = (): JSX.Element => {
                                 onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.borderColor = "rgba(102,95,253,0.2)"; }}
                                 onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.borderColor = "transparent"; }}
                             >
-                                <div style={{ width: 44, height: 44, borderRadius: "50%", background: "linear-gradient(135deg, #665FFD, #10217D)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16, color: "#fff", fontWeight: 700, fontSize: 18 }}>✓</div>
+                                <div style={{ width: 44, height: 44, borderRadius: "50%", background: "linear-gradient(135deg, #665FFD, #10217D)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16, color: "#fff" }}>
+                                    <r.icon size={20} strokeWidth={2.5} />
+                                </div>
                                 <h4 style={{ fontFamily: "var(--font-family)", fontWeight: 600, fontSize: 18, color: "var(--text-dark)", marginBottom: 8 }}>{r.title}</h4>
                                 <p style={{ fontFamily: "var(--font-family)", fontSize: 15, color: "var(--text-body)", lineHeight: 1.6, margin: 0 }}>{r.desc}</p>
                             </div>
@@ -125,7 +128,9 @@ export const WhyGoBillPage = (): JSX.Element => {
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 20 }}>
                         {expenses.map((exp, i) => (
                             <div key={i} style={{ background: "#fff", borderRadius: 12, padding: "20px 24px", display: "flex", alignItems: "center", gap: 16, boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
-                                <div style={{ width: 36, height: 36, borderRadius: "50%", background: "linear-gradient(135deg, #665FFD, #10217D)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 14, fontWeight: 700, flexShrink: 0 }}>✓</div>
+                                <div style={{ width: 36, height: 36, borderRadius: "50%", background: "linear-gradient(135deg, #665FFD, #10217D)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", flexShrink: 0 }}>
+                                    <Check size={18} strokeWidth={3} />
+                                </div>
                                 <span style={{ fontFamily: "var(--font-family)", fontSize: 15, color: "var(--text-dark)", fontWeight: 500 }}>{exp}</span>
                             </div>
                         ))}
