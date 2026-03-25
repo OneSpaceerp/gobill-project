@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { SolutionPage } from "./screens/SolutionPage/SolutionPage";
 import { AboutPage } from "./screens/AboutPage/AboutPage";
 import { WhyGoBillPage } from "./screens/WhyGoBillPage/WhyGoBillPage";
@@ -16,6 +16,9 @@ import { HeroSection } from "./screens/HomePage/sections/HeroSection";
 import { FooterSection } from "./screens/HomePage/sections/FooterSection";
 
 import { ChatbotWidget } from "./components/ChatbotWidget";
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
+import { AdminLogin } from "./screens/AdminPage/AdminLogin";
+import { AdminLayout } from "./screens/AdminPage/AdminLayout";
 
 /* ──────────────────────────────────
    Layout wrapper — shared header + footer
@@ -38,9 +41,35 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
 );
 
 /* ──────────────────────────────────
+   Admin Route Guard
+   ────────────────────────────────── */
+const AdminRoute = () => {
+    const { user, loading } = useAuth();
+    if (loading) {
+        return (
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh", background: "#0B0552" }}>
+                <p style={{ color: "#fff", fontSize: 16, fontFamily: "Inter, sans-serif" }}>Loading…</p>
+            </div>
+        );
+    }
+    return user ? <AdminLayout /> : <AdminLogin />;
+};
+
+/* ──────────────────────────────────
    App with Routes
    ────────────────────────────────── */
-export const App = (): JSX.Element => {
+const AppRoutes = () => {
+    const location = useLocation();
+    const isAdmin = location.pathname.startsWith("/admin");
+
+    if (isAdmin) {
+        return (
+            <Routes>
+                <Route path="/admin/*" element={<AdminRoute />} />
+            </Routes>
+        );
+    }
+
     return (
         <Layout>
             <Routes>
@@ -63,6 +92,14 @@ export const App = (): JSX.Element => {
                 <Route path="/book-a-meeting" element={<AssessmentPage />} />
             </Routes>
         </Layout>
+    );
+};
+
+export const App = (): JSX.Element => {
+    return (
+        <AuthProvider>
+            <AppRoutes />
+        </AuthProvider>
     );
 };
 
