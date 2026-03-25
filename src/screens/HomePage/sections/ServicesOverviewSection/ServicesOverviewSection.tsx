@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Link } from "react-router-dom";
+import { DashboardSlide } from "./DashboardSlide";
 
 /* =============================================
    Slide 2 — "See How It Works" 8-step process
@@ -64,10 +65,11 @@ const stepsBottom = [
 export const ServicesOverviewSection = (): JSX.Element => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const totalSlides = 2;
+  const totalSlides = 3;
 
   const slide0Ref = useRef<HTMLDivElement>(null);
   const slide1Ref = useRef<HTMLDivElement>(null);
+  const slide2Ref = useRef<HTMLDivElement>(null);
   const [trackHeight, setTrackHeight] = useState<number | string>("auto");
 
   const goTo = useCallback(
@@ -84,7 +86,7 @@ export const ServicesOverviewSection = (): JSX.Element => {
   }, [next, isPaused]);
 
   useEffect(() => {
-    const activeRef = activeSlide === 0 ? slide0Ref : slide1Ref;
+    const activeRef = activeSlide === 0 ? slide0Ref : activeSlide === 1 ? slide1Ref : slide2Ref;
 
     const updateHeight = () => {
       if (activeRef.current) {
@@ -578,6 +580,50 @@ export const ServicesOverviewSection = (): JSX.Element => {
                 Start Your Complimentary Assessment Today
               </Link>
             </div>
+          </div>
+        </div>
+
+        {/* ====================================
+            SLIDE 3 — Dashboard Mockup
+            ==================================== */}
+        <div
+          ref={slide2Ref}
+          style={{
+            width: `${100 / totalSlides}%`,
+            flexShrink: 0,
+            background: "#fff",
+            padding: "60px 0 40px",
+            position: "relative",
+          }}
+        >
+          <div className="container" style={{ position: "relative" }}>
+            <div style={{ textAlign: "center", marginBottom: 32 }}>
+              <p
+                style={{
+                  fontFamily: "var(--font-family)",
+                  fontWeight: 500,
+                  fontSize: 20,
+                  color: "#10217D",
+                  margin: "0 0 12px",
+                }}
+              >
+                Data-Driven Insights
+              </p>
+              <h2
+                style={{
+                  fontFamily: "var(--font-family)",
+                  fontWeight: 500,
+                  fontSize: "clamp(24px, 2.5vw, 32px)",
+                  color: "black",
+                  lineHeight: 1.25,
+                  maxWidth: 900,
+                  margin: "0 auto",
+                }}
+              >
+                Real-time visibility into every aspect of your revenue cycle
+              </h2>
+            </div>
+            <DashboardSlide />
           </div>
         </div>
       </div>
