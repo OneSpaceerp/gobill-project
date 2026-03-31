@@ -12,6 +12,7 @@ import { TermsConditionsPage } from "./screens/TermsConditionsPage/TermsConditio
 import { AssessmentPage } from "./screens/AssessmentPage/AssessmentPage";
 import { BlogArticlePage } from "./screens/BlogArticlePage/BlogArticlePage";
 import { SiteMapPage } from "./screens/SiteMapPage/SiteMapPage";
+import { LandingPage } from "./screens/LandingPage/LandingPage";
 import { HeroSection } from "./screens/HomePage/sections/HeroSection";
 import { FooterSection } from "./screens/HomePage/sections/FooterSection";
 
@@ -90,6 +91,7 @@ const AppRoutes = () => {
                 <Route path="/assessment" element={<AssessmentPage />} />
                 <Route path="/sitemap" element={<SiteMapPage />} />
                 <Route path="/book-a-meeting" element={<AssessmentPage />} />
+                <Route path="/billing-to-brilliance" element={<LandingPage />} />
             </Routes>
         </Layout>
     );
