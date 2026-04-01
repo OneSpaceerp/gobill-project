@@ -266,12 +266,15 @@ export const HeroSection = (): JSX.Element => {
   return (
     <header
       style={{
-        position: "sticky",
+        position: "fixed",
         top: 0,
+        left: 0,
+        right: 0,
         zIndex: 100,
         background: "rgba(255,255,255,0.97)",
         backdropFilter: "blur(12px)",
         borderBottom: "1px solid rgba(0,0,0,0.06)",
+        width: "100%",
       }}
     >
       <div

@@ -15,10 +15,12 @@ export const HeroSection = () => {
                     <span className="text-sm font-medium tracking-wide text-teal-300">New Performance Benchmark Achieved</span>
                 </div>
                 
-                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-10 leading-[1.15] max-w-6xl mx-auto">
                     From Billing to <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-300">Brilliance</span>
-                    <br />
-                    Turn Your Billing into a <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-300">Profit Engine.</span>
+                    <br className="hidden md:block" />
+                    <span className="md:mt-4 block lg:inline-block">
+                        Turn Your Billing into a <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-300 whitespace-nowrap">Profit Engine.</span>
+                    </span>
                 </h1>
                 
                 <p className="mt-4 text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light mb-12">

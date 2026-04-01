@@ -42,38 +42,16 @@ export const SolutionSection = () => {
                         </p>
                     </div>
                     
-                    {/* Abstract graphic representing the platform/dashboard */}
-                    <div className="relative h-[400px] w-full bg-slate-50 rounded-3xl border border-slate-100 overflow-hidden shadow-2xl flex items-center justify-center">
-                        <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-cyan-500/5"></div>
-                        {/* Mock UI Elements */}
-                        <div className="relative z-10 w-[80%] h-[70%] bg-white rounded-xl shadow-lg border border-slate-100 flex flex-col p-6 animate-float">
-                            <div className="flex justify-between items-center mb-6">
-                                <div className="w-1/3 h-4 bg-slate-100 rounded-full"></div>
-                                <div className="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center">
-                                    <BarChart3 className="w-5 h-5 text-teal-500" />
-                                </div>
-                            </div>
-                            <div className="grid grid-cols-3 gap-4 mb-6">
-                                <div className="h-20 bg-slate-50 rounded-lg p-3">
-                                    <div className="w-6 h-6 rounded-full bg-teal-100 mb-2"></div>
-                                    <div className="w-1/2 h-2 bg-slate-200 rounded-full"></div>
-                                </div>
-                                <div className="h-20 bg-slate-50 rounded-lg p-3">
-                                    <div className="w-6 h-6 rounded-full bg-cyan-100 mb-2"></div>
-                                    <div className="w-1/2 h-2 bg-slate-200 rounded-full"></div>
-                                </div>
-                                <div className="h-20 bg-slate-50 rounded-lg p-3">
-                                    <div className="w-6 h-6 rounded-full bg-indigo-100 mb-2"></div>
-                                    <div className="w-1/2 h-2 bg-slate-200 rounded-full"></div>
-                                </div>
-                            </div>
-                            <div className="flex-1 bg-slate-50 rounded-lg relative overflow-hidden">
-                                <div className="absolute bottom-0 left-0 w-full h-[60%] bg-gradient-to-t from-teal-100/50 to-transparent"></div>
-                                <svg className="absolute bottom-0 left-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
-                                    <path d="M0,100 L0,50 Q25,20 50,60 T100,30 L100,100 Z" fill="rgba(45, 212, 191, 0.2)" stroke="none" />
-                                    <path d="M0,100 L0,60 Q25,30 50,70 T100,40 L100,100 Z" fill="none" stroke="rgba(45, 212, 191, 0.5)" strokeWidth="2" />
-                                </svg>
-                            </div>
+                    <div className="relative h-[400px] w-full rounded-3xl overflow-hidden shadow-2xl flex items-center justify-center bg-slate-50 border border-slate-100">
+                        <img 
+                            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" 
+                            alt="Advanced Revenue Cycle Optimization Dashboard"
+                            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent pointer-events-none"></div>
+                        <div className="absolute bottom-6 left-6 text-white z-10">
+                            <span className="px-3 py-1 bg-teal-500/80 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wider mb-2 inline-block">Live Analysis</span>
+                            <h4 className="text-lg font-bold">Real-time Performance Benchmarking</h4>
                         </div>
                     </div>
                 </div>

@@ -28,14 +28,15 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
     <div
         style={{
             background: "#fff",
-            overflowX: "hidden",
             width: "100%",
             minHeight: "100vh",
             position: "relative",
         }}
     >
         <HeroSection />
-        {children}
+        <div style={{ paddingTop: '72px' }}>
+            {children}
+        </div>
         <FooterSection />
         <ChatbotWidget />
     </div>
